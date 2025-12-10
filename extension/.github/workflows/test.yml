@@ -1,0 +1,38 @@
+name: Test Suite
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run unit and integration tests
+        run: npm run test:unit && npm run test:integration
+
+      - name: Run claims validation
+        run: npm run test:claims
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium
+
+      - name: Run E2E tests
+        run: npm run test:e2e
+
+      - name: Generate coverage report
+        run: npm run test:coverage
+
+      - name: Upload coverage
+        uses: codecov/codecov-action@v3
+        with:
+          file: ./coverage/lcov.info

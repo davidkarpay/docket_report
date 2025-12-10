@@ -1,0 +1,134 @@
+{
+  "domain": "jiswebprod.mypalmbeachclerk.com",
+  "description": "Extraction rules for Palm Beach County ShowCase Court Events Calendar (Table View)",
+  "version": "1.0",
+  "pageType": "calendar",
+  "tableExtraction": {
+    "rowSelector": "table[datatable] tbody tr, table.dataTable tbody tr",
+    "columns": [
+      {
+        "index": 0,
+        "field": "procd",
+        "skip": true,
+        "description": "Proc'd checkbox column - excluded per user request"
+      },
+      {
+        "index": 1,
+        "field": "caseNumber",
+        "extractLink": true,
+        "transform": "trim",
+        "description": "Case number (usually a link)"
+      },
+      {
+        "index": 2,
+        "field": "name",
+        "transform": "trim",
+        "description": "Defendant name (Last, First)"
+      },
+      {
+        "index": 3,
+        "field": "dob",
+        "transform": "trim",
+        "description": "Date of birth (MM/DD/YYYY)"
+      },
+      {
+        "index": 4,
+        "field": "statuteDescription",
+        "transform": "trim",
+        "description": "Charge descriptions (comma-separated)"
+      },
+      {
+        "index": 5,
+        "field": "defenseAttorney",
+        "transform": "trim",
+        "description": "Defense attorney name"
+      },
+      {
+        "index": 6,
+        "field": "stateAttorney",
+        "transform": "trim",
+        "description": "State attorney name"
+      },
+      {
+        "index": 7,
+        "field": "publicDefender",
+        "transform": "trim",
+        "description": "Public defender name"
+      },
+      {
+        "index": 8,
+        "field": "witnesses",
+        "transform": "trim",
+        "description": "Witness information"
+      },
+      {
+        "index": 9,
+        "field": "speedy",
+        "transform": "trim",
+        "description": "Speedy trial information"
+      },
+      {
+        "index": 10,
+        "field": "courtDate",
+        "transform": "trim",
+        "description": "Court date (MM/DD/YYYY)"
+      },
+      {
+        "index": 11,
+        "field": "offenseDate",
+        "transform": "trim",
+        "hidden": true,
+        "description": "Offense date (hidden column)"
+      },
+      {
+        "index": 12,
+        "field": "officerWitness",
+        "transform": "trim",
+        "hidden": true,
+        "description": "Officer witness (hidden column)"
+      },
+      {
+        "index": 13,
+        "field": "statuteNumbers",
+        "transform": "trim",
+        "hidden": true,
+        "description": "Full statute numbers (hidden column)"
+      },
+      {
+        "index": 14,
+        "field": "status",
+        "transform": "trim",
+        "hidden": true,
+        "description": "Case status: Open/Closed/Reopen VOP (hidden column)"
+      },
+      {
+        "index": 15,
+        "field": "jailCell",
+        "transform": "trim",
+        "hidden": true,
+        "description": "Jail cell information (hidden column)"
+      },
+      {
+        "index": 16,
+        "field": "courtEventType",
+        "transform": "trim",
+        "hidden": true,
+        "description": "Court event type: MH, CD, PC, STCK (hidden column)"
+      },
+      {
+        "index": 17,
+        "field": "courtroom",
+        "transform": "trim",
+        "hidden": true,
+        "description": "Courtroom location (hidden column)"
+      }
+    ]
+  },
+  "notes": [
+    "This rule file is for the Court Events Calendar table view",
+    "It extracts multiple cases from a table, not a single case detail",
+    "Hidden columns (11-17) have display:none but contain valuable data",
+    "Column 0 (Proc'd checkbox) is intentionally skipped",
+    "Use jiswebprod.mypalmbeachclerk.com.json for case detail pages"
+  ]
+}

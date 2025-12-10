@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Docket Extractor</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>Client Docket Manager</h1>
+      <p class="subtitle">Data Extraction Tool</p>
+    </header>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-button active" data-tab="extract">Extract</button>
+      <button class="tab-button" data-tab="data">Data</button>
+      <button class="tab-button" data-tab="history">History</button>
+      <button class="tab-button" data-tab="settings">Settings</button>
+    </div>
+
+    <!-- Extract Tab -->
+    <div class="tab-content active" id="extract-tab">
+      <div class="section">
+        <h3>Quick Actions</h3>
+        <button class="btn btn-primary" id="auto-extract-btn">
+          Auto Extract
+        </button>
+        <button class="btn btn-secondary" id="manual-extract-btn">
+          Manual Selection Mode
+        </button>
+      </div>
+
+      <div class="section">
+        <h3>Field Selection</h3>
+        <div class="field-grid">
+          <button class="field-btn" data-field="docketNumber">Docket Number</button>
+          <button class="field-btn" data-field="caseTitle">Case Title</button>
+          <button class="field-btn" data-field="caseType">Case Type</button>
+          <button class="field-btn" data-field="filingDate">Filing Date</button>
+          <button class="field-btn" data-field="court.courtName">Court Name</button>
+          <button class="field-btn" data-field="court.judgeName">Judge Name</button>
+          <button class="field-btn" data-field="status">Status</button>
+          <button class="field-btn" data-field="custom">+ Custom Field</button>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>LLM Processing</h3>
+        <button class="btn btn-secondary" id="llm-process-btn" disabled>
+          Process with LLM
+        </button>
+        <p class="help-text">Configure LLM in Settings first</p>
+      </div>
+    </div>
+
+    <!-- Data Tab -->
+    <div class="tab-content" id="data-tab">
+      <div class="section">
+        <h3>Extracted Data</h3>
+        <div class="data-actions">
+          <button class="btn btn-primary" id="save-db-btn">Save to Database</button>
+          <button class="btn btn-primary" id="export-json-btn">Export JSON</button>
+          <button class="btn btn-secondary" id="export-csv-btn">Export CSV</button>
+          <button class="btn btn-secondary" id="copy-btn">Copy to Clipboard</button>
+          <button class="btn btn-danger" id="clear-data-btn">Clear</button>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Preview</h3>
+        <div class="data-preview" id="data-preview">
+          <p class="no-data">No data extracted yet. Go to Extract tab to begin.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- History Tab -->
+    <div class="tab-content" id="history-tab">
+      <div class="section">
+        <div class="history-actions">
+          <h3>Extraction History</h3>
+          <button class="btn btn-danger btn-sm" id="clear-history-btn">Clear All</button>
+        </div>
+        <div class="history-list" id="history-list">
+          <p class="no-data">No history yet.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Settings Tab -->
+    <div class="tab-content" id="settings-tab">
+      <div class="section">
+        <h3>LLM Configuration</h3>
+        <label class="checkbox-label">
+          <input type="checkbox" id="llm-enabled">
+          Enable LLM Processing
+        </label>
+
+        <div class="form-group">
+          <label>Endpoint URL</label>
+          <input type="text" id="llm-endpoint" placeholder="http://localhost:11434/api/generate">
+        </div>
+
+        <div class="form-group">
+          <label>Model</label>
+          <input type="text" id="llm-model" placeholder="llama2">
+        </div>
+
+        <div class="form-group">
+          <label>API Key (Optional)</label>
+          <input type="password" id="llm-api-key" placeholder="Leave empty for local Ollama">
+          <p class="help-text" style="margin-top: 4px; font-size: 12px;">Not needed for local Ollama - only required for cloud-based LLM services</p>
+        </div>
+
+        <button class="btn btn-primary" id="save-llm-config-btn">Save Configuration</button>
+        <button class="btn btn-secondary" id="test-llm-btn">Test Connection</button>
+
+        <div class="help-text">
+          <p><strong>Using Ollama (Local):</strong></p>
+          <ul>
+            <li>Install Ollama from <a href="https://ollama.ai" target="_blank">ollama.ai</a></li>
+            <li>Run: <code>ollama serve</code></li>
+            <li>Default endpoint: http://localhost:11434/api/generate</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>About</h3>
+        <p>Client Docket Manager Extractor v1.0.0</p>
+        <p>Extract legal case data from court websites</p>
+      </div>
+    </div>
+
+    <!-- Status Bar -->
+    <div class="status-bar" id="status-bar">
+      Ready
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

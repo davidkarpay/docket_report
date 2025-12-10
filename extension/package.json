@@ -1,0 +1,45 @@
+{
+  "name": "client-docket-manager-extractor",
+  "version": "1.0.0",
+  "description": "Browser extension for extracting legal case data from court websites",
+  "author": "Your Name",
+  "license": "MIT",
+  "keywords": [
+    "chrome-extension",
+    "legal",
+    "court",
+    "docket",
+    "data-extraction",
+    "web-scraping",
+    "case-management"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/client-docket-manager"
+  },
+  "scripts": {
+    "test": "npm run test:unit && npm run test:integration && npm run test:e2e",
+    "test:unit": "jest --config jest.config.js tests/unit",
+    "test:integration": "jest --config jest.config.js tests/integration",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:debug": "playwright test --debug",
+    "test:claims": "jest --config jest.config.js tests/claims",
+    "test:coverage": "jest --config jest.config.js --coverage",
+    "test:watch": "jest --config jest.config.js --watch",
+    "test:report": "npm run test:coverage && open coverage/lcov-report/index.html",
+    "lint": "echo 'No linting configured yet'",
+    "build": "echo 'No build process needed - this is a vanilla JS extension'"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/chrome": "^0.0.254",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  },
+  "dependencies": {},
+  "private": true,
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

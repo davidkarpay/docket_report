@@ -1,0 +1,31 @@
+IMPORTANT: You need to create icon files before loading this extension!
+
+Required icon files:
+- icon16.png  (16x16 pixels)
+- icon48.png  (48x48 pixels)
+- icon128.png (128x128 pixels)
+
+Quick Solutions:
+
+1. EASIEST: Use an online icon generator
+   - Visit: https://www.favicon-generator.org/
+   - Upload any image
+   - Download all sizes
+   - Rename and place them here
+
+2. SIMPLE: Create solid color squares
+   - Use any image editor (Paint, GIMP, etc.)
+   - Create 16x16, 48x48, and 128x128 pixel images
+   - Fill with a solid color (blue/purple recommended)
+   - Optional: Add a letter "D" or simple gavel symbol
+   - Save as PNG files with the names above
+
+3. DESIGN YOUR OWN:
+   - Create custom icons representing legal/docket management
+   - Common symbols: gavel, scales of justice, document, folder
+   - Use colors: Blue, purple, or professional colors
+   - Export in the three required sizes
+
+Without these icons, the extension will fail to load in Chrome!
+
+See QUICK_START.md for detailed instructions.

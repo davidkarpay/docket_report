@@ -1,0 +1,1199 @@
+{
+  "config": {
+    "configFile": "/mnt/c/Showcase_Scraper/playwright.config.js",
+    "rootDir": "/mnt/c/Showcase_Scraper/tests/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "test-results/html"
+        }
+      ],
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/mnt/c/Showcase_Scraper/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium-extension",
+        "name": "chromium-extension",
+        "testDir": "/mnt/c/Showcase_Scraper/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "extension-workflows.spec.js",
+      "file": "extension-workflows.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Extension Installation and Setup",
+          "file": "extension-workflows.spec.js",
+          "line": 22,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should load extension successfully",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-extension",
+                  "projectName": "chromium-extension",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 104,
+                      "error": {
+                        "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"",
+                        "stack": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:25:21",
+                        "location": {
+                          "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                          "column": 19,
+                          "line": 13
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mhelpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                            "column": 19,
+                            "line": 13
+                          },
+                          "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n\n   at helpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:25:21"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-24T18:46:46.479Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                        "column": 19,
+                        "line": 13
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e10da3a5b20297535479-a3b4b3ad957866009453",
+              "file": "extension-workflows.spec.js",
+              "line": 24,
+              "column": 3
+            },
+            {
+              "title": "should open popup and show initial state",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-extension",
+                  "projectName": "chromium-extension",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 104,
+                      "error": {
+                        "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"",
+                        "stack": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:35:21",
+                        "location": {
+                          "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                          "column": 19,
+                          "line": 13
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mhelpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                            "column": 19,
+                            "line": 13
+                          },
+                          "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n\n   at helpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:35:21"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-24T18:46:53.523Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                        "column": 19,
+                        "line": 13
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e10da3a5b20297535479-0ebf3b236eb7637ebf07",
+              "file": "extension-workflows.spec.js",
+              "line": 34,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "Auto-Extraction Workflow",
+          "file": "extension-workflows.spec.js",
+          "line": 57,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should auto-extract data from test page",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-extension",
+                  "projectName": "chromium-extension",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 105,
+                      "error": {
+                        "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"",
+                        "stack": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:60:21",
+                        "location": {
+                          "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                          "column": 19,
+                          "line": 13
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mhelpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                            "column": 19,
+                            "line": 13
+                          },
+                          "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n\n   at helpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:60:21"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-24T18:47:00.649Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                        "column": 19,
+                        "line": 13
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e10da3a5b20297535479-219bba0ba1a38ea37a8b",
+              "file": "extension-workflows.spec.js",
+              "line": 59,
+              "column": 3
+            },
+            {
+              "title": "should include all 4 metadata fields in auto-extraction",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-extension",
+                  "projectName": "chromium-extension",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 105,
+                      "error": {
+                        "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"",
+                        "stack": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:92:21",
+                        "location": {
+                          "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                          "column": 19,
+                          "line": 13
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mhelpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                            "column": 19,
+                            "line": 13
+                          },
+                          "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n\n   at helpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:92:21"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-24T18:47:07.446Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                        "column": 19,
+                        "line": 13
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e10da3a5b20297535479-e161f0d923bfc3565a30",
+              "file": "extension-workflows.spec.js",
+              "line": 91,
+              "column": 3
+            },
+            {
+              "title": "should extract multiple fields from complex page",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-extension",
+                  "projectName": "chromium-extension",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 96,
+                      "error": {
+                        "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"",
+                        "stack": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:118:21",
+                        "location": {
+                          "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                          "column": 19,
+                          "line": 13
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mhelpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                            "column": 19,
+                            "line": 13
+                          },
+                          "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n\n   at helpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:118:21"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-24T18:47:14.375Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                        "column": 19,
+                        "line": 13
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e10da3a5b20297535479-bd9a567f68842330f954",
+              "file": "extension-workflows.spec.js",
+              "line": 117,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "Manual Selection Workflow",
+          "file": "extension-workflows.spec.js",
+          "line": 141,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should enter manual selection mode",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-extension",
+                  "projectName": "chromium-extension",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 102,
+                      "error": {
+                        "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"",
+                        "stack": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:144:21",
+                        "location": {
+                          "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                          "column": 19,
+                          "line": 13
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mhelpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                            "column": 19,
+                            "line": 13
+                          },
+                          "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n\n   at helpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:144:21"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-24T18:47:21.472Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                        "column": 19,
+                        "line": 13
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e10da3a5b20297535479-cf51035d6da1ea1d11f5",
+              "file": "extension-workflows.spec.js",
+              "line": 143,
+              "column": 3
+            },
+            {
+              "title": "should select field and capture value",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-extension",
+                  "projectName": "chromium-extension",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 100,
+                      "error": {
+                        "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"",
+                        "stack": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:160:21",
+                        "location": {
+                          "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                          "column": 19,
+                          "line": 13
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mhelpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                            "column": 19,
+                            "line": 13
+                          },
+                          "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n\n   at helpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:160:21"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-24T18:47:28.399Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                        "column": 19,
+                        "line": 13
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e10da3a5b20297535479-7a9b7c993c795e3dd717",
+              "file": "extension-workflows.spec.js",
+              "line": 159,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "Data Export Workflows",
+          "file": "extension-workflows.spec.js",
+          "line": 184,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should export data as JSON",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-extension",
+                  "projectName": "chromium-extension",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 105,
+                      "error": {
+                        "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"",
+                        "stack": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:187:21",
+                        "location": {
+                          "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                          "column": 19,
+                          "line": 13
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mhelpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                            "column": 19,
+                            "line": 13
+                          },
+                          "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n\n   at helpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:187:21"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-24T18:47:35.323Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                        "column": 19,
+                        "line": 13
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e10da3a5b20297535479-8a2328d3a37d449e8c38",
+              "file": "extension-workflows.spec.js",
+              "line": 186,
+              "column": 3
+            },
+            {
+              "title": "should export data as CSV",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-extension",
+                  "projectName": "chromium-extension",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 100,
+                      "error": {
+                        "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"",
+                        "stack": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:213:21",
+                        "location": {
+                          "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                          "column": 19,
+                          "line": 13
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mhelpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                            "column": 19,
+                            "line": 13
+                          },
+                          "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n\n   at helpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:213:21"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-24T18:47:42.217Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                        "column": 19,
+                        "line": 13
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e10da3a5b20297535479-ff051455f922d9d5b2fd",
+              "file": "extension-workflows.spec.js",
+              "line": 212,
+              "column": 3
+            },
+            {
+              "title": "should copy data to clipboard",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-extension",
+                  "projectName": "chromium-extension",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 101,
+                      "error": {
+                        "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"",
+                        "stack": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:239:21",
+                        "location": {
+                          "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                          "column": 19,
+                          "line": 13
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mhelpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                            "column": 19,
+                            "line": 13
+                          },
+                          "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n\n   at helpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:239:21"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-24T18:47:49.023Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                        "column": 19,
+                        "line": 13
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e10da3a5b20297535479-2ea2e76b730d64facabf",
+              "file": "extension-workflows.spec.js",
+              "line": 238,
+              "column": 3
+            },
+            {
+              "title": "should clear data",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-extension",
+                  "projectName": "chromium-extension",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 106,
+                      "error": {
+                        "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"",
+                        "stack": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:262:21",
+                        "location": {
+                          "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                          "column": 19,
+                          "line": 13
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mhelpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                            "column": 19,
+                            "line": 13
+                          },
+                          "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n\n   at helpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:262:21"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-24T18:47:56.178Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                        "column": 19,
+                        "line": 13
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e10da3a5b20297535479-b8d5fb14402a2c7daa86",
+              "file": "extension-workflows.spec.js",
+              "line": 261,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "History Management",
+          "file": "extension-workflows.spec.js",
+          "line": 291,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should save extraction to history",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-extension",
+                  "projectName": "chromium-extension",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 101,
+                      "error": {
+                        "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"",
+                        "stack": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:294:21",
+                        "location": {
+                          "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                          "column": 19,
+                          "line": 13
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mhelpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                            "column": 19,
+                            "line": 13
+                          },
+                          "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n\n   at helpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:294:21"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-24T18:48:03.421Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                        "column": 19,
+                        "line": 13
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e10da3a5b20297535479-14adad50d742cc594222",
+              "file": "extension-workflows.spec.js",
+              "line": 293,
+              "column": 3
+            },
+            {
+              "title": "should show timestamp in history entries",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-extension",
+                  "projectName": "chromium-extension",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 101,
+                      "error": {
+                        "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"",
+                        "stack": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:318:21",
+                        "location": {
+                          "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                          "column": 19,
+                          "line": 13
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mhelpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                            "column": 19,
+                            "line": 13
+                          },
+                          "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n\n   at helpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:318:21"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-24T18:48:10.499Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                        "column": 19,
+                        "line": 13
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e10da3a5b20297535479-a9c10ea1f0351071f28e",
+              "file": "extension-workflows.spec.js",
+              "line": 317,
+              "column": 3
+            },
+            {
+              "title": "should load history entry when clicked",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-extension",
+                  "projectName": "chromium-extension",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 107,
+                      "error": {
+                        "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"",
+                        "stack": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:342:21",
+                        "location": {
+                          "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                          "column": 19,
+                          "line": 13
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mhelpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                            "column": 19,
+                            "line": 13
+                          },
+                          "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n\n   at helpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:342:21"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-24T18:48:17.625Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                        "column": 19,
+                        "line": 13
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e10da3a5b20297535479-7b3abbf92f7f6bffa741",
+              "file": "extension-workflows.spec.js",
+              "line": 341,
+              "column": 3
+            },
+            {
+              "title": "should clear all history",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-extension",
+                  "projectName": "chromium-extension",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 107,
+                      "error": {
+                        "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"",
+                        "stack": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:369:21",
+                        "location": {
+                          "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                          "column": 19,
+                          "line": 13
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mhelpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                            "column": 19,
+                            "line": 13
+                          },
+                          "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n\n   at helpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:369:21"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-24T18:48:24.758Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                        "column": 19,
+                        "line": 13
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e10da3a5b20297535479-31c8e10619f7b85c9e30",
+              "file": "extension-workflows.spec.js",
+              "line": 368,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "LLM Processing Workflow",
+          "file": "extension-workflows.spec.js",
+          "line": 397,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should configure LLM settings",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-extension",
+                  "projectName": "chromium-extension",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 0,
+                      "error": {
+                        "message": "Error: listen EADDRINUSE: address already in use :::11434",
+                        "stack": "Error: listen EADDRINUSE: address already in use :::11434\n    at /mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:207:19\n    at MockOllamaServer.start (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:206:12)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:402:28",
+                        "location": {
+                          "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                          "column": 19,
+                          "line": 207
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mhelpers/extension-utils.js:207\n\n  205 |\n  206 |     return new Promise((resolve) => {\n> 207 |       this.server.listen(this.port, () => {\n      |                   ^\n  208 |         console.log(`Mock Ollama server running on port ${this.port}`);\n  209 |         resolve();\n  210 |       });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                            "column": 19,
+                            "line": 207
+                          },
+                          "message": "Error: listen EADDRINUSE: address already in use :::11434\n\n   at helpers/extension-utils.js:207\n\n  205 |\n  206 |     return new Promise((resolve) => {\n> 207 |       this.server.listen(this.port, () => {\n      |                   ^\n  208 |         console.log(`Mock Ollama server running on port ${this.port}`);\n  209 |         resolve();\n  210 |       });\n    at /mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:207:19\n    at MockOllamaServer.start (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:206:12)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:402:28"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "Mock Ollama server stopped\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-24T18:48:31.949Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                        "column": 19,
+                        "line": 207
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e10da3a5b20297535479-6e15d7bcc1198304147e",
+              "file": "extension-workflows.spec.js",
+              "line": 412,
+              "column": 3
+            },
+            {
+              "title": "should process data with LLM",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-extension",
+                  "projectName": "chromium-extension",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-24T18:48:32.065Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "e10da3a5b20297535479-ed745969f7f6af8584a6",
+              "file": "extension-workflows.spec.js",
+              "line": 438,
+              "column": 3
+            },
+            {
+              "title": "should preserve metadata after LLM processing",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-extension",
+                  "projectName": "chromium-extension",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-24T18:48:32.066Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "e10da3a5b20297535479-cefa38279fd6c8b086e7",
+              "file": "extension-workflows.spec.js",
+              "line": 477,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "Settings Management",
+          "file": "extension-workflows.spec.js",
+          "line": 521,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should save and persist settings",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-extension",
+                  "projectName": "chromium-extension",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 104,
+                      "error": {
+                        "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"",
+                        "stack": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:524:21",
+                        "location": {
+                          "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                          "column": 19,
+                          "line": 13
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39mhelpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                            "column": 19,
+                            "line": 13
+                          },
+                          "message": "Error: browserType.launchPersistentContext: Chromium distribution 'chrome' is not found at /opt/google/chrome/chrome\nRun \"npx playwright install chrome\"\n\n   at helpers/extension-utils.js:13\n\n  11 |   const extensionPath = path.resolve(__dirname, '../../../');\n  12 |\n> 13 |   const context = await playwright.chromium.launchPersistentContext('', {\n     |                   ^\n  14 |     headless: false,\n  15 |     args: [\n  16 |       `--disable-extensions-except=${extensionPath}`,\n    at loadExtension (/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js:13:19)\n    at /mnt/c/Showcase_Scraper/tests/e2e/extension-workflows.spec.js:524:21"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-11-24T18:48:38.801Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "/mnt/c/Showcase_Scraper/tests/e2e/helpers/extension-utils.js",
+                        "column": 19,
+                        "line": 13
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e10da3a5b20297535479-bc267c633963b9af0c17",
+              "file": "extension-workflows.spec.js",
+              "line": 523,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-11-24T18:46:39.507Z",
+    "duration": 119474.718,
+    "expected": 0,
+    "skipped": 2,
+    "unexpected": 17,
+    "flaky": 0
+  }
+}

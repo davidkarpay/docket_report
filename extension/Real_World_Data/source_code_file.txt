@@ -1,0 +1,86 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print</title>
+    <link href="/ShowCaseWebSSO/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <base href="/ShowCaseWebSSO/" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10,r-2.0.0/datatables.min.css" />
+    <link href="/ShowCaseWebSSO/Content/angular-busy.css" rel="stylesheet"/>
+
+    <link href="/ShowCaseWebSSO/Content/print?v=_eSMP6dDq0pm7QhiD85sLtDkvAWcNifzOMp5xgEFuXY1" rel="stylesheet"/>
+
+    <script src="/ShowCaseWebSSO/bundles/modernizr?v=inCVuEFe6J4Q07A0AcRsbJic_UE5MwpRMNGcOtk94TE1"></script>
+
+</head>
+<body ng-app="caseprint">
+    <button type="button" class="btn btn-primary" onclick="window.print();">Print</button>
+
+    <div ui-view="casedetailsheader"></div>
+
+    <section id="courtevents">
+        <h4>Court Events</h4>
+        <div ui-view="courtevents"></div>
+    </section>
+
+    <section id="parties">
+        <h4>Parties</h4>
+        <div ui-view="parties"></div>
+    </section>
+
+    <section id="charges">
+        <h4>Charges</h4>
+        <div ui-view="charges"></div>
+    </section>
+
+    <section id="dockets">
+        <h4>Dockets</h4>
+        <div ui-view="dockets"></div>
+    </section>
+
+    <section id="relatedcases">
+        <h4>Linked Cases</h4>
+        <div ui-view="relatedCases"></div>
+    </section>
+
+    <section id="sentences">
+        <h4>Sentences</h4>
+        <div ui-view="sentences"></div>
+    </section>
+
+    <section id="warrants">
+        <h4>Warrants</h4>
+        <div ui-view="warrants"></div>
+    </section>
+
+    <section id="arrests">
+        <h4>Arrests</h4>
+        <div ui-view="arrests"></div>
+    </section>
+
+    <section id="fees">
+        <h4>Fees</h4>
+        <div ui-view="fees"></div>
+    </section>
+
+    <script src="/ShowCaseWebSSO/bundles/jquery?v=nTaCxUfAFCGfUgkFwubuC_0FgowyIeGMEsY_6iTyrxg1"></script>
+
+    <script src="/ShowCaseWebSSO/bundles/bootstrap?v=QDb0W5e6Nmsp9PRgVRJKPCHaMmB0cyYOzTF83tt6urM1"></script>
+
+    <script src="/ShowCaseWebSSO/bundles/angular-core?v=al6QSbnw1ntTghHfL7WvTlhdPd1-D4J7LNmqk9ncajI1"></script>
+
+    <script src="/ShowCaseWebSSO/bundles/datatables?v=_pWTmdH5SRvjtqb97N_ewmmWEBX0ODPuZ2wenqkmK5s1"></script>
+
+    <script src="/ShowCaseWebSSO/bundles/angular-datatables?v=Kx9ZXmL6-RnILOlkgzjTIC_8DG9WvNDXXapkLjWeiJo1"></script>
+
+    <script src="/ShowCaseWebSSO/bundles/showcase.print?v=olJKT9XaFtOP4T4X2pOgL3yJsyf5QdyOndeow2UUdn41"></script>
+
+
+</body>
+</html>

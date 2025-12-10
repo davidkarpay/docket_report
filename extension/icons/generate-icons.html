@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Icon Generator - Client Docket Manager</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 600px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+
+    .subtitle {
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    .controls {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    .control-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #333;
+      font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="color"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #e0e0e0;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    input[type="color"] {
+      height: 50px;
+      cursor: pointer;
+    }
+
+    .preview {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 30px;
+      padding: 30px;
+      background: #f0f0f0;
+      border-radius: 8px;
+    }
+
+    .preview-item {
+      text-align: center;
+    }
+
+    .preview-canvas {
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .preview-label {
+      font-size: 12px;
+      color: #666;
+      font-weight: 600;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    button {
+      flex: 1;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: #667eea;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #5568d3;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-secondary {
+      background: #f0f0f0;
+      color: #333;
+    }
+
+    .btn-secondary:hover {
+      background: #e0e0e0;
+    }
+
+    .instructions {
+      background: #e3f2fd;
+      border-left: 4px solid #2196f3;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 4px;
+    }
+
+    .instructions h3 {
+      color: #1976d2;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .instructions ol {
+      margin-left: 20px;
+      color: #333;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .instructions li {
+      margin-bottom: 5px;
+    }
+
+    .success-message {
+      background: #d4edda;
+      border: 1px solid #c3e6cb;
+      color: #155724;
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 15px;
+      display: none;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 Icon Generator</h1>
+    <p class="subtitle">Create icons for your Client Docket Manager extension</p>
+
+    <div class="controls">
+      <div class="control-group">
+        <label>Icon Symbol</label>
+        <select id="symbol">
+          <option value="D">D (Docket)</option>
+          <option value="⚖">⚖ (Scales)</option>
+          <option value="📋">📋 (Clipboard)</option>
+          <option value="📁">📁 (Folder)</option>
+          <option value="🔨">🔨 (Gavel)</option>
+          <option value="">None (Solid Color)</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label>Background Color</label>
+        <input type="color" id="bgColor" value="#667eea">
+      </div>
+
+      <div class="control-group">
+        <label>Symbol Color</label>
+        <input type="color" id="textColor" value="#ffffff">
+      </div>
+    </div>
+
+    <div class="preview">
+      <div class="preview-item">
+        <canvas id="canvas16" width="16" height="16" class="preview-canvas"></canvas>
+        <div class="preview-label">16×16</div>
+      </div>
+      <div class="preview-item">
+        <canvas id="canvas48" width="48" height="48" class="preview-canvas"></canvas>
+        <div class="preview-label">48×48</div>
+      </div>
+      <div class="preview-item">
+        <canvas id="canvas128" width="128" height="128" class="preview-canvas"></canvas>
+        <div class="preview-label">128×128</div>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button class="btn-secondary" onclick="updatePreview()">Update Preview</button>
+      <button class="btn-primary" onclick="downloadIcons()">Download All Icons</button>
+    </div>
+
+    <div class="success-message" id="successMessage">
+      ✅ Icons downloaded! Place them in the icons/ directory, then load the extension in Chrome.
+    </div>
+
+    <div class="instructions">
+      <h3>How to Use:</h3>
+      <ol>
+        <li>Choose a symbol and colors above</li>
+        <li>Click "Update Preview" to see your icons</li>
+        <li>Click "Download All Icons" to save them</li>
+        <li>Move the downloaded files to the <code>icons/</code> directory</li>
+        <li>Load the extension in Chrome (chrome://extensions/)</li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    function drawIcon(canvas, size, bgColor, textColor, symbol) {
+      const ctx = canvas.getContext('2d');
+
+      // Clear canvas
+      ctx.clearRect(0, 0, size, size);
+
+      // Draw background
+      ctx.fillStyle = bgColor;
+      ctx.fillRect(0, 0, size, size);
+
+      // Draw symbol
+      if (symbol) {
+        ctx.fillStyle = textColor;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+
+        // Adjust font size based on canvas size
+        const fontSize = size * 0.6;
+        ctx.font = `bold ${fontSize}px Arial, sans-serif`;
+
+        ctx.fillText(symbol, size / 2, size / 2);
+      }
+    }
+
+    function updatePreview() {
+      const bgColor = document.getElementById('bgColor').value;
+      const textColor = document.getElementById('textColor').value;
+      const symbol = document.getElementById('symbol').value;
+
+      drawIcon(document.getElementById('canvas16'), 16, bgColor, textColor, symbol);
+      drawIcon(document.getElementById('canvas48'), 48, bgColor, textColor, symbol);
+      drawIcon(document.getElementById('canvas128'), 128, bgColor, textColor, symbol);
+    }
+
+    function downloadIcons() {
+      const sizes = [16, 48, 128];
+      const bgColor = document.getElementById('bgColor').value;
+      const textColor = document.getElementById('textColor').value;
+      const symbol = document.getElementById('symbol').value;
+
+      sizes.forEach(size => {
+        const canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size;
+
+        drawIcon(canvas, size, bgColor, textColor, symbol);
+
+        canvas.toBlob(blob => {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `icon${size}.png`;
+          a.click();
+          URL.revokeObjectURL(url);
+        });
+      });
+
+      // Show success message
+      const msg = document.getElementById('successMessage');
+      msg.style.display = 'block';
+      setTimeout(() => {
+        msg.style.display = 'none';
+      }, 5000);
+    }
+
+    // Initialize with preview
+    window.addEventListener('load', () => {
+      updatePreview();
+
+      // Update preview on any change
+      document.getElementById('symbol').addEventListener('change', updatePreview);
+      document.getElementById('bgColor').addEventListener('input', updatePreview);
+      document.getElementById('textColor').addEventListener('input', updatePreview);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Case - Edge Cases</title>
+</head>
+<body>
+    <!-- Test various edge cases -->
+
+    <!-- Very long text that should trigger truncation warning -->
+    <div class="long-description">
+        <p class="super-long-text">
+            This is an extremely long paragraph that contains more than 1000 characters and should trigger
+            the container warning in the manual selection mode. Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+            minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+            mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
+            et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
+            sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
+            sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+            adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam
+            aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
+            suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure
+            reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui
+            dolorem eum fugiat quo voluptas nulla pariatur?
+        </p>
+    </div>
+
+    <!-- Container with many children (should trigger container warning) -->
+    <div class="large-container">
+        <div class="child-1">Child 1</div>
+        <div class="child-2">Child 2</div>
+        <div class="child-3">Child 3</div>
+        <div class="child-4">Child 4</div>
+        <div class="child-5">Child 5</div>
+        <div class="child-6">Child 6</div>
+        <div class="child-7">Child 7</div>
+        <div class="child-8">Child 8</div>
+    </div>
+
+    <!-- Special characters in data -->
+    <div class="special-chars">
+        <span class="quotes">Case "State v. O'Brien"</span>
+        <span class="commas">Amount: $1,234,567.89</span>
+        <span class="unicode">Judge: José García</span>
+        <span class="symbols">Section §123.45(a)(2)</span>
+    </div>
+
+    <!-- Empty fields -->
+    <div class="empty-fields">
+        <span class="null-value" data-value="null"></span>
+        <span class="undefined-value"></span>
+        <span class="empty-string"></span>
+        <span class="whitespace-only">   </span>
+    </div>
+
+    <!-- Nested structure -->
+    <div class="deeply-nested">
+        <div class="level-1">
+            <div class="level-2">
+                <div class="level-3">
+                    <div class="level-4">
+                        <span class="target-value">Nested Value</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Multiple formats for same data -->
+    <div class="multiple-formats">
+        <div class="date-formats">
+            <span class="date-1">01/15/2025</span>
+            <span class="date-2">2025-01-15</span>
+            <span class="date-3">January 15, 2025</span>
+            <span class="date-4">Jan 15 2025</span>
+        </div>
+    </div>
+
+    <!-- Boolean and numeric values -->
+    <div class="data-types">
+        <span class="boolean-true" data-active="true">Active</span>
+        <span class="boolean-false" data-active="false">Inactive</span>
+        <span class="number-zero">0</span>
+        <span class="number-negative">-100</span>
+    </div>
+</body>
+</html>

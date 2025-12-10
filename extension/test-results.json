@@ -1,0 +1,289 @@
+{
+  "timestamp": "2025-11-18T19:18:26.359Z",
+  "totalTests": 56,
+  "passedTests": 56,
+  "failedTests": 0,
+  "successRate": "100.0%",
+  "results": [
+    {
+      "test": "manifest.json exists",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "package.json exists",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "README.md exists",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "QUICK_START.md exists",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "Icons directory exists",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "icon16.png exists",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "icon48.png exists",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "icon128.png exists",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "Source directory structure exists",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "All JavaScript files exist",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "All HTML/CSS files exist",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "Schema files exist",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "Rules directory exists with examples",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "Test assets exist",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "manifest.json is valid JSON",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "package.json is valid JSON",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "docket-schema.json is valid JSON",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "example.com.json is valid JSON",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "localhost.json is valid JSON",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "sample-court.example.gov.json is valid JSON",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "Manifest has correct version",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "Manifest has required fields",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "Manifest has background service worker",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "Manifest has content scripts",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "Manifest has action popup",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "Manifest icons exist",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "service-worker.js has valid syntax",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "extractor.js has valid syntax",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "popup.js has valid syntax",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "validator.js has valid syntax",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "service-worker.js has BackgroundService class",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "extractor.js has DocketExtractor class",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "popup.js has PopupController class",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "Schema has Case definition",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "Schema has all entity definitions",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "Schema Case has required fields",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "Example rules have correct structure",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "Localhost rules configured for test page",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "Sample court rules have comprehensive fields",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "popup.html is valid HTML",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "popup.html links to CSS and JS",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "popup.html has all required tabs",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "popup.css has required styles",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "overlay.css has highlight styles",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test-page.html has case data",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "test-page.html matches localhost rules",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "README.md has installation instructions",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "README.md documents all features",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "QUICK_START.md exists and has steps",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "rules/README.md has examples",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "icon16.png is valid size",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "icon48.png is valid size",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "icon128.png is valid size",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "Content script paths match manifest",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "Background script path matches manifest",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "test": "Popup files match manifest",
+      "status": "PASS",
+      "error": null
+    }
+  ]
+}

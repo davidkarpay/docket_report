@@ -1,0 +1,2612 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="sc" style="" class="js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths ng-scope"><head><style type="text/css">[uib-typeahead-popup].dropdown-menu{display:block;}</style><style type="text/css">.uib-time input{width:50px;}</style><style type="text/css">[uib-tooltip-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-bottom > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.right-bottom > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.right-bottom > .tooltip-arrow,[uib-popover-popup].popover.top-left > .arrow,[uib-popover-popup].popover.top-right > .arrow,[uib-popover-popup].popover.bottom-left > .arrow,[uib-popover-popup].popover.bottom-right > .arrow,[uib-popover-popup].popover.left-top > .arrow,[uib-popover-popup].popover.left-bottom > .arrow,[uib-popover-popup].popover.right-top > .arrow,[uib-popover-popup].popover.right-bottom > .arrow,[uib-popover-html-popup].popover.top-left > .arrow,[uib-popover-html-popup].popover.top-right > .arrow,[uib-popover-html-popup].popover.bottom-left > .arrow,[uib-popover-html-popup].popover.bottom-right > .arrow,[uib-popover-html-popup].popover.left-top > .arrow,[uib-popover-html-popup].popover.left-bottom > .arrow,[uib-popover-html-popup].popover.right-top > .arrow,[uib-popover-html-popup].popover.right-bottom > .arrow,[uib-popover-template-popup].popover.top-left > .arrow,[uib-popover-template-popup].popover.top-right > .arrow,[uib-popover-template-popup].popover.bottom-left > .arrow,[uib-popover-template-popup].popover.bottom-right > .arrow,[uib-popover-template-popup].popover.left-top > .arrow,[uib-popover-template-popup].popover.left-bottom > .arrow,[uib-popover-template-popup].popover.right-top > .arrow,[uib-popover-template-popup].popover.right-bottom > .arrow{top:auto;bottom:auto;left:auto;right:auto;margin:0;}[uib-popover-popup].popover,[uib-popover-html-popup].popover,[uib-popover-template-popup].popover{display:block !important;}</style><style type="text/css">.uib-datepicker-popup.dropdown-menu{display:block;float:none;margin:0;}.uib-button-bar{padding:10px 9px 2px;}</style><style type="text/css">.uib-position-measure{display:block !important;visibility:hidden !important;position:absolute !important;top:-9999px !important;left:-9999px !important;}.uib-position-scrollbar-measure{position:absolute !important;top:-9999px !important;width:50px !important;height:50px !important;overflow:scroll !important;}.uib-position-body-scrollbar-measure{overflow:scroll !important;}</style><style type="text/css">.uib-datepicker .uib-title{width:100%;}.uib-day button,.uib-month button,.uib-year button{min-width:100%;}.uib-left,.uib-right{width:100%}</style><style type="text/css">.ng-animate.item:not(.left):not(.right){-webkit-transition:0s ease-in-out left;transition:0s ease-in-out left}</style><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style><script src="chrome-extension://fgddmllnllkalaagkghckoinaemmogpe/src/scripts/content/location-spoofing.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title ng-bind="title" class="ng-binding">ShowCase</title>
+    <link href="/ShowCaseWebSSO/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <base href="/ShowCaseWebSSO/">
+
+    <link href="/ShowCaseWebSSO/Content/angular-busy.css" rel="stylesheet">
+
+    <link href="/ShowCaseWebSSO/Content/css?v=6Qx6oEo1aLZ2S9hjwA3RZKp9_hk-9X4sUX4NWRqVN2w1" rel="stylesheet">
+
+    <script src="/ShowCaseWebSSO/bundles/modernizr?v=inCVuEFe6J4Q07A0AcRsbJic_UE5MwpRMNGcOtk94TE1"></script>
+
+    <link href="/ShowCaseWebSSO/Content/kartik-v/fileinput.min.css" rel="stylesheet">
+    <link href="/ShowCaseWebSSO/Content/kartik-v/fileinput-rtl.min.css" rel="stylesheet">
+</head>
+<body class="">
+    <!--[if lt IE 10]>
+            <div class="jumbotron">
+              <h1 class="display-4">:-( sad browser</h1>
+              <p class="lead">You are using an <strong>outdated</strong> browser.</p>
+              <hr class="my-4">
+              <p class="lead">
+                <a class="btn btn-primary btn-lg" href="https://browsehappy.com/" role="button">Upgrade your browser</a>
+              </p>
+            </div>
+        <![endif]-->
+
+    
+<div class="navbar navbar-default navbar-main navbar-fixed-top ng-scope" ng-controller="navCtrl">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button id="navCollapse" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBarCollapse" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ui-sref="home" href="#!/">
+                <span class="glyphicon s-img"></span>
+                ShowCase
+            </a>
+            <a href="#" class="navbar-toggle navbar-icon" data-toggle="collapse" ng-click="toggleSearch()" aria-label="toggle search panel"><i class="glyphicon glyphicon-search"></i></a>
+        </div>
+
+        <div id="mainNavBarCollapse" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#" ng-click="toggleSearch('case')" role="button"><span class="glyphicon glyphicon-search"></span> Case Search</a>
+                    
+                </li>
+                <li>
+                    <a href="#/calendar" ui-sref="calendar" ng-show="mainnav.viewCourtEvents" class=""><span class="glyphicon glyphicon-calendar"></span> Court Events</a>
+                </li>
+                <li>
+                    <a href="#/setcourtdatecontent" ui-sref="setcourtdatecontent" ui-sref-opts="{reload:true}" ng-show="mainnav.setCourtDate" class="ng-hide"><span class="glyphicon glyphicon-bookmark"></span> Set Court Date</a>
+                </li>
+                <li>
+                    <a href="#" ng-click="toggleSearch('citation')" ng-show="mainnav.schoolCertificateUpload" class="ng-hide"><span class="glyphicon glyphicon-paperclip"></span> School Completion</a>
+                </li>
+				<li>
+                    <a href="https://appsgp.mypalmbeachclerk.com/ecaseview" target="_blank"><span class="glyphicon glyphicon-search"></span> eCaseView</a>
+                </li>
+            </ul>
+
+            
+        <input type="hidden" name="winID" ng-init="startWinSession('PD15\DKarpay')" autocomplete="off">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="" title="Windows identity">Hello PD15\DKarpay! </a></li>
+        </ul>
+
+
+            <ul class="nav navbar-nav navbar-right" ng-show="i.isAuthenticated &amp;&amp; recentCases.length &gt; 0">
+                <li class="btn-group" dropdown="">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recent <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <!-- ngRepeat: rc in recentCases --><li ng-repeat="rc in recentCases" class="ng-scope">
+                            <a href="" ng-click="recentCaseSelect(rc)" ng-bind="rc.caseNumber" class="ng-binding">50-2025-MM-006375-AXXX-MB</a>
+                        </li><!-- end ngRepeat: rc in recentCases -->
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container-fluid body-content">
+        <!-- uiView: --><div ui-view="" class="ng-scope"><div class="table-wrapper ng-scope">
+
+    <ol class="breadcrumb ng-isolate-scope" ncy-breadcrumb=""><!-- ngRepeat: step in steps --><li ng-repeat="step in steps" ng-class="{active: $last}" ng-switch="$last || !!step.abstract" class="ng-scope"><!-- ngSwitchWhen: false --><a ng-switch-when="false" href="#!/" class="ng-binding ng-scope">Home</a><!-- end ngSwitchWhen: --><!-- ngSwitchWhen: true --></li><!-- end ngRepeat: step in steps --><li ng-repeat="step in steps" ng-class="{active: $last}" ng-switch="$last || !!step.abstract" class="ng-scope"><!-- ngSwitchWhen: false --><a ng-switch-when="false" href="#!/calendar?v=month&amp;d=2025-12-01T08%3A15%3A00" class="ng-binding ng-scope">Court Events</a><!-- end ngSwitchWhen: --><!-- ngSwitchWhen: true --></li><!-- end ngRepeat: step in steps --><li ng-repeat="step in steps" ng-class="{active: $last}" ng-switch="$last || !!step.abstract" class="ng-scope active"><!-- ngSwitchWhen: false --><!-- ngSwitchWhen: true --><span ng-switch-when="true" class="ng-binding ng-scope">December 1, 2025 (7) MB 2C (Main Branch)</span><!-- end ngSwitchWhen: --></li><!-- end ngRepeat: step in steps --></ol>
+
+    
+    
+
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Event times <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- ngRepeat: cdt in availableTimes --><li ng-repeat="cdt in availableTimes" class="ng-scope">
+                                <a href="" ng-click="timeSelect(cdt)" class="ng-binding">
+                                    <i ng-class="($parent.selectedTimes.indexOf(cdt) &gt; -1)? 'glyphicon glyphicon-check': 'glyphicon glyphicon-unchecked'" aria-hidden="true" class="glyphicon glyphicon-check"></i>&nbsp;8:15 AM
+                                </a>
+                            </li><!-- end ngRepeat: cdt in availableTimes --><li ng-repeat="cdt in availableTimes" class="ng-scope">
+                                <a href="" ng-click="timeSelect(cdt)" class="ng-binding">
+                                    <i ng-class="($parent.selectedTimes.indexOf(cdt) &gt; -1)? 'glyphicon glyphicon-check': 'glyphicon glyphicon-unchecked'" aria-hidden="true" class="glyphicon glyphicon-unchecked"></i>&nbsp;8:30 AM
+                                </a>
+                            </li><!-- end ngRepeat: cdt in availableTimes --><li ng-repeat="cdt in availableTimes" class="ng-scope">
+                                <a href="" ng-click="timeSelect(cdt)" class="ng-binding">
+                                    <i ng-class="($parent.selectedTimes.indexOf(cdt) &gt; -1)? 'glyphicon glyphicon-check': 'glyphicon glyphicon-unchecked'" aria-hidden="true" class="glyphicon glyphicon-unchecked"></i>&nbsp;1:00 PM
+                                </a>
+                            </li><!-- end ngRepeat: cdt in availableTimes --><li ng-repeat="cdt in availableTimes" class="ng-scope">
+                                <a href="" ng-click="timeSelect(cdt)" class="ng-binding">
+                                    <i ng-class="($parent.selectedTimes.indexOf(cdt) &gt; -1)? 'glyphicon glyphicon-check': 'glyphicon glyphicon-unchecked'" aria-hidden="true" class="glyphicon glyphicon-unchecked"></i>&nbsp;1:30 PM
+                                </a>
+                            </li><!-- end ngRepeat: cdt in availableTimes -->
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="" title="Refresh" ng-click="refreshCases()">Reload  <i class="glyphicon glyphicon-refresh"></i></a></li>
+                    <li class="hidden-xs hidden-sm"><a href="" title="Export" class="" ng-show="canExport" ng-click="export()">Export  <i class="glyphicon glyphicon-export"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <p class="hidden-xs hidden-sm ng-binding">
+        <span class="glyphicon glyphicon-asterisk"></span> Note: Some cases may be secured and not for public disclosure
+        <br>
+        <span style="padding-left:18px"></span> Last updated on Nov 21, 2025 3:04:38 PM
+    </p>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <control-editor settingsname="gridRelated_ShowCaseWebSilverlight.Controls.EditAppointment" on-saved="controlsettingSaved(name)" class="ng-isolate-scope"><button type="button" ng-show="canEditControlSettings" class="btn btn-default btn-sm ng-hide" title="Control Editor" style="border:0;float:right; padding: 0 8px; margin-top:-1px;" ng-click="showControlSettingsEditor()" aria-label="control editor"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button></control-editor>
+        </div>
+    </div>
+
+    <dtfilter dtinstance="dtInstance" class="ng-isolate-scope"><div class="input-group pull-right" style="max-width:250px; padding-bottom:5px;"> <input type="text" id="filterInput" class="form-control ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-model="searchText" placeholder="Filter..." aria-label="filter"> <span class="input-group-btn">    <button class="btn btn-default" ng-click="togglefilter()" title="Filter" aria-label="toggle filter" type="button"><span class="glyphicon glyphicon-filter"></span></button> </span> </div></dtfilter>
+
+    <div cg-busy="calCasesLoading" style="position: relative;">
+        <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="dt-buttons btn-group"><button class="btn btn-default buttons-csv buttons-html5" tabindex="0" aria-controls="DataTables_Table_0" type="button"><span>CSV</span></button> </div><table datatable="" dt-instance="dtInstance" dt-options="dtOptions" dt-columns="dtColumns" class="table table-bordered table-condensed table-hover ng-isolate-scope no-footer dtr-inline collapsed dataTable" width="100%" style="display: table; width: 100%;" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info"><thead><tr role="row"><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 44px;" aria-label="Proc'd: activate to sort column ascending">Proc'd</th><th class="text-nowrap sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 184px;" aria-label="Case Number: activate to sort column ascending" aria-sort="descending">Case Number</th><th class="text-nowrap sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 251px;" aria-label="Name: activate to sort column ascending">Name</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 55px;" aria-label="DOB: activate to sort column ascending">DOB</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 95px;" aria-label="Statute Description: activate to sort column ascending">Statute Description</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 81px;" aria-label="Defense Attorney: activate to sort column ascending">Defense Attorney</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 67px;" aria-label="State Attorney: activate to sort column ascending">State Attorney</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 61px;" aria-label="Public Defender: activate to sort column ascending">Public Defender</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 70px;" aria-label="Witnesses: activate to sort column ascending">Witnesses</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 56px;" aria-label="Speedy: activate to sort column ascending">Speedy</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 56px; display: none;" aria-label="Offense Date: activate to sort column ascending">Offense Date</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 56px;" aria-label="Court Date: activate to sort column ascending">Court Date</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 54px; display: none;" aria-label="Officer Witness: activate to sort column ascending">Officer Witness</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 301px; display: none;" aria-label="Statute #: activate to sort column ascending">Statute #</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 0px; display: none;" aria-label="Status: activate to sort column ascending">Status</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 0px; display: none;" aria-label="Jail Cell: activate to sort column ascending">Jail Cell</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 0px; display: none;" aria-label="Court Event Type: activate to sort column ascending">Court Event Type</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 0px; display: none;" aria-label="Courtroom: activate to sort column ascending">Courtroom</th></tr></thead><tbody><tr role="row" class="odd"><td class="ng-scope" tabindex="0"></td><td class="text-nowrap ng-scope sorting_1"><a title="50-2025-MM-009642-AXXX-MB" href="" ng-click="rowClick(2)">50-2025-MM-009642-AXXX-MB</a></td><td class="text-nowrap ng-scope">COLLINS, DEMETRIUS  </td><td class="ng-scope">04/18/1997</td><td class="ng-scope">ASSAULT (SIMPLE),RESIST OFFICER WITHOUT VIOLENCE,SIMPLE BATTERY (DOMESTIC)</td><td class="ng-scope"></td><td class="ng-scope">STATE, ATTORNEY</td><td class="ng-scope">KARPAY, DAVID</td><td class="ng-scope"></td><td class="ng-scope"></td><td class="ng-scope" style="display: none;">11/02/2025</td><td class="ng-scope">12/01/2025</td><td class="ng-scope" style="display: none;"></td><td class="ng-scope" style="display: none;">784.03(1A2),784.011(1),843.02</td><td class="ng-scope" style="display: none;">Open</td><td class="ng-scope" style="display: none;">M-S-04-A-04U-B</td><td class="ng-scope" style="display: none;">MH - MOTION HEARING</td><td class="ng-scope" style="display: none;">2C (Main Branch)</td></tr><tr role="row" class="even"><td class="ng-scope" tabindex="0"></td><td class="text-nowrap ng-scope sorting_1"><a title="50-2025-MM-009486-AXXX-MB" href="" ng-click="rowClick(10)">50-2025-MM-009486-AXXX-MB</a></td><td class="text-nowrap ng-scope">KING, TORRELL XAVIER </td><td class="ng-scope">09/19/1988</td><td class="ng-scope">BATTERY/DOMESTIC</td><td class="ng-scope"></td><td class="ng-scope">STATE, ATTORNEY</td><td class="ng-scope">KARPAY, DAVID</td><td class="ng-scope"></td><td class="ng-scope"></td><td class="ng-scope" style="display: none;">10/27/2025</td><td class="ng-scope">12/01/2025</td><td class="ng-scope" style="display: none;"></td><td class="ng-scope" style="display: none;">784.03(1A1)</td><td class="ng-scope" style="display: none;">Open</td><td class="ng-scope" style="display: none;">M-S-10-C-22U-B</td><td class="ng-scope" style="display: none;">CD - CASE DISPOSITION</td><td class="ng-scope" style="display: none;">2C (Main Branch)</td></tr><tr role="row" class="odd"><td class="ng-scope" tabindex="0"></td><td class="text-nowrap ng-scope sorting_1"><a title="50-2025-MM-009076-AXXX-MB" href="" ng-click="rowClick(16)">50-2025-MM-009076-AXXX-MB</a></td><td class="text-nowrap ng-scope">RODRIGUEZ, ALAN  </td><td class="ng-scope">12/21/1982</td><td class="ng-scope">SIMPLE BATTERY DOMESTIC</td><td class="ng-scope"></td><td class="ng-scope">STATE, ATTORNEY</td><td class="ng-scope">KARPAY, DAVID</td><td class="ng-scope"></td><td class="ng-scope"></td><td class="ng-scope" style="display: none;">10/06/2025</td><td class="ng-scope">12/01/2025</td><td class="ng-scope" style="display: none;"></td><td class="ng-scope" style="display: none;">784.03(1A1)</td><td class="ng-scope" style="display: none;">Open</td><td class="ng-scope" style="display: none;">M-S-08-D-17L-B</td><td class="ng-scope" style="display: none;">CD - CASE DISPOSITION</td><td class="ng-scope" style="display: none;">2C (Main Branch)</td></tr><tr role="row" class="even"><td class="ng-scope" tabindex="0"></td><td class="text-nowrap ng-scope sorting_1"><a title="50-2025-MM-008907-AXXX-MB" href="" ng-click="rowClick(0)">50-2025-MM-008907-AXXX-MB</a></td><td class="text-nowrap ng-scope">AFRIDI, SHAAN ALI </td><td class="ng-scope">11/09/1999</td><td class="ng-scope">VIOLATION OF DV INJUNCTION(DOMESTIC)</td><td class="ng-scope"></td><td class="ng-scope">STATE, ATTORNEY</td><td class="ng-scope">KARPAY, DAVID</td><td class="ng-scope"></td><td class="ng-scope"></td><td class="ng-scope" style="display: none;">10/07/2025</td><td class="ng-scope">12/01/2025</td><td class="ng-scope" style="display: none;"></td><td class="ng-scope" style="display: none;">741.31(4A)</td><td class="ng-scope" style="display: none;">Open</td><td class="ng-scope" style="display: none;">M-E-02-B-20-B </td><td class="ng-scope" style="display: none;">PC - PLEA CONFERENCE</td><td class="ng-scope" style="display: none;">2C (Main Branch)</td></tr><tr role="row" class="odd"><td class="ng-scope" tabindex="0"></td><td class="text-nowrap ng-scope sorting_1"><a title="50-2025-MM-007872-AXXX-MB" href="" ng-click="rowClick(15)">50-2025-MM-007872-AXXX-MB</a></td><td class="text-nowrap ng-scope">PINCKNEY, JAMIE LASHERYL </td><td class="ng-scope">07/14/1976</td><td class="ng-scope">VIOLATION OF AN INJUNCTION AGAINST DOM VIOL</td><td class="ng-scope"></td><td class="ng-scope">STATE, ATTORNEY</td><td class="ng-scope">KARPAY, DAVID</td><td class="ng-scope"></td><td class="ng-scope"></td><td class="ng-scope" style="display: none;">09/03/2025</td><td class="ng-scope">12/01/2025</td><td class="ng-scope" style="display: none;"></td><td class="ng-scope" style="display: none;">741.31(4A1)</td><td class="ng-scope" style="display: none;">Open</td><td class="ng-scope" style="display: none;">W-A-01-1-11U-B</td><td class="ng-scope" style="display: none;">CD - CASE DISPOSITION</td><td class="ng-scope" style="display: none;">2C (Main Branch)</td></tr><tr role="row" class="even"><td class="ng-scope" tabindex="0"></td><td class="text-nowrap ng-scope sorting_1"><a title="50-2025-MM-002737-AXXX-MB" href="" ng-click="rowClick(9)">50-2025-MM-002737-AXXX-MB</a></td><td class="text-nowrap ng-scope">JOHNSON, TOMASINA JESSICA </td><td class="ng-scope">12/12/1988</td><td class="ng-scope">BATTERY-SIMPLE (TOUCH OR STRIKE) (DOMESTIC)</td><td class="ng-scope"></td><td class="ng-scope">STATE, ATTORNEY</td><td class="ng-scope">KARPAY, DAVID</td><td class="ng-scope"></td><td class="ng-scope">06/28/2025</td><td class="ng-scope" style="display: none;">03/30/2025</td><td class="ng-scope">12/01/2025</td><td class="ng-scope" style="display: none;"></td><td class="ng-scope" style="display: none;">784.03(1A1)</td><td class="ng-scope" style="display: none;">Reopen VOP</td><td class="ng-scope" style="display: none;">M-E-06-B-26-B </td><td class="ng-scope" style="display: none;">STCK - STATUS CHECK</td><td class="ng-scope" style="display: none;">2C (Main Branch)</td></tr><tr role="row" class="odd"><td class="ng-scope" tabindex="0"></td><td class="text-nowrap ng-scope sorting_1"><a title="50-2023-MM-001216-AXXX-MB" href="" ng-click="rowClick(1)">50-2023-MM-001216-AXXX-MB</a></td><td class="text-nowrap ng-scope">COHEN, MARK M </td><td class="ng-scope">06/13/1989</td><td class="ng-scope">BATTERY SIMPLE/TOUCH OR STRIKE DOMESTIC</td><td class="ng-scope"></td><td class="ng-scope">GONSALVES, LATIA</td><td class="ng-scope">KARPAY, DAVID</td><td class="ng-scope"></td><td class="ng-scope">05/13/2023</td><td class="ng-scope" style="display: none;">02/12/2023</td><td class="ng-scope">12/01/2025</td><td class="ng-scope" style="display: none;"></td><td class="ng-scope" style="display: none;">784.03(1A1)</td><td class="ng-scope" style="display: none;">Reopen VOP</td><td class="ng-scope" style="display: none;">W-B-01-3-08U-T</td><td class="ng-scope" style="display: none;">STCK - STATUS CHECK</td><td class="ng-scope" style="display: none;">2C (Main Branch)</td></tr></tbody></table><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 1 to 7 (filtered from 20 total entries)</div><div class="dataTables_paginate paging_numbers" id="DataTables_Table_0_paginate"><ul class="pagination"><li class="paginate_button active"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0">1</a></li></ul></div></div>
+
+    <div class="cg-busy cg-busy-backdrop cg-busy-backdrop-animation ng-scope ng-hide" ng-show="$cgBusyIsActive()"></div><div class="cg-busy cg-busy-animation ng-scope ng-hide" ng-show="$cgBusyIsActive()"><div class="cg-busy-default-wrapper" style="position: absolute; inset: 0px;">
+
+   <div class="cg-busy-default-sign">
+
+      <div class="cg-busy-default-spinner">
+         <div class="bar1"></div>
+         <div class="bar2"></div>
+         <div class="bar3"></div>
+         <div class="bar4"></div>
+         <div class="bar5"></div>
+         <div class="bar6"></div>
+         <div class="bar7"></div>
+         <div class="bar8"></div>
+         <div class="bar9"></div>
+         <div class="bar10"></div>
+         <div class="bar11"></div>
+         <div class="bar12"></div>
+      </div>
+
+      <div class="cg-busy-default-text ng-binding">Please Wait...</div>
+
+   </div>
+
+</div></div></div>
+</div>
+</div>
+    </div>
+
+    <footer class="text-center small" style="margin-top:10px;">
+        <ul class="list-inline">
+            <li>© 2025 equivant</li>
+            <li>|</li>
+            <li>ShowCaseWeb (v3.262.8186)</li>
+            <li>|</li>
+            <li><a href="https://www.equivant.com/showcase/">About Us</a></li>
+        </ul>
+    </footer>
+
+    <!--case search dialog-->
+    
+
+<div id="caseSearchPanel" class="modal fade ng-scope" ng-controller="caseSearchCtrl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">  
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                
+                <control-editor settingsname="ucCaseSearchPanel_ShowCaseWebSilverlight.CaseInquire" default="[{&quot;displayName&quot;:&quot;Case Number&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:0,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canCaseNumber&quot;},{&quot;displayName&quot;:&quot;Last Name:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:1,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canLastName&quot;},{&quot;displayName&quot;:&quot;First Name:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:2,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canFirstName&quot;},{&quot;displayName&quot;:&quot;Middle Name:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:3,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canMiddleName&quot;},{&quot;displayName&quot;:&quot;Date of Birth:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:4,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canDateOfBirth&quot;},{&quot;displayName&quot;:&quot;License Number:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:5,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canLicenseNumber&quot;},{&quot;displayName&quot;:&quot;Sheriff's Number:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:6,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canSheriffsNumber&quot;},{&quot;displayName&quot;:&quot;Citation Number:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:7,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canCitationNumber&quot;},{&quot;displayName&quot;:&quot;Incident Number:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:8,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canIncidentNumber&quot;},{&quot;displayName&quot;:&quot;Arrest Date:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:9,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canArrestDate&quot;},{&quot;displayName&quot;:&quot;From Date:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:10,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canFromFileDate&quot;},{&quot;displayName&quot;:&quot;To Date:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:11,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canToFileDate&quot;},{&quot;displayName&quot;:&quot;Offender Number:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:12,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canOffenderNumber&quot;},{&quot;displayName&quot;:&quot;SA Number:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:13,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canSANumber&quot;},{&quot;displayName&quot;:&quot;Bar:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:13,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canBarNumber&quot;},{&quot;displayName&quot;:&quot;Status:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:14,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canStatus&quot;},{&quot;displayName&quot;:&quot;Judge:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:15,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canJudge&quot;},{&quot;displayName&quot;:&quot;Court Type:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:16,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canCourtType&quot;},{&quot;displayName&quot;:&quot;Booking Number:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:17,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canBookingNumber&quot;},{&quot;displayName&quot;:&quot;Search Type:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:18,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canSearchType&quot;}]" on-saved="controlsettingSaved(name)" class="ng-isolate-scope"><button type="button" ng-show="canEditControlSettings" class="btn btn-default btn-sm ng-hide" title="Control Editor" style="border:0;float:right; padding: 0 8px; margin-top:-1px;" ng-click="showControlSettingsEditor()" aria-label="control editor"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button></control-editor>
+
+                <h4 class="modal-title">Case Search</h4>
+            </div>
+            <form name="casesearchform" id="casesearchform" ng-submit="search($event)" class="ng-pristine ng-valid ng-valid-maxlength ng-valid-pattern ng-valid-required">
+
+                <div class="modal-body">
+
+                    <!-- ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber --><p ng-switch-when="canCaseNumber" uib-tooltip="Enter the Case number you are searching for.
+ It is possible to bring in a range of cases using a wildcard.
+ For Example: 2011-TR-*1-AXXX-MB   *11-TR-*1-AXXX   *11*000001*MB
+Shortcuts also work(but can't be used with wildcards): 11TR12 " tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" maxlength="50" ng-model="searchArgs.CaseNumber" ng-blur="validateCaseNumber()" ng-attr-placeholder="{{cs.displayName || 'Case Number'}}" aria-label="case number" placeholder="Case Number">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName --><p ng-switch-when="canLastName" uib-tooltip="Enter the Last Name you are looking for.
+You can also use WildCards - Example: SMI% will bring back all Last Names starting with SMI" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="search" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" maxlength="50" ng-model="searchArgs.LastName" ng-attr-placeholder="{{cs.displayName || 'Last Name'}}" aria-label="last name" placeholder="Last Name:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName --><p ng-switch-when="canFirstName" uib-tooltip="Enter the First Name you are looking for.
+You can also use WildCards - Example: JOH% will bring back all First Names starting with JOH" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" maxlength="50" ng-model="searchArgs.FirstName" ng-attr-placeholder="{{cs.displayName || 'First Name'}}" aria-label="first name" placeholder="First Name:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth --><p ng-switch-when="canDateOfBirth" ng-class="{'has-error':!casesearchform.DOB.$valid}" uib-tooltip="Please enter a date of birth in the format of DD/MM/YYYY" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" name="DOB" data-mask="00/00/0000" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-pattern ng-valid-maxlength" ng-model="searchArgs.DOB" maxlength="10" ng-pattern="/^(\d{2})\/(\d{2})\/(\d{4})$/" ng-attr-placeholder="{{cs.displayName || 'Date Of Birth'}}" aria-label="first name" placeholder="Date of Birth:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber --><p ng-switch-when="canLicenseNumber" uib-tooltip="Enter the Drivers License number you are looking for.
+You can also use WildCards - Example: S300% will bring back all DL #'s that start with S300" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" maxlength="50" ng-model="searchArgs.DLNumber" ng-attr-placeholder="{{cs.displayName || 'License #'}}" aria-label="license number" placeholder="License Number:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber --><p ng-switch-when="canSheriffsNumber" uib-tooltip="Enter the Sheriffs number you are looking for.
+" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" maxlength="50" ng-model="searchArgs.CountyID" ng-attr-placeholder="{{cs.displayName || 'Sheriff\'s #'}}" aria-label="sheriffs number" placeholder="Sheriff's Number:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber --><p ng-switch-when="canCitationNumber" uib-tooltip="Enter the Citation number, without dashes and without the check digit, you are looking for.
+You can also use WildCards - Example: 1234* will bring back all Citations that start with 1234" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" name="citationNumber" ng-required="requireCitation" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength ng-valid-required" maxlength="50" ng-model="searchArgs.CitationNumber" ng-attr-placeholder="{{cs.displayName || 'Citation #'}}" aria-label="citation number" placeholder="Citation Number:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber --><p ng-switch-when="canIncidentNumber" uib-tooltip="Enter the Incident number you are looking for. 
+You can also use WildCards - Example: 1202* will bring back all Incident #'s with 1202123456, etc" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" maxlength="50" ng-model="searchArgs.IncidentNumber" ng-attr-placeholder="{{cs.displayName || 'Incident #'}}" aria-label="incident number" placeholder="Incident Number:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate --><p ng-switch-when="canArrestDate" ng-class="{'has-error':!casesearchform.arrestDate.$valid}" uib-tooltip="Please enter the arrest date in the format of DD/MM/YYYY" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" name="arrestDate" data-mask="00/00/0000" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-pattern ng-valid-maxlength" maxlength="10" ng-model="searchArgs.ArrestDate" ng-pattern="/^(\d{2})\/(\d{2})\/(\d{4})$/" ng-attr-placeholder="{{cs.displayName || 'Arrest Date'}}" aria-label="arrest date" placeholder="Arrest Date:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate --><p ng-switch-when="canFromFileDate" ng-class="{'has-error':!casesearchform.fromDate.$valid}" uib-tooltip="Please enter the from date in the format of DD/MM/YYYY" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input name="fromDate" type="text" data-mask="00/00/0000" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-pattern ng-valid-maxlength" maxlength="10" ng-model="searchArgs.FromFileDate" ng-pattern="/^(\d{2})\/(\d{2})\/(\d{4})$/" ng-attr-placeholder="{{cs.displayName || 'From Date'}}" aria-label="from date" placeholder="From Date:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate --><p ng-switch-when="canToFileDate" ng-class="{'has-error':!casesearchform.toDate.$valid}" uib-tooltip="Please enter the to date in the format of DD/MM/YYYY" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input name="toDate" type="text" data-mask="00/00/0000" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-pattern ng-valid-maxlength" maxlength="10" ng-model="searchArgs.ToFileDate" ng-pattern="/^(\d{2})\/(\d{2})\/(\d{4})$/" ng-attr-placeholder="{{cs.displayName || 'To Date'}}" aria-label="to date" placeholder="To Date:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber --><p ng-switch-when="canOffenderNumber" uib-tooltip="Enter the Offender number you are looking for.
+Use this format: yyyy-999999
+You can also use WildCards - Example: 2007-*123* will bring back all Offender #'s with 2007-000123 or 2007-123???, 2007-012355, etc" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" maxlength="50" ng-model="searchArgs.Offender" ng-attr-placeholder="{{cs.displayName || 'Offender'}}" aria-label="offender" placeholder="Offender Number:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber --><p ng-switch-when="canSANumber" uib-tooltip="Enter the SA number you are looking for.
+Use this format: yyyy-999999
+You can also use WildCards - Example: 2007-*123* will bring back all SA #'s with 2007-000123 or 2007-123???, 2007-012355, etc" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" maxlength="50" ng-model="searchArgs.SAONumber" ng-attr-placeholder="{{cs.displayName || 'SA #'}}" aria-label="state attorney number" placeholder="SA Number:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber --><p ng-switch-when="canBarNumber" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" maxlength="50" ng-model="searchArgs.BarNumber" ng-attr-placeholder="{{cs.displayName || 'Bar #'}}" aria-label="bar number" placeholder="Bar:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus --><p ng-switch-when="canStatus" uib-tooltip="Select the Case Status to help narrow your search." tooltip-popup-delay="1000" class="ng-scope">
+                            <label class="ng-binding">Status:</label>
+                            <select class="form-control input-sm ng-pristine ng-untouched ng-valid ng-empty" ng-model="searchArgs.caseStatusID" ng-options="cs.caseStatusID as cs.status for cs in caseStatuses | orderBy:'status' track by cs.caseStatusID" aria-label="case status"><option value="" class="" selected="selected"></option><option label="Closed" value="1">Closed</option><option label="Consolidated" value="7">Consolidated</option><option label="Disposed" value="2">Disposed</option><option label="InComplete" value="6">InComplete</option><option label="Non-SRS" value="8">Non-SRS</option><option label="Open" value="3">Open</option><option label="Reopen" value="4">Reopen</option><option label="Reopen VOP" value="5">Reopen VOP</option></select>
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge --><p ng-switch-when="canJudge" uib-tooltip="Select a Judge to search on." tooltip-popup-delay="1000" class="ng-scope">
+                            <label class="ng-binding">Judge:</label>
+                            <select class="form-control input-sm ng-pristine ng-untouched ng-valid ng-empty" ng-model="searchArgs.judgeID" ng-options="j.judgeID as j.judgeName for j in judges | orderBy:'judgeName' track by j.judgeID" aria-label="judge"><option value="" class="" selected="selected"></option><option label="AC, Division" value="2102">AC, Division</option><option label="ACREAGE VIDEO, CONFERENCE" value="2073">ACREAGE VIDEO, CONFERENCE</option><option label="AD_DIVISION, JUDGE" value="2116">AD_DIVISION, JUDGE</option><option label="AK_DIVISION, JUDGE" value="2120">AK_DIVISION, JUDGE</option><option label="ALIJEWICZ, SARA" value="2133">ALIJEWICZ, SARA</option><option label="ALTERNATE, JUDGE " value="152">ALTERNATE, JUDGE </option><option label="AN_DIVISION, JUDGE" value="2112">AN_DIVISION, JUDGE</option><option label="APPEARANCE, FIRST " value="18">APPEARANCE, FIRST </option><option label="ARTAU, EDWARD" value="2083">ARTAU, EDWARD</option><option label="AUGUSTE, HEARINGOFFICERPARNEL" value="205">AUGUSTE, HEARINGOFFICERPARNEL</option><option label="BAILEY, NELSON E" value="134">BAILEY, NELSON E</option><option label="BAKER, MAGISTRATETHOMAS R" value="48">BAKER, MAGISTRATETHOMAS R</option><option label="BARKDULL, THOMAS H" value="150">BARKDULL, THOMAS H</option><option label="BASSALINE, MAGISTRATEPETER" value="85">BASSALINE, MAGISTRATEPETER</option><option label="BELL, CAROLYN" value="2125">BELL, CAROLYN</option><option label="BG, Division" value="142">BG, Division</option><option label="BLANC, PETER D" value="69">BLANC, PETER D</option><option label="BLUMBERG, HEARINGOFFICERSARA" value="204">BLUMBERG, HEARINGOFFICERSARA</option><option label="BONAVITA, AUGUST" value="192">BONAVITA, AUGUST</option><option label="BOORAS, TED" value="133">BOORAS, TED</option><option label="BOSSOPARDO, SANDRA" value="137">BOSSOPARDO, SANDRA</option><option label="BRISTOW, APRIL" value="2148">BRISTOW, APRIL</option><option label="BROOKS, HEARINGOFFICERELLIOT" value="2080">BROOKS, HEARINGOFFICERELLIOT</option><option label="BRUNSON, CATHERINE M" value="105">BRUNSON, CATHERINE M</option><option label="BRUSTARESKEYSER, JANIS" value="62">BRUSTARESKEYSER, JANIS</option><option label="BRYSON, MARNI" value="201">BRYSON, MARNI</option><option label="BURKE, LAUREN" value="2151">BURKE, LAUREN</option><option label="BURKHART, LAURA C" value="2145">BURKHART, LAURA C</option><option label="BURTON, CHARLES E" value="96">BURTON, CHARLES E</option><option label="CARACUZZO, CHERYL" value="2088">CARACUZZO, CHERYL</option><option label="CASANOVA, LOURDES" value="2161">CASANOVA, LOURDES</option><option label="CASON, MAGISTRATEJODI" value="2159">CASON, MAGISTRATEJODI</option><option label="CASTOR, FRANK S" value="47">CASTOR, FRANK S</option><option label="CHEESMAN, MAXINE" value="2134">CHEESMAN, MAXINE</option><option label="CHIMERA, HEARINGOFFICERCATHY" value="206">CHIMERA, HEARINGOFFICERCATHY</option><option label="COATES JR, HOWARD  K" value="2086">COATES JR, HOWARD  K</option><option label="COHEN, BARRY M" value="31">COHEN, BARRY M</option><option label="COLBATH, JEFFREY" value="191">COLBATH, JEFFREY</option><option label="COLLINS, SHERRI L" value="2117">COLLINS, SHERRI L</option><option label="COLTON, ROGER B" value="41">COLTON, ROGER B</option><option label="CONVERSION, JUDGE" value="2162">CONVERSION, JUDGE</option><option label="CORLEW, REGINALD" value="97">CORLEW, REGINALD</option><option label="CUNNINGHAM, SHEREE" value="90">CUNNINGHAM, SHEREE</option><option label="CURLEY, G JOSEPH" value="2122">CURLEY, G JOSEPH</option><option label="DAMICO, PAUL" value="184">DAMICO, PAUL</option><option label="DELGADO, LUIS" value="2113">DELGADO, LUIS</option><option label="DELRAY VIDEO, CONFERENCE " value="160">DELRAY VIDEO, CONFERENCE </option><option label="DIGANGI, SANTO" value="2158">DIGANGI, SANTO</option><option label="DIVISION, ADMINISTRATIVE " value="65">DIVISION, ADMINISTRATIVE </option><option label="DUS_DIVISION, JUDGE" value="2096">DUS_DIVISION, JUDGE</option><option label="DUTYJUDGE, BG" value="186">DUTYJUDGE, BG</option><option label="EISSEY, MARK" value="91">EISSEY, MARK</option><option label="EVANS, PETER M" value="40">EVANS, PETER M</option><option label="FANELLI, MAGISTRATEJUDETTE N" value="12">FANELLI, MAGISTRATEJUDETTE N</option><option label="FRANCIS, RENATHA S" value="2141">FRANCIS, RENATHA S</option><option label="FRENCH, DAVID E" value="135">FRENCH, DAVID E</option><option label="FRINK, KEATHAN" value="2140">FRINK, KEATHAN</option><option label="FRUSCIANTE, JOHN" value="2079">FRUSCIANTE, JOHN</option><option label="FW, Division" value="123">FW, Division</option><option label="FX, Division" value="2106">FX, Division</option><option label="GARRISON, EDWARD A" value="95">GARRISON, EDWARD A</option><option label="GENERAL MASTER, JUVENILE " value="53">GENERAL MASTER, JUVENILE </option><option label="GENERAL MASTER, JUVENILE (BG) " value="145">GENERAL MASTER, JUVENILE (BG) </option><option label="GERSHMAN, HEARINGOFFICERROBERT" value="2144">GERSHMAN, HEARINGOFFICERROBERT</option><option label="GILLEN, JEFFREY" value="2078">GILLEN, JEFFREY</option><option label="GILLMAN, PAIGE" value="2138">GILLMAN, PAIGE</option><option label="GOLDBERGER, HEARINGOFFICERJACK" value="2119">GOLDBERGER, HEARINGOFFICERJACK</option><option label="GOODMAN, JAIMIE" value="2084">GOODMAN, JAIMIE</option><option label="GOODWIN, MAGISTRATELINDA" value="61">GOODWIN, MAGISTRATELINDA</option><option label="GUN CLUB - PRETRIAL, SETS " value="171">GUN CLUB - PRETRIAL, SETS </option><option label="GURNEY, HEARINGOFFICERJON" value="2146">GURNEY, HEARINGOFFICERJON</option><option label="HAFELE, DONALD W" value="56">HAFELE, DONALD W</option><option label="HANSER, LEONARD" value="155">HANSER, LEONARD</option><option label="HARPER, BRADLEY" value="2114">HARPER, BRADLEY</option><option label="HARRISON, HOWARD" value="27">HARRISON, HOWARD</option><option label="HAVERMAN, HEARINGOFFICERDANIEL" value="207">HAVERMAN, HEARINGOFFICERDANIEL</option><option label="IJ, Division" value="2105">IJ, Division</option><option label="INFRACTION, DELRAY TRAFFIC " value="68">INFRACTION, DELRAY TRAFFIC </option><option label="INFRACTION, HEARINGS " value="157">INFRACTION, HEARINGS </option><option label="INFRACTIONS, NORTH " value="15">INFRACTIONS, NORTH </option><option label="IX, Division" value="2104">IX, Division</option><option label="JOHNSON, LAURA" value="166">JOHNSON, LAURA</option><option label="JUDGE, DUTY " value="183">JUDGE, DUTY </option><option label="JUDGES, AVAILABLE" value="57">JUDGES, AVAILABLE</option><option label="JUVENILE DUTY, JUDGE" value="2090">JUVENILE DUTY, JUDGE</option><option label="JUVENILE, MAGISTRATE" value="2127">JUVENILE, MAGISTRATE</option><option label="KASTRENAKES, JOHN S" value="84">KASTRENAKES, JOHN S</option><option label="KEEVER-AGRAMA, DINA" value="2089">KEEVER-AGRAMA, DINA</option><option label="KEHOE, HEARINGOFFICERJAMES" value="209">KEHOE, HEARINGOFFICERJAMES</option><option label="KELLEY, GLENN" value="39">KELLEY, GLENN</option><option label="KERNER, SCOTT" value="2135">KERNER, SCOTT</option><option label="KEYSER, GREGORY" value="240">KEYSER, GREGORY</option><option label="KEYSER, JANIS" value="2077">KEYSER, JANIS</option><option label="KIRIGIN, MAGISTRATEDIANE" value="130">KIRIGIN, MAGISTRATEDIANE</option><option label="KKONE, Division" value="151">KKONE, Division</option><option label="KROLL, KATHLEEN J" value="144">KROLL, KATHLEEN J</option><option label="KURTZ, HEARINGOFFICERJOHN" value="210">KURTZ, HEARINGOFFICERJOHN</option><option label="LENOFF, HEARINGOFFICERMICHELE" value="211">LENOFF, HEARINGOFFICERMICHELE</option><option label="LUBITZ, SUSAN R" value="89">LUBITZ, SUSAN R</option><option label="M_DIVISION, JUDGE" value="2111">M_DIVISION, JUDGE</option><option label="MAGISTRATE, GENERAL " value="23">MAGISTRATE, GENERAL </option><option label="MARTZ, JAMES L" value="185">MARTZ, JAMES L</option><option label="MARX, JOSEPH" value="79">MARX, JOSEPH</option><option label="MARX, KRISTA" value="125">MARX, KRISTA</option><option label="MCGLYNN, HEARINGOFFICERJAMES" value="212">MCGLYNN, HEARINGOFFICERJAMES</option><option label="MCSORLEY, SANDRA K" value="26">MCSORLEY, SANDRA K</option><option label="MILLER, HEARINGOFFICERSTEVE" value="213">MILLER, HEARINGOFFICERSTEVE</option><option label="MILLER, KAREN M" value="146">MILLER, KAREN M</option><option label="MOYLE, PAUL O" value="98">MOYLE, PAUL O</option><option label="MULLINAX, KATHERINE" value="2160">MULLINAX, KATHERINE</option><option label="MURPHY, JOSEPH" value="2087">MURPHY, JOSEPH</option><option label="NB_MARCHMAN, MAGISTRATE" value="2130">NB_MARCHMAN, MAGISTRATE</option><option label="NB_PLACEMENTS, MAGISTRATE" value="2128">NB_PLACEMENTS, MAGISTRATE</option><option label="NO, Division" value="165">NO, Division</option><option label="NUTT, JAMES" value="2121">NUTT, JAMES</option><option label="OFS1, JUDGE" value="2098">OFS1, JUDGE</option><option label="OFS2, JUDGE" value="2099">OFS2, JUDGE</option><option label="OFS3, JUDGE" value="2100">OFS3, JUDGE</option><option label="OFS4, JUDGE" value="2101">OFS4, JUDGE</option><option label="OFS5, JUDGE" value="2107">OFS5, JUDGE</option><option label="OFTEDAL, RICHARD L" value="138">OFTEDAL, RICHARD L</option><option label="OSOFSKY, HEARINGOFFICERMARSHALL" value="214">OSOFSKY, HEARINGOFFICERMARSHALL</option><option label="PANEL, APPELLATE " value="162">PANEL, APPELLATE </option><option label="PANSE, ROBERT" value="244">PANSE, ROBERT</option><option label="PARNOFIELLO, JOHN" value="2147">PARNOFIELLO, JOHN</option><option label="PEREZ, NANCY" value="4">PEREZ, NANCY</option><option label="PIP, HEARINGS" value="2123">PIP, HEARINGS</option><option label="PRINTZ, MAGISTRATEJENNIFER" value="2124">PRINTZ, MAGISTRATEJENNIFER</option><option label="RA, Division" value="127">RA, Division</option><option label="RJ_DIVISION, JUDGE" value="2110">RJ_DIVISION, JUDGE</option><option label="ROBERTS, HEARINGOFFICERDONIA" value="216">ROBERTS, HEARINGOFFICERDONIA</option><option label="ROBY, WILLIAM L" value="2139">ROBY, WILLIAM L</option><option label="ROUTMAN, HEARINGOFFICERLLOYD" value="217">ROUTMAN, HEARINGOFFICERLLOYD</option><option label="ROWE, CYMONIE S" value="2109">ROWE, CYMONIE S</option><option label="RUBIN, HEARINGOFFICERSTEVEN" value="218">RUBIN, HEARINGOFFICERSTEVEN</option><option label="SANTINO, DANA" value="2115">SANTINO, DANA</option><option label="SASSER, MEENU" value="136">SASSER, MEENU</option><option label="SB_MARCHMAN, MAGISTRATE" value="2131">SB_MARCHMAN, MAGISTRATE</option><option label="SB_PIP, HEARINGS" value="2126">SB_PIP, HEARINGS</option><option label="SB_PLACEMENTS, MAGISTRATE" value="2129">SB_PLACEMENTS, MAGISTRATE</option><option label="SCHER, ROSEMARIE" value="2071">SCHER, ROSEMARIE</option><option label="SCHOSBERG_FEUER, SAMANTHA" value="2081">SCHOSBERG_FEUER, SAMANTHA</option><option label="SCOTT, REID P" value="2156">SCOTT, REID P</option><option label="SENIOR, JUDGE" value="224">SENIOR, JUDGE</option><option label="SET, SPECIAL " value="52">SET, SPECIAL </option><option label="SHEPHERD, CAROLINE CAHILL" value="126">SHEPHERD, CAROLINE CAHILL</option><option label="SHERMAN, JAMES W" value="2152">SHERMAN, JAMES W</option><option label="SHERRIFF, DANIELLE A" value="2157">SHERRIFF, DANIELLE A</option><option label="SHULL, DARREN" value="2153">SHULL, DARREN</option><option label="SHULLMAN, SARAH L" value="2143">SHULLMAN, SARAH L</option><option label="SILVER, ORI" value="2149">SILVER, ORI</option><option label="SIPERSTEIN, CARYN" value="2154">SIPERSTEIN, CARYN</option><option label="SMALL, LISA" value="203">SMALL, LISA</option><option label="SOUTH COUNTY CIVIC CENTER - PRETRIAL, SETS " value="25">SOUTH COUNTY CIVIC CENTER - PRETRIAL, SETS </option><option label="SPECIAL, SET-CIRCUIT" value="172">SPECIAL, SET-CIRCUIT</option><option label="SPECIAL, SET-COUNTY" value="14">SPECIAL, SET-COUNTY</option><option label="STEPHENS, DEBRA MOSES" value="175">STEPHENS, DEBRA MOSES</option><option label="SURBER, MELANIE D" value="2142">SURBER, MELANIE D</option><option label="SUSKAUER, SCOTT" value="2092">SUSKAUER, SCOTT</option><option label="TEW, STEPHANIE" value="2155">TEW, STEPHANIE</option><option label="TICKTIN, JESSICA" value="2082">TICKTIN, JESSICA</option><option label="VOLKER, KIRK" value="2085">VOLKER, KIRK</option><option label="WD, Division" value="2103">WD, Division</option><option label="WEISS, DALIAH H" value="2072">WEISS, DALIAH H</option><option label="WELLINGTON - PRETRIAL, SETS " value="45">WELLINGTON - PRETRIAL, SETS </option><option label="WEST BOCA VIDEO, CONFERENCE" value="2074">WEST BOCA VIDEO, CONFERENCE</option><option label="WEST BRANCH, INFRACTIONS " value="100">WEST BRANCH, INFRACTIONS </option><option label="WG, COMMUNITY COURT " value="5">WG, COMMUNITY COURT </option><option label="WILLIAMS, MAGISTRATEJAMES" value="2150">WILLIAMS, MAGISTRATEJAMES</option><option label="WILLIAMS, MAGISTRATEMAXINE" value="78">WILLIAMS, MAGISTRATEMAXINE</option><option label="WILLIS, SARAH" value="2136">WILLIS, SARAH</option><option label="WP, COMMUNITY COURT " value="154">WP, COMMUNITY COURT </option><option label="Y, Division" value="76">Y, Division</option><option label="Y2, DIVISION" value="2132">Y2, DIVISION</option><option label="ZUCKERMAN, ASHLEY" value="2137">ZUCKERMAN, ASHLEY</option></select>
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType --><p ng-switch-when="canCourtType" class="ng-scope">
+                            <label class="ng-binding">Court Type:</label>
+                            <select class="form-control input-sm ng-pristine ng-untouched ng-valid ng-empty" ng-model="searchArgs.courtTypeID" ng-options="ct.courtTypeID as ct.courtTypeDescription for ct in courtTypes | orderBy:'courtTypeDescription' track by ct.courtTypeID" aria-label="case status"><option value="?" selected="selected"></option><option label="4th DCA" value="52">4th DCA</option><option label="Appeal from the County Court" value="34">Appeal from the County Court</option><option label="Circuit Civil" value="8">Circuit Civil</option><option label="CIVIL BONDS" value="56">CIVIL BONDS</option><option label="County Civil" value="33">County Civil</option><option label="County Ordinance" value="32">County Ordinance</option><option label="Criminal Traffic" value="5">Criminal Traffic</option><option label="Delinquency" value="30">Delinquency</option><option label="Dependency" value="31">Dependency</option><option label="Domestic Relations/Family" value="7">Domestic Relations/Family</option><option label="ESCROW ACCOUNTS" value="57">ESCROW ACCOUNTS</option><option label="Felony" value="1">Felony</option><option label="Foreclosure Deposit" value="59">Foreclosure Deposit</option><option label="Guardianship" value="24">Guardianship</option><option label="Marriage License" value="51">Marriage License</option><option label="Mental Health" value="29">Mental Health</option><option label="Miscellaneous" value="37">Miscellaneous</option><option label="Misdemeanor" value="2">Misdemeanor</option><option label="Municipal Ordinance" value="3">Municipal Ordinance</option><option label="Non Criminal Infraction" value="35">Non Criminal Infraction</option><option label="Probate/Guardianship" value="23">Probate/Guardianship</option><option label="Small Claims" value="11">Small Claims</option><option label="Suspense" value="38">Suspense</option><option label="Traffic Infractions" value="16">Traffic Infractions</option><option label="WILL ONLY" value="61">WILL ONLY</option></select>
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber --><p ng-switch-when="canBookingNumber" uib-tooltip="Enter the Booking Sheet Number you are looking for.
+Use this format: yyyy999999
+You can also use WildCards - Example: 2007*123* will bring back all Booking Sheet #'s with 2007000123 or 2007123???, 2007012355, etc. " tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" maxlength="50" ng-model="searchArgs.BookingNumber" ng-attr-placeholder="{{cs.displayName || 'Booking #'}}" aria-label="booking number" placeholder="Booking Number:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType --><p ng-switch-when="canSearchType" uib-tooltip="*Exact Match:* This is the default match type. Will return the exact matching name - Example: SMITH will only bring back Last Names of SMITH
+
+*Starts With:* Will return names that begin with the same letters - Example: SMI* will bring back all Last Names starting with SMI 
+
+*Soundex Match:* Will return search results that match the Soundex variations for the names that you entered into the Name fields.
+ Soundex is a 'phonetic algorithm' that identifies words that sound alike but are spelled differently such as 'Smyth' and 'Smith' or 'Brown' and 'Braun.' " tooltip-popup-delay="1000" aria-owns="search-type" aria-activedescendant="" class="ng-binding ng-scope">
+                            Search Type:&nbsp;
+                            <span class="btn-group" role="radiogroup" aria-label="search match type" id="search-type">
+                                <label role="option" id="opt-exact" class="btn btn-default ng-pristine ng-untouched ng-valid active ng-not-empty" ng-model="searchArgs.MatchType" uib-btn-radio="0" aria-checked="false">Exact</label>
+                                <label role="option" id="opt-soundex" class="btn btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="searchArgs.MatchType" uib-btn-radio="1" aria-checked="false">SoundEx</label>
+                                <label role="option" id="opt-startswith" class="btn btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="searchArgs.MatchType" uib-btn-radio="2" aria-checked="false">Starts With</label>
+                            </span>
+                        </p><!-- end ngSwitchWhen: -->
+
+                    </div><!-- end ngRepeat: cs in settings -->
+
+                    <!-- ngIf: modalTitle == 'Case Search' -->
+
+                    
+                </div>
+
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-xs-8 col-thin">
+                            <button type="submit" class="btn btn-primary btn-block" ng-disabled="!casesearchform.$valid"><span class="glyphicon glyphicon-search"></span> Search</button>
+                        </div>
+                        <div class="col-xs-4 col-thin">
+                            <button type="button" class="btn btn-default btn-block" ng-click="clear()"><span class="glyphicon glyphicon-erase"></span> Clear</button>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-thin">
+                            <!-- ngIf: noResults -->
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+    <!--citation search dialog-->
+    
+
+<div id="citationSearchPanel" class="modal fade ng-scope" ng-controller="citationSearchCtrl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">  
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Citation Search</h4>
+            </div>
+            <form name="searchform" id="searchform" ng-submit="search($event)" class="ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength">
+
+                <div class="modal-body">
+
+                    <p uib-tooltip="Enter the Citation number, without dashes and without the check digit, you are looking for.
+You can also use WildCards - Example: 1234* will bring back all Citations that start with 1234" tooltip-popup-delay="1000" tooltip-placement="bottom">
+                        <input type="text" name="citationNumber" ng-required="true" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" maxlength="50" ng-model="searchArgs.CitationNumber" ng-attr-placeholder="{{cs.displayName || 'Citation #'}}" aria-label="citation number" placeholder="Citation #" required="required">
+                    </p>
+
+                </div>
+
+                <div class="modal-footer">
+                    
+
+                    <div class="row">
+                        <div class="col-xs-8 col-thin">
+                            <button type="submit" class="btn btn-primary btn-block" ng-disabled="!searchform.$valid" disabled="disabled"><span class="glyphicon glyphicon-search"></span> Search</button>
+                        </div>
+                        <div class="col-xs-4 col-thin">
+                            <button type="button" class="btn btn-default btn-block" ng-click="clear()"><span class="glyphicon glyphicon-erase"></span> Clear</button>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-thin">
+                            <!-- ngIf: noResults -->
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+    <!--login dialog-->
+    
+<div id="login_modal" class="modal fade ng-scope" ng-controller="loginCtrl">
+    <div class="modal-dialog">
+        <div class="modal-content" cg-busy="promiseLoading">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Login</h4>
+            </div>
+            <div class="modal-body">
+                <form id="loginform" role="form" ng-submit="login(credentials)" novalidate="" method="post" class="ng-pristine ng-valid">
+                    <input name="__RequestVerificationToken" type="hidden" value="5xuwAR3jY0vCynBmXo8XbmJmO7E2SbgOY7dlRwBHDkXcBneDHm4n4NUX1-7PfPv3FYd0el1hMilW2LdkkbmMPEKJNU69kYD-H_q-usk66IB_qw4mDqClDq18Ah1UyCj50" autocomplete="off">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty" id="username" name="username" placeholder="Username" ng-model="credentials.username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control ng-pristine ng-untouched ng-valid ng-empty" id="password" name="password" placeholder="Password" ng-model="credentials.password">
+                    </div>
+                    <div class="modal-footer">
+                        <!-- ngIf: message -->
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </form>
+
+                
+                
+ 
+            </div>
+        <div class="cg-busy cg-busy-backdrop cg-busy-backdrop-animation ng-hide ng-scope" ng-show="$cgBusyIsActive()"></div><div class="cg-busy cg-busy-animation ng-hide ng-scope" ng-show="$cgBusyIsActive()"><div class="cg-busy-default-wrapper" style="position: absolute; inset: 0px;">
+
+   <div class="cg-busy-default-sign">
+
+      <div class="cg-busy-default-spinner">
+         <div class="bar1"></div>
+         <div class="bar2"></div>
+         <div class="bar3"></div>
+         <div class="bar4"></div>
+         <div class="bar5"></div>
+         <div class="bar6"></div>
+         <div class="bar7"></div>
+         <div class="bar8"></div>
+         <div class="bar9"></div>
+         <div class="bar10"></div>
+         <div class="bar11"></div>
+         <div class="bar12"></div>
+      </div>
+
+      <div class="cg-busy-default-text ng-binding">Please Wait...</div>
+
+   </div>
+
+</div></div></div>
+    </div>
+</div>
+    <!--control editor dialog-->
+    
+<style>
+    .movable {
+        cursor: move;
+        padding-left:5px;
+    }
+</style>
+
+<div class="modal fade ng-scope" id="controlSettingsModal" role="dialog" ng-controller="controlSettingsCtrl">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title">Control Settings Editor</h4>
+            </div>
+            <div class="modal-body">
+                <p>Setting Name: <b class="ng-binding"></b></p>
+                
+                <p>Group Name:</p>
+                <select class="form-control input-sm ng-pristine ng-untouched ng-valid ng-empty" ng-model="selectedGroup" ng-options="csg as csg.controlSettingsGroupName for csg in groups | orderBy:'controlSettingsGroupName' 
+                        track by csg.groupID" ng-change="groupChange()" aria-label="control settings group"><option value="?" selected="selected"></option></select>
+
+                <hr>
+
+                <div id="draggablePanelList">
+                    <!-- ngRepeat: c in columns | filter:{isConfigurable:true} -->
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="saveControlSetting()">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+    <script src="/ShowCaseWebSSO/bundles/jquery?v=nTaCxUfAFCGfUgkFwubuC_0FgowyIeGMEsY_6iTyrxg1"></script>
+
+    <script src="/ShowCaseWebSSO/bundles/bootstrap?v=QDb0W5e6Nmsp9PRgVRJKPCHaMmB0cyYOzTF83tt6urM1"></script>
+
+    <script src="/ShowCaseWebSSO/bundles/angular-core?v=al6QSbnw1ntTghHfL7WvTlhdPd1-D4J7LNmqk9ncajI1"></script>
+
+    <script src="/ShowCaseWebSSO/bundles/datatables?v=_pWTmdH5SRvjtqb97N_ewmmWEBX0ODPuZ2wenqkmK5s1"></script>
+
+    <script src="/ShowCaseWebSSO/bundles/angular-datatables?v=Kx9ZXmL6-RnILOlkgzjTIC_8DG9WvNDXXapkLjWeiJo1"></script>
+
+    <script src="/ShowCaseWebSSO/bundles/calendar?v=rVNeXM6XSrDVEqueGWRJZUbVgawNN5o1RtbEyEUdLBM1"></script>
+
+    <script src="/ShowCaseWebSSO/bundles/showcase?v=Lq2BCJnF71f8CGcq1fA6h6TqJYV-1-fEtDj1tC1RYQs1"></script>
+
+    
+
+
+</body></html>
+<head><style type="text/css">[uib-typeahead-popup].dropdown-menu{display:block;}</style><style type="text/css">.uib-time input{width:50px;}</style><style type="text/css">[uib-tooltip-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-bottom > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.right-bottom > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.right-bottom > .tooltip-arrow,[uib-popover-popup].popover.top-left > .arrow,[uib-popover-popup].popover.top-right > .arrow,[uib-popover-popup].popover.bottom-left > .arrow,[uib-popover-popup].popover.bottom-right > .arrow,[uib-popover-popup].popover.left-top > .arrow,[uib-popover-popup].popover.left-bottom > .arrow,[uib-popover-popup].popover.right-top > .arrow,[uib-popover-popup].popover.right-bottom > .arrow,[uib-popover-html-popup].popover.top-left > .arrow,[uib-popover-html-popup].popover.top-right > .arrow,[uib-popover-html-popup].popover.bottom-left > .arrow,[uib-popover-html-popup].popover.bottom-right > .arrow,[uib-popover-html-popup].popover.left-top > .arrow,[uib-popover-html-popup].popover.left-bottom > .arrow,[uib-popover-html-popup].popover.right-top > .arrow,[uib-popover-html-popup].popover.right-bottom > .arrow,[uib-popover-template-popup].popover.top-left > .arrow,[uib-popover-template-popup].popover.top-right > .arrow,[uib-popover-template-popup].popover.bottom-left > .arrow,[uib-popover-template-popup].popover.bottom-right > .arrow,[uib-popover-template-popup].popover.left-top > .arrow,[uib-popover-template-popup].popover.left-bottom > .arrow,[uib-popover-template-popup].popover.right-top > .arrow,[uib-popover-template-popup].popover.right-bottom > .arrow{top:auto;bottom:auto;left:auto;right:auto;margin:0;}[uib-popover-popup].popover,[uib-popover-html-popup].popover,[uib-popover-template-popup].popover{display:block !important;}</style><style type="text/css">.uib-datepicker-popup.dropdown-menu{display:block;float:none;margin:0;}.uib-button-bar{padding:10px 9px 2px;}</style><style type="text/css">.uib-position-measure{display:block !important;visibility:hidden !important;position:absolute !important;top:-9999px !important;left:-9999px !important;}.uib-position-scrollbar-measure{position:absolute !important;top:-9999px !important;width:50px !important;height:50px !important;overflow:scroll !important;}.uib-position-body-scrollbar-measure{overflow:scroll !important;}</style><style type="text/css">.uib-datepicker .uib-title{width:100%;}.uib-day button,.uib-month button,.uib-year button{min-width:100%;}.uib-left,.uib-right{width:100%}</style><style type="text/css">.ng-animate.item:not(.left):not(.right){-webkit-transition:0s ease-in-out left;transition:0s ease-in-out left}</style><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style><script src="chrome-extension://fgddmllnllkalaagkghckoinaemmogpe/src/scripts/content/location-spoofing.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title ng-bind="title" class="ng-binding">ShowCase</title>
+    <link href="/ShowCaseWebSSO/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <base href="/ShowCaseWebSSO/">
+
+    <link href="/ShowCaseWebSSO/Content/angular-busy.css" rel="stylesheet">
+
+    <link href="/ShowCaseWebSSO/Content/css?v=6Qx6oEo1aLZ2S9hjwA3RZKp9_hk-9X4sUX4NWRqVN2w1" rel="stylesheet">
+
+    <script src="/ShowCaseWebSSO/bundles/modernizr?v=inCVuEFe6J4Q07A0AcRsbJic_UE5MwpRMNGcOtk94TE1"></script>
+
+    <link href="/ShowCaseWebSSO/Content/kartik-v/fileinput.min.css" rel="stylesheet">
+    <link href="/ShowCaseWebSSO/Content/kartik-v/fileinput-rtl.min.css" rel="stylesheet">
+</head>
+<body class="">
+    <!--[if lt IE 10]>
+            <div class="jumbotron">
+              <h1 class="display-4">:-( sad browser</h1>
+              <p class="lead">You are using an <strong>outdated</strong> browser.</p>
+              <hr class="my-4">
+              <p class="lead">
+                <a class="btn btn-primary btn-lg" href="https://browsehappy.com/" role="button">Upgrade your browser</a>
+              </p>
+            </div>
+        <![endif]-->
+
+    
+<div class="navbar navbar-default navbar-main navbar-fixed-top ng-scope" ng-controller="navCtrl">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button id="navCollapse" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBarCollapse" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ui-sref="home" href="#!/">
+                <span class="glyphicon s-img"></span>
+                ShowCase
+            </a>
+            <a href="#" class="navbar-toggle navbar-icon" data-toggle="collapse" ng-click="toggleSearch()" aria-label="toggle search panel"><i class="glyphicon glyphicon-search"></i></a>
+        </div>
+
+        <div id="mainNavBarCollapse" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#" ng-click="toggleSearch('case')" role="button"><span class="glyphicon glyphicon-search"></span> Case Search</a>
+                    
+                </li>
+                <li>
+                    <a href="#/calendar" ui-sref="calendar" ng-show="mainnav.viewCourtEvents" class=""><span class="glyphicon glyphicon-calendar"></span> Court Events</a>
+                </li>
+                <li>
+                    <a href="#/setcourtdatecontent" ui-sref="setcourtdatecontent" ui-sref-opts="{reload:true}" ng-show="mainnav.setCourtDate" class="ng-hide"><span class="glyphicon glyphicon-bookmark"></span> Set Court Date</a>
+                </li>
+                <li>
+                    <a href="#" ng-click="toggleSearch('citation')" ng-show="mainnav.schoolCertificateUpload" class="ng-hide"><span class="glyphicon glyphicon-paperclip"></span> School Completion</a>
+                </li>
+				<li>
+                    <a href="https://appsgp.mypalmbeachclerk.com/ecaseview" target="_blank"><span class="glyphicon glyphicon-search"></span> eCaseView</a>
+                </li>
+            </ul>
+
+            
+        <input type="hidden" name="winID" ng-init="startWinSession('PD15\DKarpay')" autocomplete="off">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="" title="Windows identity">Hello PD15\DKarpay! </a></li>
+        </ul>
+
+
+            <ul class="nav navbar-nav navbar-right" ng-show="i.isAuthenticated &amp;&amp; recentCases.length &gt; 0">
+                <li class="btn-group" dropdown="">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recent <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <!-- ngRepeat: rc in recentCases --><li ng-repeat="rc in recentCases" class="ng-scope">
+                            <a href="" ng-click="recentCaseSelect(rc)" ng-bind="rc.caseNumber" class="ng-binding">50-2025-MM-006375-AXXX-MB</a>
+                        </li><!-- end ngRepeat: rc in recentCases -->
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container-fluid body-content">
+        <!-- uiView: --><div ui-view="" class="ng-scope"><div class="table-wrapper ng-scope">
+
+    <ol class="breadcrumb ng-isolate-scope" ncy-breadcrumb=""><!-- ngRepeat: step in steps --><li ng-repeat="step in steps" ng-class="{active: $last}" ng-switch="$last || !!step.abstract" class="ng-scope"><!-- ngSwitchWhen: false --><a ng-switch-when="false" href="#!/" class="ng-binding ng-scope">Home</a><!-- end ngSwitchWhen: --><!-- ngSwitchWhen: true --></li><!-- end ngRepeat: step in steps --><li ng-repeat="step in steps" ng-class="{active: $last}" ng-switch="$last || !!step.abstract" class="ng-scope"><!-- ngSwitchWhen: false --><a ng-switch-when="false" href="#!/calendar?v=month&amp;d=2025-12-01T08%3A15%3A00" class="ng-binding ng-scope">Court Events</a><!-- end ngSwitchWhen: --><!-- ngSwitchWhen: true --></li><!-- end ngRepeat: step in steps --><li ng-repeat="step in steps" ng-class="{active: $last}" ng-switch="$last || !!step.abstract" class="ng-scope active"><!-- ngSwitchWhen: false --><!-- ngSwitchWhen: true --><span ng-switch-when="true" class="ng-binding ng-scope">December 1, 2025 (7) MB 2C (Main Branch)</span><!-- end ngSwitchWhen: --></li><!-- end ngRepeat: step in steps --></ol>
+
+    
+    
+
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Event times <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- ngRepeat: cdt in availableTimes --><li ng-repeat="cdt in availableTimes" class="ng-scope">
+                                <a href="" ng-click="timeSelect(cdt)" class="ng-binding">
+                                    <i ng-class="($parent.selectedTimes.indexOf(cdt) &gt; -1)? 'glyphicon glyphicon-check': 'glyphicon glyphicon-unchecked'" aria-hidden="true" class="glyphicon glyphicon-check"></i>&nbsp;8:15 AM
+                                </a>
+                            </li><!-- end ngRepeat: cdt in availableTimes --><li ng-repeat="cdt in availableTimes" class="ng-scope">
+                                <a href="" ng-click="timeSelect(cdt)" class="ng-binding">
+                                    <i ng-class="($parent.selectedTimes.indexOf(cdt) &gt; -1)? 'glyphicon glyphicon-check': 'glyphicon glyphicon-unchecked'" aria-hidden="true" class="glyphicon glyphicon-unchecked"></i>&nbsp;8:30 AM
+                                </a>
+                            </li><!-- end ngRepeat: cdt in availableTimes --><li ng-repeat="cdt in availableTimes" class="ng-scope">
+                                <a href="" ng-click="timeSelect(cdt)" class="ng-binding">
+                                    <i ng-class="($parent.selectedTimes.indexOf(cdt) &gt; -1)? 'glyphicon glyphicon-check': 'glyphicon glyphicon-unchecked'" aria-hidden="true" class="glyphicon glyphicon-unchecked"></i>&nbsp;1:00 PM
+                                </a>
+                            </li><!-- end ngRepeat: cdt in availableTimes --><li ng-repeat="cdt in availableTimes" class="ng-scope">
+                                <a href="" ng-click="timeSelect(cdt)" class="ng-binding">
+                                    <i ng-class="($parent.selectedTimes.indexOf(cdt) &gt; -1)? 'glyphicon glyphicon-check': 'glyphicon glyphicon-unchecked'" aria-hidden="true" class="glyphicon glyphicon-unchecked"></i>&nbsp;1:30 PM
+                                </a>
+                            </li><!-- end ngRepeat: cdt in availableTimes -->
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="" title="Refresh" ng-click="refreshCases()">Reload  <i class="glyphicon glyphicon-refresh"></i></a></li>
+                    <li class="hidden-xs hidden-sm"><a href="" title="Export" class="" ng-show="canExport" ng-click="export()">Export  <i class="glyphicon glyphicon-export"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <p class="hidden-xs hidden-sm ng-binding">
+        <span class="glyphicon glyphicon-asterisk"></span> Note: Some cases may be secured and not for public disclosure
+        <br>
+        <span style="padding-left:18px"></span> Last updated on Nov 21, 2025 3:04:38 PM
+    </p>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <control-editor settingsname="gridRelated_ShowCaseWebSilverlight.Controls.EditAppointment" on-saved="controlsettingSaved(name)" class="ng-isolate-scope"><button type="button" ng-show="canEditControlSettings" class="btn btn-default btn-sm ng-hide" title="Control Editor" style="border:0;float:right; padding: 0 8px; margin-top:-1px;" ng-click="showControlSettingsEditor()" aria-label="control editor"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button></control-editor>
+        </div>
+    </div>
+
+    <dtfilter dtinstance="dtInstance" class="ng-isolate-scope"><div class="input-group pull-right" style="max-width:250px; padding-bottom:5px;"> <input type="text" id="filterInput" class="form-control ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" ng-model="searchText" placeholder="Filter..." aria-label="filter"> <span class="input-group-btn">    <button class="btn btn-default" ng-click="togglefilter()" title="Filter" aria-label="toggle filter" type="button"><span class="glyphicon glyphicon-filter"></span></button> </span> </div></dtfilter>
+
+    <div cg-busy="calCasesLoading" style="position: relative;">
+        <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="dt-buttons btn-group"><button class="btn btn-default buttons-csv buttons-html5" tabindex="0" aria-controls="DataTables_Table_0" type="button"><span>CSV</span></button> </div><table datatable="" dt-instance="dtInstance" dt-options="dtOptions" dt-columns="dtColumns" class="table table-bordered table-condensed table-hover ng-isolate-scope no-footer dtr-inline collapsed dataTable" width="100%" style="display: table; width: 100%;" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info"><thead><tr role="row"><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 44px;" aria-label="Proc'd: activate to sort column ascending">Proc'd</th><th class="text-nowrap sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 184px;" aria-label="Case Number: activate to sort column ascending" aria-sort="descending">Case Number</th><th class="text-nowrap sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 251px;" aria-label="Name: activate to sort column ascending">Name</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 55px;" aria-label="DOB: activate to sort column ascending">DOB</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 95px;" aria-label="Statute Description: activate to sort column ascending">Statute Description</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 81px;" aria-label="Defense Attorney: activate to sort column ascending">Defense Attorney</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 67px;" aria-label="State Attorney: activate to sort column ascending">State Attorney</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 61px;" aria-label="Public Defender: activate to sort column ascending">Public Defender</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 70px;" aria-label="Witnesses: activate to sort column ascending">Witnesses</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 56px;" aria-label="Speedy: activate to sort column ascending">Speedy</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 56px; display: none;" aria-label="Offense Date: activate to sort column ascending">Offense Date</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 56px;" aria-label="Court Date: activate to sort column ascending">Court Date</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 54px; display: none;" aria-label="Officer Witness: activate to sort column ascending">Officer Witness</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 301px; display: none;" aria-label="Statute #: activate to sort column ascending">Statute #</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 0px; display: none;" aria-label="Status: activate to sort column ascending">Status</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 0px; display: none;" aria-label="Jail Cell: activate to sort column ascending">Jail Cell</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 0px; display: none;" aria-label="Court Event Type: activate to sort column ascending">Court Event Type</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 0px; display: none;" aria-label="Courtroom: activate to sort column ascending">Courtroom</th></tr></thead><tbody><tr role="row" class="odd"><td class="ng-scope" tabindex="0"></td><td class="text-nowrap ng-scope sorting_1"><a title="50-2025-MM-009642-AXXX-MB" href="" ng-click="rowClick(2)">50-2025-MM-009642-AXXX-MB</a></td><td class="text-nowrap ng-scope">COLLINS, DEMETRIUS  </td><td class="ng-scope">04/18/1997</td><td class="ng-scope">ASSAULT (SIMPLE),RESIST OFFICER WITHOUT VIOLENCE,SIMPLE BATTERY (DOMESTIC)</td><td class="ng-scope"></td><td class="ng-scope">STATE, ATTORNEY</td><td class="ng-scope">KARPAY, DAVID</td><td class="ng-scope"></td><td class="ng-scope"></td><td class="ng-scope" style="display: none;">11/02/2025</td><td class="ng-scope">12/01/2025</td><td class="ng-scope" style="display: none;"></td><td class="ng-scope" style="display: none;">784.03(1A2),784.011(1),843.02</td><td class="ng-scope" style="display: none;">Open</td><td class="ng-scope" style="display: none;">M-S-04-A-04U-B</td><td class="ng-scope" style="display: none;">MH - MOTION HEARING</td><td class="ng-scope" style="display: none;">2C (Main Branch)</td></tr><tr role="row" class="even"><td class="ng-scope" tabindex="0"></td><td class="text-nowrap ng-scope sorting_1"><a title="50-2025-MM-009486-AXXX-MB" href="" ng-click="rowClick(10)">50-2025-MM-009486-AXXX-MB</a></td><td class="text-nowrap ng-scope">KING, TORRELL XAVIER </td><td class="ng-scope">09/19/1988</td><td class="ng-scope">BATTERY/DOMESTIC</td><td class="ng-scope"></td><td class="ng-scope">STATE, ATTORNEY</td><td class="ng-scope">KARPAY, DAVID</td><td class="ng-scope"></td><td class="ng-scope"></td><td class="ng-scope" style="display: none;">10/27/2025</td><td class="ng-scope">12/01/2025</td><td class="ng-scope" style="display: none;"></td><td class="ng-scope" style="display: none;">784.03(1A1)</td><td class="ng-scope" style="display: none;">Open</td><td class="ng-scope" style="display: none;">M-S-10-C-22U-B</td><td class="ng-scope" style="display: none;">CD - CASE DISPOSITION</td><td class="ng-scope" style="display: none;">2C (Main Branch)</td></tr><tr role="row" class="odd"><td class="ng-scope" tabindex="0"></td><td class="text-nowrap ng-scope sorting_1"><a title="50-2025-MM-009076-AXXX-MB" href="" ng-click="rowClick(16)">50-2025-MM-009076-AXXX-MB</a></td><td class="text-nowrap ng-scope">RODRIGUEZ, ALAN  </td><td class="ng-scope">12/21/1982</td><td class="ng-scope">SIMPLE BATTERY DOMESTIC</td><td class="ng-scope"></td><td class="ng-scope">STATE, ATTORNEY</td><td class="ng-scope">KARPAY, DAVID</td><td class="ng-scope"></td><td class="ng-scope"></td><td class="ng-scope" style="display: none;">10/06/2025</td><td class="ng-scope">12/01/2025</td><td class="ng-scope" style="display: none;"></td><td class="ng-scope" style="display: none;">784.03(1A1)</td><td class="ng-scope" style="display: none;">Open</td><td class="ng-scope" style="display: none;">M-S-08-D-17L-B</td><td class="ng-scope" style="display: none;">CD - CASE DISPOSITION</td><td class="ng-scope" style="display: none;">2C (Main Branch)</td></tr><tr role="row" class="even"><td class="ng-scope" tabindex="0"></td><td class="text-nowrap ng-scope sorting_1"><a title="50-2025-MM-008907-AXXX-MB" href="" ng-click="rowClick(0)">50-2025-MM-008907-AXXX-MB</a></td><td class="text-nowrap ng-scope">AFRIDI, SHAAN ALI </td><td class="ng-scope">11/09/1999</td><td class="ng-scope">VIOLATION OF DV INJUNCTION(DOMESTIC)</td><td class="ng-scope"></td><td class="ng-scope">STATE, ATTORNEY</td><td class="ng-scope">KARPAY, DAVID</td><td class="ng-scope"></td><td class="ng-scope"></td><td class="ng-scope" style="display: none;">10/07/2025</td><td class="ng-scope">12/01/2025</td><td class="ng-scope" style="display: none;"></td><td class="ng-scope" style="display: none;">741.31(4A)</td><td class="ng-scope" style="display: none;">Open</td><td class="ng-scope" style="display: none;">M-E-02-B-20-B </td><td class="ng-scope" style="display: none;">PC - PLEA CONFERENCE</td><td class="ng-scope" style="display: none;">2C (Main Branch)</td></tr><tr role="row" class="odd"><td class="ng-scope" tabindex="0"></td><td class="text-nowrap ng-scope sorting_1"><a title="50-2025-MM-007872-AXXX-MB" href="" ng-click="rowClick(15)">50-2025-MM-007872-AXXX-MB</a></td><td class="text-nowrap ng-scope">PINCKNEY, JAMIE LASHERYL </td><td class="ng-scope">07/14/1976</td><td class="ng-scope">VIOLATION OF AN INJUNCTION AGAINST DOM VIOL</td><td class="ng-scope"></td><td class="ng-scope">STATE, ATTORNEY</td><td class="ng-scope">KARPAY, DAVID</td><td class="ng-scope"></td><td class="ng-scope"></td><td class="ng-scope" style="display: none;">09/03/2025</td><td class="ng-scope">12/01/2025</td><td class="ng-scope" style="display: none;"></td><td class="ng-scope" style="display: none;">741.31(4A1)</td><td class="ng-scope" style="display: none;">Open</td><td class="ng-scope" style="display: none;">W-A-01-1-11U-B</td><td class="ng-scope" style="display: none;">CD - CASE DISPOSITION</td><td class="ng-scope" style="display: none;">2C (Main Branch)</td></tr><tr role="row" class="even"><td class="ng-scope" tabindex="0"></td><td class="text-nowrap ng-scope sorting_1"><a title="50-2025-MM-002737-AXXX-MB" href="" ng-click="rowClick(9)">50-2025-MM-002737-AXXX-MB</a></td><td class="text-nowrap ng-scope">JOHNSON, TOMASINA JESSICA </td><td class="ng-scope">12/12/1988</td><td class="ng-scope">BATTERY-SIMPLE (TOUCH OR STRIKE) (DOMESTIC)</td><td class="ng-scope"></td><td class="ng-scope">STATE, ATTORNEY</td><td class="ng-scope">KARPAY, DAVID</td><td class="ng-scope"></td><td class="ng-scope">06/28/2025</td><td class="ng-scope" style="display: none;">03/30/2025</td><td class="ng-scope">12/01/2025</td><td class="ng-scope" style="display: none;"></td><td class="ng-scope" style="display: none;">784.03(1A1)</td><td class="ng-scope" style="display: none;">Reopen VOP</td><td class="ng-scope" style="display: none;">M-E-06-B-26-B </td><td class="ng-scope" style="display: none;">STCK - STATUS CHECK</td><td class="ng-scope" style="display: none;">2C (Main Branch)</td></tr><tr role="row" class="odd"><td class="ng-scope" tabindex="0"></td><td class="text-nowrap ng-scope sorting_1"><a title="50-2023-MM-001216-AXXX-MB" href="" ng-click="rowClick(1)">50-2023-MM-001216-AXXX-MB</a></td><td class="text-nowrap ng-scope">COHEN, MARK M </td><td class="ng-scope">06/13/1989</td><td class="ng-scope">BATTERY SIMPLE/TOUCH OR STRIKE DOMESTIC</td><td class="ng-scope"></td><td class="ng-scope">GONSALVES, LATIA</td><td class="ng-scope">KARPAY, DAVID</td><td class="ng-scope"></td><td class="ng-scope">05/13/2023</td><td class="ng-scope" style="display: none;">02/12/2023</td><td class="ng-scope">12/01/2025</td><td class="ng-scope" style="display: none;"></td><td class="ng-scope" style="display: none;">784.03(1A1)</td><td class="ng-scope" style="display: none;">Reopen VOP</td><td class="ng-scope" style="display: none;">W-B-01-3-08U-T</td><td class="ng-scope" style="display: none;">STCK - STATUS CHECK</td><td class="ng-scope" style="display: none;">2C (Main Branch)</td></tr></tbody></table><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 1 to 7 (filtered from 20 total entries)</div><div class="dataTables_paginate paging_numbers" id="DataTables_Table_0_paginate"><ul class="pagination"><li class="paginate_button active"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0">1</a></li></ul></div></div>
+
+    <div class="cg-busy cg-busy-backdrop cg-busy-backdrop-animation ng-scope ng-hide" ng-show="$cgBusyIsActive()"></div><div class="cg-busy cg-busy-animation ng-scope ng-hide" ng-show="$cgBusyIsActive()"><div class="cg-busy-default-wrapper" style="position: absolute; inset: 0px;">
+
+   <div class="cg-busy-default-sign">
+
+      <div class="cg-busy-default-spinner">
+         <div class="bar1"></div>
+         <div class="bar2"></div>
+         <div class="bar3"></div>
+         <div class="bar4"></div>
+         <div class="bar5"></div>
+         <div class="bar6"></div>
+         <div class="bar7"></div>
+         <div class="bar8"></div>
+         <div class="bar9"></div>
+         <div class="bar10"></div>
+         <div class="bar11"></div>
+         <div class="bar12"></div>
+      </div>
+
+      <div class="cg-busy-default-text ng-binding">Please Wait...</div>
+
+   </div>
+
+</div></div></div>
+</div>
+</div>
+    </div>
+
+    <footer class="text-center small" style="margin-top:10px;">
+        <ul class="list-inline">
+            <li>© 2025 equivant</li>
+            <li>|</li>
+            <li>ShowCaseWeb (v3.262.8186)</li>
+            <li>|</li>
+            <li><a href="https://www.equivant.com/showcase/">About Us</a></li>
+        </ul>
+    </footer>
+
+    <!--case search dialog-->
+    
+
+<div id="caseSearchPanel" class="modal fade ng-scope" ng-controller="caseSearchCtrl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">  
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                
+                <control-editor settingsname="ucCaseSearchPanel_ShowCaseWebSilverlight.CaseInquire" default="[{&quot;displayName&quot;:&quot;Case Number&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:0,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canCaseNumber&quot;},{&quot;displayName&quot;:&quot;Last Name:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:1,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canLastName&quot;},{&quot;displayName&quot;:&quot;First Name:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:2,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canFirstName&quot;},{&quot;displayName&quot;:&quot;Middle Name:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:3,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canMiddleName&quot;},{&quot;displayName&quot;:&quot;Date of Birth:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:4,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canDateOfBirth&quot;},{&quot;displayName&quot;:&quot;License Number:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:5,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canLicenseNumber&quot;},{&quot;displayName&quot;:&quot;Sheriff's Number:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:6,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canSheriffsNumber&quot;},{&quot;displayName&quot;:&quot;Citation Number:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:7,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canCitationNumber&quot;},{&quot;displayName&quot;:&quot;Incident Number:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:8,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canIncidentNumber&quot;},{&quot;displayName&quot;:&quot;Arrest Date:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:9,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canArrestDate&quot;},{&quot;displayName&quot;:&quot;From Date:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:10,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canFromFileDate&quot;},{&quot;displayName&quot;:&quot;To Date:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:11,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canToFileDate&quot;},{&quot;displayName&quot;:&quot;Offender Number:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:12,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canOffenderNumber&quot;},{&quot;displayName&quot;:&quot;SA Number:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:13,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canSANumber&quot;},{&quot;displayName&quot;:&quot;Bar:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:13,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canBarNumber&quot;},{&quot;displayName&quot;:&quot;Status:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:14,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canStatus&quot;},{&quot;displayName&quot;:&quot;Judge:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:15,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canJudge&quot;},{&quot;displayName&quot;:&quot;Court Type:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:16,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canCourtType&quot;},{&quot;displayName&quot;:&quot;Booking Number:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:17,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canBookingNumber&quot;},{&quot;displayName&quot;:&quot;Search Type:&quot;,&quot;includeInDisplay&quot;:true,&quot;displayOrder&quot;:18,&quot;isConfigurable&quot;:true,&quot;id&quot;:&quot;canSearchType&quot;}]" on-saved="controlsettingSaved(name)" class="ng-isolate-scope"><button type="button" ng-show="canEditControlSettings" class="btn btn-default btn-sm ng-hide" title="Control Editor" style="border:0;float:right; padding: 0 8px; margin-top:-1px;" ng-click="showControlSettingsEditor()" aria-label="control editor"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button></control-editor>
+
+                <h4 class="modal-title">Case Search</h4>
+            </div>
+            <form name="casesearchform" id="casesearchform" ng-submit="search($event)" class="ng-pristine ng-valid ng-valid-maxlength ng-valid-pattern ng-valid-required">
+
+                <div class="modal-body">
+
+                    <!-- ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber --><p ng-switch-when="canCaseNumber" uib-tooltip="Enter the Case number you are searching for.
+ It is possible to bring in a range of cases using a wildcard.
+ For Example: 2011-TR-*1-AXXX-MB   *11-TR-*1-AXXX   *11*000001*MB
+Shortcuts also work(but can't be used with wildcards): 11TR12 " tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" maxlength="50" ng-model="searchArgs.CaseNumber" ng-blur="validateCaseNumber()" ng-attr-placeholder="{{cs.displayName || 'Case Number'}}" aria-label="case number" placeholder="Case Number">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName --><p ng-switch-when="canLastName" uib-tooltip="Enter the Last Name you are looking for.
+You can also use WildCards - Example: SMI% will bring back all Last Names starting with SMI" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="search" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" maxlength="50" ng-model="searchArgs.LastName" ng-attr-placeholder="{{cs.displayName || 'Last Name'}}" aria-label="last name" placeholder="Last Name:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName --><p ng-switch-when="canFirstName" uib-tooltip="Enter the First Name you are looking for.
+You can also use WildCards - Example: JOH% will bring back all First Names starting with JOH" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" maxlength="50" ng-model="searchArgs.FirstName" ng-attr-placeholder="{{cs.displayName || 'First Name'}}" aria-label="first name" placeholder="First Name:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth --><p ng-switch-when="canDateOfBirth" ng-class="{'has-error':!casesearchform.DOB.$valid}" uib-tooltip="Please enter a date of birth in the format of DD/MM/YYYY" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" name="DOB" data-mask="00/00/0000" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-pattern ng-valid-maxlength" ng-model="searchArgs.DOB" maxlength="10" ng-pattern="/^(\d{2})\/(\d{2})\/(\d{4})$/" ng-attr-placeholder="{{cs.displayName || 'Date Of Birth'}}" aria-label="first name" placeholder="Date of Birth:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber --><p ng-switch-when="canLicenseNumber" uib-tooltip="Enter the Drivers License number you are looking for.
+You can also use WildCards - Example: S300% will bring back all DL #'s that start with S300" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" maxlength="50" ng-model="searchArgs.DLNumber" ng-attr-placeholder="{{cs.displayName || 'License #'}}" aria-label="license number" placeholder="License Number:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber --><p ng-switch-when="canSheriffsNumber" uib-tooltip="Enter the Sheriffs number you are looking for.
+" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" maxlength="50" ng-model="searchArgs.CountyID" ng-attr-placeholder="{{cs.displayName || 'Sheriff\'s #'}}" aria-label="sheriffs number" placeholder="Sheriff's Number:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber --><p ng-switch-when="canCitationNumber" uib-tooltip="Enter the Citation number, without dashes and without the check digit, you are looking for.
+You can also use WildCards - Example: 1234* will bring back all Citations that start with 1234" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" name="citationNumber" ng-required="requireCitation" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength ng-valid-required" maxlength="50" ng-model="searchArgs.CitationNumber" ng-attr-placeholder="{{cs.displayName || 'Citation #'}}" aria-label="citation number" placeholder="Citation Number:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber --><p ng-switch-when="canIncidentNumber" uib-tooltip="Enter the Incident number you are looking for. 
+You can also use WildCards - Example: 1202* will bring back all Incident #'s with 1202123456, etc" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" maxlength="50" ng-model="searchArgs.IncidentNumber" ng-attr-placeholder="{{cs.displayName || 'Incident #'}}" aria-label="incident number" placeholder="Incident Number:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate --><p ng-switch-when="canArrestDate" ng-class="{'has-error':!casesearchform.arrestDate.$valid}" uib-tooltip="Please enter the arrest date in the format of DD/MM/YYYY" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" name="arrestDate" data-mask="00/00/0000" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-pattern ng-valid-maxlength" maxlength="10" ng-model="searchArgs.ArrestDate" ng-pattern="/^(\d{2})\/(\d{2})\/(\d{4})$/" ng-attr-placeholder="{{cs.displayName || 'Arrest Date'}}" aria-label="arrest date" placeholder="Arrest Date:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate --><p ng-switch-when="canFromFileDate" ng-class="{'has-error':!casesearchform.fromDate.$valid}" uib-tooltip="Please enter the from date in the format of DD/MM/YYYY" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input name="fromDate" type="text" data-mask="00/00/0000" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-pattern ng-valid-maxlength" maxlength="10" ng-model="searchArgs.FromFileDate" ng-pattern="/^(\d{2})\/(\d{2})\/(\d{4})$/" ng-attr-placeholder="{{cs.displayName || 'From Date'}}" aria-label="from date" placeholder="From Date:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate --><p ng-switch-when="canToFileDate" ng-class="{'has-error':!casesearchform.toDate.$valid}" uib-tooltip="Please enter the to date in the format of DD/MM/YYYY" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input name="toDate" type="text" data-mask="00/00/0000" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-pattern ng-valid-maxlength" maxlength="10" ng-model="searchArgs.ToFileDate" ng-pattern="/^(\d{2})\/(\d{2})\/(\d{4})$/" ng-attr-placeholder="{{cs.displayName || 'To Date'}}" aria-label="to date" placeholder="To Date:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber --><p ng-switch-when="canOffenderNumber" uib-tooltip="Enter the Offender number you are looking for.
+Use this format: yyyy-999999
+You can also use WildCards - Example: 2007-*123* will bring back all Offender #'s with 2007-000123 or 2007-123???, 2007-012355, etc" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" maxlength="50" ng-model="searchArgs.Offender" ng-attr-placeholder="{{cs.displayName || 'Offender'}}" aria-label="offender" placeholder="Offender Number:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber --><p ng-switch-when="canSANumber" uib-tooltip="Enter the SA number you are looking for.
+Use this format: yyyy-999999
+You can also use WildCards - Example: 2007-*123* will bring back all SA #'s with 2007-000123 or 2007-123???, 2007-012355, etc" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" maxlength="50" ng-model="searchArgs.SAONumber" ng-attr-placeholder="{{cs.displayName || 'SA #'}}" aria-label="state attorney number" placeholder="SA Number:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber --><p ng-switch-when="canBarNumber" tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" maxlength="50" ng-model="searchArgs.BarNumber" ng-attr-placeholder="{{cs.displayName || 'Bar #'}}" aria-label="bar number" placeholder="Bar:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus --><p ng-switch-when="canStatus" uib-tooltip="Select the Case Status to help narrow your search." tooltip-popup-delay="1000" class="ng-scope">
+                            <label class="ng-binding">Status:</label>
+                            <select class="form-control input-sm ng-pristine ng-untouched ng-valid ng-empty" ng-model="searchArgs.caseStatusID" ng-options="cs.caseStatusID as cs.status for cs in caseStatuses | orderBy:'status' track by cs.caseStatusID" aria-label="case status"><option value="" class="" selected="selected"></option><option label="Closed" value="1">Closed</option><option label="Consolidated" value="7">Consolidated</option><option label="Disposed" value="2">Disposed</option><option label="InComplete" value="6">InComplete</option><option label="Non-SRS" value="8">Non-SRS</option><option label="Open" value="3">Open</option><option label="Reopen" value="4">Reopen</option><option label="Reopen VOP" value="5">Reopen VOP</option></select>
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge --><p ng-switch-when="canJudge" uib-tooltip="Select a Judge to search on." tooltip-popup-delay="1000" class="ng-scope">
+                            <label class="ng-binding">Judge:</label>
+                            <select class="form-control input-sm ng-pristine ng-untouched ng-valid ng-empty" ng-model="searchArgs.judgeID" ng-options="j.judgeID as j.judgeName for j in judges | orderBy:'judgeName' track by j.judgeID" aria-label="judge"><option value="" class="" selected="selected"></option><option label="AC, Division" value="2102">AC, Division</option><option label="ACREAGE VIDEO, CONFERENCE" value="2073">ACREAGE VIDEO, CONFERENCE</option><option label="AD_DIVISION, JUDGE" value="2116">AD_DIVISION, JUDGE</option><option label="AK_DIVISION, JUDGE" value="2120">AK_DIVISION, JUDGE</option><option label="ALIJEWICZ, SARA" value="2133">ALIJEWICZ, SARA</option><option label="ALTERNATE, JUDGE " value="152">ALTERNATE, JUDGE </option><option label="AN_DIVISION, JUDGE" value="2112">AN_DIVISION, JUDGE</option><option label="APPEARANCE, FIRST " value="18">APPEARANCE, FIRST </option><option label="ARTAU, EDWARD" value="2083">ARTAU, EDWARD</option><option label="AUGUSTE, HEARINGOFFICERPARNEL" value="205">AUGUSTE, HEARINGOFFICERPARNEL</option><option label="BAILEY, NELSON E" value="134">BAILEY, NELSON E</option><option label="BAKER, MAGISTRATETHOMAS R" value="48">BAKER, MAGISTRATETHOMAS R</option><option label="BARKDULL, THOMAS H" value="150">BARKDULL, THOMAS H</option><option label="BASSALINE, MAGISTRATEPETER" value="85">BASSALINE, MAGISTRATEPETER</option><option label="BELL, CAROLYN" value="2125">BELL, CAROLYN</option><option label="BG, Division" value="142">BG, Division</option><option label="BLANC, PETER D" value="69">BLANC, PETER D</option><option label="BLUMBERG, HEARINGOFFICERSARA" value="204">BLUMBERG, HEARINGOFFICERSARA</option><option label="BONAVITA, AUGUST" value="192">BONAVITA, AUGUST</option><option label="BOORAS, TED" value="133">BOORAS, TED</option><option label="BOSSOPARDO, SANDRA" value="137">BOSSOPARDO, SANDRA</option><option label="BRISTOW, APRIL" value="2148">BRISTOW, APRIL</option><option label="BROOKS, HEARINGOFFICERELLIOT" value="2080">BROOKS, HEARINGOFFICERELLIOT</option><option label="BRUNSON, CATHERINE M" value="105">BRUNSON, CATHERINE M</option><option label="BRUSTARESKEYSER, JANIS" value="62">BRUSTARESKEYSER, JANIS</option><option label="BRYSON, MARNI" value="201">BRYSON, MARNI</option><option label="BURKE, LAUREN" value="2151">BURKE, LAUREN</option><option label="BURKHART, LAURA C" value="2145">BURKHART, LAURA C</option><option label="BURTON, CHARLES E" value="96">BURTON, CHARLES E</option><option label="CARACUZZO, CHERYL" value="2088">CARACUZZO, CHERYL</option><option label="CASANOVA, LOURDES" value="2161">CASANOVA, LOURDES</option><option label="CASON, MAGISTRATEJODI" value="2159">CASON, MAGISTRATEJODI</option><option label="CASTOR, FRANK S" value="47">CASTOR, FRANK S</option><option label="CHEESMAN, MAXINE" value="2134">CHEESMAN, MAXINE</option><option label="CHIMERA, HEARINGOFFICERCATHY" value="206">CHIMERA, HEARINGOFFICERCATHY</option><option label="COATES JR, HOWARD  K" value="2086">COATES JR, HOWARD  K</option><option label="COHEN, BARRY M" value="31">COHEN, BARRY M</option><option label="COLBATH, JEFFREY" value="191">COLBATH, JEFFREY</option><option label="COLLINS, SHERRI L" value="2117">COLLINS, SHERRI L</option><option label="COLTON, ROGER B" value="41">COLTON, ROGER B</option><option label="CONVERSION, JUDGE" value="2162">CONVERSION, JUDGE</option><option label="CORLEW, REGINALD" value="97">CORLEW, REGINALD</option><option label="CUNNINGHAM, SHEREE" value="90">CUNNINGHAM, SHEREE</option><option label="CURLEY, G JOSEPH" value="2122">CURLEY, G JOSEPH</option><option label="DAMICO, PAUL" value="184">DAMICO, PAUL</option><option label="DELGADO, LUIS" value="2113">DELGADO, LUIS</option><option label="DELRAY VIDEO, CONFERENCE " value="160">DELRAY VIDEO, CONFERENCE </option><option label="DIGANGI, SANTO" value="2158">DIGANGI, SANTO</option><option label="DIVISION, ADMINISTRATIVE " value="65">DIVISION, ADMINISTRATIVE </option><option label="DUS_DIVISION, JUDGE" value="2096">DUS_DIVISION, JUDGE</option><option label="DUTYJUDGE, BG" value="186">DUTYJUDGE, BG</option><option label="EISSEY, MARK" value="91">EISSEY, MARK</option><option label="EVANS, PETER M" value="40">EVANS, PETER M</option><option label="FANELLI, MAGISTRATEJUDETTE N" value="12">FANELLI, MAGISTRATEJUDETTE N</option><option label="FRANCIS, RENATHA S" value="2141">FRANCIS, RENATHA S</option><option label="FRENCH, DAVID E" value="135">FRENCH, DAVID E</option><option label="FRINK, KEATHAN" value="2140">FRINK, KEATHAN</option><option label="FRUSCIANTE, JOHN" value="2079">FRUSCIANTE, JOHN</option><option label="FW, Division" value="123">FW, Division</option><option label="FX, Division" value="2106">FX, Division</option><option label="GARRISON, EDWARD A" value="95">GARRISON, EDWARD A</option><option label="GENERAL MASTER, JUVENILE " value="53">GENERAL MASTER, JUVENILE </option><option label="GENERAL MASTER, JUVENILE (BG) " value="145">GENERAL MASTER, JUVENILE (BG) </option><option label="GERSHMAN, HEARINGOFFICERROBERT" value="2144">GERSHMAN, HEARINGOFFICERROBERT</option><option label="GILLEN, JEFFREY" value="2078">GILLEN, JEFFREY</option><option label="GILLMAN, PAIGE" value="2138">GILLMAN, PAIGE</option><option label="GOLDBERGER, HEARINGOFFICERJACK" value="2119">GOLDBERGER, HEARINGOFFICERJACK</option><option label="GOODMAN, JAIMIE" value="2084">GOODMAN, JAIMIE</option><option label="GOODWIN, MAGISTRATELINDA" value="61">GOODWIN, MAGISTRATELINDA</option><option label="GUN CLUB - PRETRIAL, SETS " value="171">GUN CLUB - PRETRIAL, SETS </option><option label="GURNEY, HEARINGOFFICERJON" value="2146">GURNEY, HEARINGOFFICERJON</option><option label="HAFELE, DONALD W" value="56">HAFELE, DONALD W</option><option label="HANSER, LEONARD" value="155">HANSER, LEONARD</option><option label="HARPER, BRADLEY" value="2114">HARPER, BRADLEY</option><option label="HARRISON, HOWARD" value="27">HARRISON, HOWARD</option><option label="HAVERMAN, HEARINGOFFICERDANIEL" value="207">HAVERMAN, HEARINGOFFICERDANIEL</option><option label="IJ, Division" value="2105">IJ, Division</option><option label="INFRACTION, DELRAY TRAFFIC " value="68">INFRACTION, DELRAY TRAFFIC </option><option label="INFRACTION, HEARINGS " value="157">INFRACTION, HEARINGS </option><option label="INFRACTIONS, NORTH " value="15">INFRACTIONS, NORTH </option><option label="IX, Division" value="2104">IX, Division</option><option label="JOHNSON, LAURA" value="166">JOHNSON, LAURA</option><option label="JUDGE, DUTY " value="183">JUDGE, DUTY </option><option label="JUDGES, AVAILABLE" value="57">JUDGES, AVAILABLE</option><option label="JUVENILE DUTY, JUDGE" value="2090">JUVENILE DUTY, JUDGE</option><option label="JUVENILE, MAGISTRATE" value="2127">JUVENILE, MAGISTRATE</option><option label="KASTRENAKES, JOHN S" value="84">KASTRENAKES, JOHN S</option><option label="KEEVER-AGRAMA, DINA" value="2089">KEEVER-AGRAMA, DINA</option><option label="KEHOE, HEARINGOFFICERJAMES" value="209">KEHOE, HEARINGOFFICERJAMES</option><option label="KELLEY, GLENN" value="39">KELLEY, GLENN</option><option label="KERNER, SCOTT" value="2135">KERNER, SCOTT</option><option label="KEYSER, GREGORY" value="240">KEYSER, GREGORY</option><option label="KEYSER, JANIS" value="2077">KEYSER, JANIS</option><option label="KIRIGIN, MAGISTRATEDIANE" value="130">KIRIGIN, MAGISTRATEDIANE</option><option label="KKONE, Division" value="151">KKONE, Division</option><option label="KROLL, KATHLEEN J" value="144">KROLL, KATHLEEN J</option><option label="KURTZ, HEARINGOFFICERJOHN" value="210">KURTZ, HEARINGOFFICERJOHN</option><option label="LENOFF, HEARINGOFFICERMICHELE" value="211">LENOFF, HEARINGOFFICERMICHELE</option><option label="LUBITZ, SUSAN R" value="89">LUBITZ, SUSAN R</option><option label="M_DIVISION, JUDGE" value="2111">M_DIVISION, JUDGE</option><option label="MAGISTRATE, GENERAL " value="23">MAGISTRATE, GENERAL </option><option label="MARTZ, JAMES L" value="185">MARTZ, JAMES L</option><option label="MARX, JOSEPH" value="79">MARX, JOSEPH</option><option label="MARX, KRISTA" value="125">MARX, KRISTA</option><option label="MCGLYNN, HEARINGOFFICERJAMES" value="212">MCGLYNN, HEARINGOFFICERJAMES</option><option label="MCSORLEY, SANDRA K" value="26">MCSORLEY, SANDRA K</option><option label="MILLER, HEARINGOFFICERSTEVE" value="213">MILLER, HEARINGOFFICERSTEVE</option><option label="MILLER, KAREN M" value="146">MILLER, KAREN M</option><option label="MOYLE, PAUL O" value="98">MOYLE, PAUL O</option><option label="MULLINAX, KATHERINE" value="2160">MULLINAX, KATHERINE</option><option label="MURPHY, JOSEPH" value="2087">MURPHY, JOSEPH</option><option label="NB_MARCHMAN, MAGISTRATE" value="2130">NB_MARCHMAN, MAGISTRATE</option><option label="NB_PLACEMENTS, MAGISTRATE" value="2128">NB_PLACEMENTS, MAGISTRATE</option><option label="NO, Division" value="165">NO, Division</option><option label="NUTT, JAMES" value="2121">NUTT, JAMES</option><option label="OFS1, JUDGE" value="2098">OFS1, JUDGE</option><option label="OFS2, JUDGE" value="2099">OFS2, JUDGE</option><option label="OFS3, JUDGE" value="2100">OFS3, JUDGE</option><option label="OFS4, JUDGE" value="2101">OFS4, JUDGE</option><option label="OFS5, JUDGE" value="2107">OFS5, JUDGE</option><option label="OFTEDAL, RICHARD L" value="138">OFTEDAL, RICHARD L</option><option label="OSOFSKY, HEARINGOFFICERMARSHALL" value="214">OSOFSKY, HEARINGOFFICERMARSHALL</option><option label="PANEL, APPELLATE " value="162">PANEL, APPELLATE </option><option label="PANSE, ROBERT" value="244">PANSE, ROBERT</option><option label="PARNOFIELLO, JOHN" value="2147">PARNOFIELLO, JOHN</option><option label="PEREZ, NANCY" value="4">PEREZ, NANCY</option><option label="PIP, HEARINGS" value="2123">PIP, HEARINGS</option><option label="PRINTZ, MAGISTRATEJENNIFER" value="2124">PRINTZ, MAGISTRATEJENNIFER</option><option label="RA, Division" value="127">RA, Division</option><option label="RJ_DIVISION, JUDGE" value="2110">RJ_DIVISION, JUDGE</option><option label="ROBERTS, HEARINGOFFICERDONIA" value="216">ROBERTS, HEARINGOFFICERDONIA</option><option label="ROBY, WILLIAM L" value="2139">ROBY, WILLIAM L</option><option label="ROUTMAN, HEARINGOFFICERLLOYD" value="217">ROUTMAN, HEARINGOFFICERLLOYD</option><option label="ROWE, CYMONIE S" value="2109">ROWE, CYMONIE S</option><option label="RUBIN, HEARINGOFFICERSTEVEN" value="218">RUBIN, HEARINGOFFICERSTEVEN</option><option label="SANTINO, DANA" value="2115">SANTINO, DANA</option><option label="SASSER, MEENU" value="136">SASSER, MEENU</option><option label="SB_MARCHMAN, MAGISTRATE" value="2131">SB_MARCHMAN, MAGISTRATE</option><option label="SB_PIP, HEARINGS" value="2126">SB_PIP, HEARINGS</option><option label="SB_PLACEMENTS, MAGISTRATE" value="2129">SB_PLACEMENTS, MAGISTRATE</option><option label="SCHER, ROSEMARIE" value="2071">SCHER, ROSEMARIE</option><option label="SCHOSBERG_FEUER, SAMANTHA" value="2081">SCHOSBERG_FEUER, SAMANTHA</option><option label="SCOTT, REID P" value="2156">SCOTT, REID P</option><option label="SENIOR, JUDGE" value="224">SENIOR, JUDGE</option><option label="SET, SPECIAL " value="52">SET, SPECIAL </option><option label="SHEPHERD, CAROLINE CAHILL" value="126">SHEPHERD, CAROLINE CAHILL</option><option label="SHERMAN, JAMES W" value="2152">SHERMAN, JAMES W</option><option label="SHERRIFF, DANIELLE A" value="2157">SHERRIFF, DANIELLE A</option><option label="SHULL, DARREN" value="2153">SHULL, DARREN</option><option label="SHULLMAN, SARAH L" value="2143">SHULLMAN, SARAH L</option><option label="SILVER, ORI" value="2149">SILVER, ORI</option><option label="SIPERSTEIN, CARYN" value="2154">SIPERSTEIN, CARYN</option><option label="SMALL, LISA" value="203">SMALL, LISA</option><option label="SOUTH COUNTY CIVIC CENTER - PRETRIAL, SETS " value="25">SOUTH COUNTY CIVIC CENTER - PRETRIAL, SETS </option><option label="SPECIAL, SET-CIRCUIT" value="172">SPECIAL, SET-CIRCUIT</option><option label="SPECIAL, SET-COUNTY" value="14">SPECIAL, SET-COUNTY</option><option label="STEPHENS, DEBRA MOSES" value="175">STEPHENS, DEBRA MOSES</option><option label="SURBER, MELANIE D" value="2142">SURBER, MELANIE D</option><option label="SUSKAUER, SCOTT" value="2092">SUSKAUER, SCOTT</option><option label="TEW, STEPHANIE" value="2155">TEW, STEPHANIE</option><option label="TICKTIN, JESSICA" value="2082">TICKTIN, JESSICA</option><option label="VOLKER, KIRK" value="2085">VOLKER, KIRK</option><option label="WD, Division" value="2103">WD, Division</option><option label="WEISS, DALIAH H" value="2072">WEISS, DALIAH H</option><option label="WELLINGTON - PRETRIAL, SETS " value="45">WELLINGTON - PRETRIAL, SETS </option><option label="WEST BOCA VIDEO, CONFERENCE" value="2074">WEST BOCA VIDEO, CONFERENCE</option><option label="WEST BRANCH, INFRACTIONS " value="100">WEST BRANCH, INFRACTIONS </option><option label="WG, COMMUNITY COURT " value="5">WG, COMMUNITY COURT </option><option label="WILLIAMS, MAGISTRATEJAMES" value="2150">WILLIAMS, MAGISTRATEJAMES</option><option label="WILLIAMS, MAGISTRATEMAXINE" value="78">WILLIAMS, MAGISTRATEMAXINE</option><option label="WILLIS, SARAH" value="2136">WILLIS, SARAH</option><option label="WP, COMMUNITY COURT " value="154">WP, COMMUNITY COURT </option><option label="Y, Division" value="76">Y, Division</option><option label="Y2, DIVISION" value="2132">Y2, DIVISION</option><option label="ZUCKERMAN, ASHLEY" value="2137">ZUCKERMAN, ASHLEY</option></select>
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType --><p ng-switch-when="canCourtType" class="ng-scope">
+                            <label class="ng-binding">Court Type:</label>
+                            <select class="form-control input-sm ng-pristine ng-untouched ng-valid ng-empty" ng-model="searchArgs.courtTypeID" ng-options="ct.courtTypeID as ct.courtTypeDescription for ct in courtTypes | orderBy:'courtTypeDescription' track by ct.courtTypeID" aria-label="case status"><option value="?" selected="selected"></option><option label="4th DCA" value="52">4th DCA</option><option label="Appeal from the County Court" value="34">Appeal from the County Court</option><option label="Circuit Civil" value="8">Circuit Civil</option><option label="CIVIL BONDS" value="56">CIVIL BONDS</option><option label="County Civil" value="33">County Civil</option><option label="County Ordinance" value="32">County Ordinance</option><option label="Criminal Traffic" value="5">Criminal Traffic</option><option label="Delinquency" value="30">Delinquency</option><option label="Dependency" value="31">Dependency</option><option label="Domestic Relations/Family" value="7">Domestic Relations/Family</option><option label="ESCROW ACCOUNTS" value="57">ESCROW ACCOUNTS</option><option label="Felony" value="1">Felony</option><option label="Foreclosure Deposit" value="59">Foreclosure Deposit</option><option label="Guardianship" value="24">Guardianship</option><option label="Marriage License" value="51">Marriage License</option><option label="Mental Health" value="29">Mental Health</option><option label="Miscellaneous" value="37">Miscellaneous</option><option label="Misdemeanor" value="2">Misdemeanor</option><option label="Municipal Ordinance" value="3">Municipal Ordinance</option><option label="Non Criminal Infraction" value="35">Non Criminal Infraction</option><option label="Probate/Guardianship" value="23">Probate/Guardianship</option><option label="Small Claims" value="11">Small Claims</option><option label="Suspense" value="38">Suspense</option><option label="Traffic Infractions" value="16">Traffic Infractions</option><option label="WILL ONLY" value="61">WILL ONLY</option></select>
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber --><p ng-switch-when="canBookingNumber" uib-tooltip="Enter the Booking Sheet Number you are looking for.
+Use this format: yyyy999999
+You can also use WildCards - Example: 2007*123* will bring back all Booking Sheet #'s with 2007000123 or 2007123???, 2007012355, etc. " tooltip-popup-delay="1000" tooltip-placement="bottom" class="ng-scope">
+                            <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" maxlength="50" ng-model="searchArgs.BookingNumber" ng-attr-placeholder="{{cs.displayName || 'Booking #'}}" aria-label="booking number" placeholder="Booking Number:">
+                        </p><!-- end ngSwitchWhen: -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType -->
+
+                    </div><!-- end ngRepeat: cs in settings --><div ng-repeat="cs in settings" ng-switch="cs.id" class="ng-scope">
+                        
+                        <!-- ngSwitchWhen: canLastName -->
+
+                        <!-- ngSwitchWhen: canFirstName -->
+
+                        <!-- ngSwitchWhen: canDateOfBirth -->
+
+                        <!-- ngSwitchWhen: canCaseNumber -->
+
+                        <!-- ngSwitchWhen: canLicenseNumber -->
+
+                        <!-- ngSwitchWhen: canSheriffsNumber -->
+
+                        <!-- ngSwitchWhen: canCitationNumber -->
+
+                        <!-- ngSwitchWhen: canIncidentNumber -->
+
+                        <!-- ngSwitchWhen: canArrestDate -->
+
+                        <!-- ngSwitchWhen: canFromFileDate -->
+
+                        <!-- ngSwitchWhen: canToFileDate -->
+
+                        <!-- ngSwitchWhen: canOffenderNumber -->
+
+                        <!-- ngSwitchWhen: canSANumber -->
+
+                        <!-- ngSwitchWhen: canBookingNumber -->
+
+                        <!-- ngSwitchWhen: canBarNumber -->
+
+                        <!-- ngSwitchWhen: canJudge -->
+
+                        <!-- ngSwitchWhen: canDivision -->
+
+                        <!-- ngSwitchWhen: canStatus -->
+
+                        <!-- ngSwitchWhen: canCourtType -->
+
+                        <!-- ngSwitchWhen: canSearchType --><p ng-switch-when="canSearchType" uib-tooltip="*Exact Match:* This is the default match type. Will return the exact matching name - Example: SMITH will only bring back Last Names of SMITH
+
+*Starts With:* Will return names that begin with the same letters - Example: SMI* will bring back all Last Names starting with SMI 
+
+*Soundex Match:* Will return search results that match the Soundex variations for the names that you entered into the Name fields.
+ Soundex is a 'phonetic algorithm' that identifies words that sound alike but are spelled differently such as 'Smyth' and 'Smith' or 'Brown' and 'Braun.' " tooltip-popup-delay="1000" aria-owns="search-type" aria-activedescendant="" class="ng-binding ng-scope">
+                            Search Type:&nbsp;
+                            <span class="btn-group" role="radiogroup" aria-label="search match type" id="search-type">
+                                <label role="option" id="opt-exact" class="btn btn-default ng-pristine ng-untouched ng-valid active ng-not-empty" ng-model="searchArgs.MatchType" uib-btn-radio="0" aria-checked="false">Exact</label>
+                                <label role="option" id="opt-soundex" class="btn btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="searchArgs.MatchType" uib-btn-radio="1" aria-checked="false">SoundEx</label>
+                                <label role="option" id="opt-startswith" class="btn btn-default ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="searchArgs.MatchType" uib-btn-radio="2" aria-checked="false">Starts With</label>
+                            </span>
+                        </p><!-- end ngSwitchWhen: -->
+
+                    </div><!-- end ngRepeat: cs in settings -->
+
+                    <!-- ngIf: modalTitle == 'Case Search' -->
+
+                    
+                </div>
+
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-xs-8 col-thin">
+                            <button type="submit" class="btn btn-primary btn-block" ng-disabled="!casesearchform.$valid"><span class="glyphicon glyphicon-search"></span> Search</button>
+                        </div>
+                        <div class="col-xs-4 col-thin">
+                            <button type="button" class="btn btn-default btn-block" ng-click="clear()"><span class="glyphicon glyphicon-erase"></span> Clear</button>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-thin">
+                            <!-- ngIf: noResults -->
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+    <!--citation search dialog-->
+    
+
+<div id="citationSearchPanel" class="modal fade ng-scope" ng-controller="citationSearchCtrl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">  
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Citation Search</h4>
+            </div>
+            <form name="searchform" id="searchform" ng-submit="search($event)" class="ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength">
+
+                <div class="modal-body">
+
+                    <p uib-tooltip="Enter the Citation number, without dashes and without the check digit, you are looking for.
+You can also use WildCards - Example: 1234* will bring back all Citations that start with 1234" tooltip-popup-delay="1000" tooltip-placement="bottom">
+                        <input type="text" name="citationNumber" ng-required="true" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-maxlength" maxlength="50" ng-model="searchArgs.CitationNumber" ng-attr-placeholder="{{cs.displayName || 'Citation #'}}" aria-label="citation number" placeholder="Citation #" required="required">
+                    </p>
+
+                </div>
+
+                <div class="modal-footer">
+                    
+
+                    <div class="row">
+                        <div class="col-xs-8 col-thin">
+                            <button type="submit" class="btn btn-primary btn-block" ng-disabled="!searchform.$valid" disabled="disabled"><span class="glyphicon glyphicon-search"></span> Search</button>
+                        </div>
+                        <div class="col-xs-4 col-thin">
+                            <button type="button" class="btn btn-default btn-block" ng-click="clear()"><span class="glyphicon glyphicon-erase"></span> Clear</button>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-thin">
+                            <!-- ngIf: noResults -->
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+    <!--login dialog-->
+    
+<div id="login_modal" class="modal fade ng-scope" ng-controller="loginCtrl">
+    <div class="modal-dialog">
+        <div class="modal-content" cg-busy="promiseLoading">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Login</h4>
+            </div>
+            <div class="modal-body">
+                <form id="loginform" role="form" ng-submit="login(credentials)" novalidate="" method="post" class="ng-pristine ng-valid">
+                    <input name="__RequestVerificationToken" type="hidden" value="5xuwAR3jY0vCynBmXo8XbmJmO7E2SbgOY7dlRwBHDkXcBneDHm4n4NUX1-7PfPv3FYd0el1hMilW2LdkkbmMPEKJNU69kYD-H_q-usk66IB_qw4mDqClDq18Ah1UyCj50" autocomplete="off">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-empty" id="username" name="username" placeholder="Username" ng-model="credentials.username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control ng-pristine ng-untouched ng-valid ng-empty" id="password" name="password" placeholder="Password" ng-model="credentials.password">
+                    </div>
+                    <div class="modal-footer">
+                        <!-- ngIf: message -->
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </form>
+
+                
+                
+ 
+            </div>
+        <div class="cg-busy cg-busy-backdrop cg-busy-backdrop-animation ng-hide ng-scope" ng-show="$cgBusyIsActive()"></div><div class="cg-busy cg-busy-animation ng-hide ng-scope" ng-show="$cgBusyIsActive()"><div class="cg-busy-default-wrapper" style="position: absolute; inset: 0px;">
+
+   <div class="cg-busy-default-sign">
+
+      <div class="cg-busy-default-spinner">
+         <div class="bar1"></div>
+         <div class="bar2"></div>
+         <div class="bar3"></div>
+         <div class="bar4"></div>
+         <div class="bar5"></div>
+         <div class="bar6"></div>
+         <div class="bar7"></div>
+         <div class="bar8"></div>
+         <div class="bar9"></div>
+         <div class="bar10"></div>
+         <div class="bar11"></div>
+         <div class="bar12"></div>
+      </div>
+
+      <div class="cg-busy-default-text ng-binding">Please Wait...</div>
+
+   </div>
+
+</div></div></div>
+    </div>
+</div>
+    <!--control editor dialog-->
+    
+<style>
+    .movable {
+        cursor: move;
+        padding-left:5px;
+    }
+</style>
+
+<div class="modal fade ng-scope" id="controlSettingsModal" role="dialog" ng-controller="controlSettingsCtrl">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title">Control Settings Editor</h4>
+            </div>
+            <div class="modal-body">
+                <p>Setting Name: <b class="ng-binding"></b></p>
+                
+                <p>Group Name:</p>
+                <select class="form-control input-sm ng-pristine ng-untouched ng-valid ng-empty" ng-model="selectedGroup" ng-options="csg as csg.controlSettingsGroupName for csg in groups | orderBy:'controlSettingsGroupName' 
+                        track by csg.groupID" ng-change="groupChange()" aria-label="control settings group"><option value="?" selected="selected"></option></select>
+
+                <hr>
+
+                <div id="draggablePanelList">
+                    <!-- ngRepeat: c in columns | filter:{isConfigurable:true} -->
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="saveControlSetting()">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+    <script src="/ShowCaseWebSSO/bundles/jquery?v=nTaCxUfAFCGfUgkFwubuC_0FgowyIeGMEsY_6iTyrxg1"></script>
+
+    <script src="/ShowCaseWebSSO/bundles/bootstrap?v=QDb0W5e6Nmsp9PRgVRJKPCHaMmB0cyYOzTF83tt6urM1"></script>
+
+    <script src="/ShowCaseWebSSO/bundles/angular-core?v=al6QSbnw1ntTghHfL7WvTlhdPd1-D4J7LNmqk9ncajI1"></script>
+
+    <script src="/ShowCaseWebSSO/bundles/datatables?v=_pWTmdH5SRvjtqb97N_ewmmWEBX0ODPuZ2wenqkmK5s1"></script>
+
+    <script src="/ShowCaseWebSSO/bundles/angular-datatables?v=Kx9ZXmL6-RnILOlkgzjTIC_8DG9WvNDXXapkLjWeiJo1"></script>
+
+    <script src="/ShowCaseWebSSO/bundles/calendar?v=rVNeXM6XSrDVEqueGWRJZUbVgawNN5o1RtbEyEUdLBM1"></script>
+
+    <script src="/ShowCaseWebSSO/bundles/showcase?v=Lq2BCJnF71f8CGcq1fA6h6TqJYV-1-fEtDj1tC1RYQs1"></script>
+
+    
+
+
+</body>
+</html>

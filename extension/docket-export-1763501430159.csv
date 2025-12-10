@@ -1,0 +1,19 @@
+caseTitle,caseType,court.courtName,court.division,court.judgeName,docketNumber,filingDate,status
+"State of Example v. John Doe","Criminal - Felony","Example County
+      State of Example ","Criminal Division 3","Hon. Jane Smith","CR-2025-12345","2025-01-15T05:00:00.000Z","Active"
+"State of Example v. John Doe","Criminal - Felony","Example County
+      State of Example ","Criminal Division 3","Hon. Jane Smith","CR-2025-12345","2025-01-15T05:00:00.000Z","Active"
+"","","","","","","","Case Number:
+CR-2025-12345
+Case Title:
+State of Example v. John Doe
+Case Type:
+Criminal - Felony
+Filing Date:
+01/15/2025
+Status:
+Active
+Judge:
+Hon. Jane Smith
+Division:
+Criminal Division 3"

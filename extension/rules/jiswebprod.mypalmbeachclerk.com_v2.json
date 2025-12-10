@@ -1,0 +1,524 @@
+{
+  "domain": "jiswebprod.mypalmbeachclerk.com",
+  "name": "Palm Beach County Clerk of Courts",
+  "description": "ShowCase Web criminal case management system - Print View Compatible",
+  "version": "2.0.0",
+  "extractionStrategy": "angular_spa_with_print_view",
+  "notes": [
+    "Angular.js SPA - content loads dynamically",
+    "Print view available: Click 'Print' button to load ALL sections at once",
+    "Print view uses section IDs: #courtevents, #parties, #charges, #dockets, #relatedcases, #sentences, #warrants, #arrests, #fees",
+    "Selectors target both standard tab view and print view"
+  ],
+  "printViewUrl": "#!/print/casedetails/{caseId}",
+  "waitForAngular": true,
+  "delayMs": 2000,
+
+  "fields": {
+    "_metadata": {
+      "caseDetailsHeader": {
+        "selectorStrategy": "xpath_label_based",
+        "notes": "All header fields use pattern: //b[contains(text(), 'Label:')]/following-sibling::text()[1]"
+      }
+    },
+
+    "caseIdentification": {
+      "caseNumber": {
+        "selector": null,
+        "xpath": "//b[contains(text(), 'Case #:')]/following-sibling::text()[1]",
+        "regex": null,
+        "notes": "Format: 50-2025-MM-008893-AXXX-MB",
+        "transform": "trim",
+        "priority": 1,
+        "category": "case_identification"
+      },
+      "status": {
+        "selector": null,
+        "xpath": "//b[contains(text(), 'Status:')]/following-sibling::text()[1]",
+        "regex": null,
+        "notes": "Open, Closed, Pending, etc.",
+        "transform": "trim",
+        "priority": 1,
+        "category": "case_identification"
+      },
+      "fullName": {
+        "selector": null,
+        "xpath": "//b[contains(text(), 'Full Name:')]/following-sibling::text()[1]",
+        "regex": null,
+        "notes": "Defendant name (Last, First Middle)",
+        "transform": "trim",
+        "priority": 1,
+        "category": "case_identification"
+      },
+      "partyType": {
+        "selector": null,
+        "xpath": "//b[contains(text(), 'Party Type:')]/following-sibling::text()[1]",
+        "regex": null,
+        "notes": "Usually DEFENDANT",
+        "transform": "trim",
+        "priority": 2,
+        "category": "case_identification"
+      },
+      "akas": {
+        "selector": null,
+        "xpath": "//b[contains(text(), 'AKA:')]/following-sibling::text()[1]",
+        "regex": null,
+        "notes": "Aliases (may be empty)",
+        "transform": "trim",
+        "priority": 2,
+        "category": "case_identification"
+      },
+      "dob": {
+        "selector": null,
+        "xpath": "//b[contains(text(), 'DOB:')]/following-sibling::text()[1]",
+        "regex": null,
+        "notes": "Date of birth (MM/DD/YYYY)",
+        "transform": "parseDate",
+        "priority": 2,
+        "category": "case_identification"
+      },
+      "division": {
+        "selector": null,
+        "xpath": "//b[contains(text(), 'Division:')]/following-sibling::text()[1]",
+        "regex": null,
+        "notes": "Court division (e.g., DVTD: Dom Battery & DVRV Inj Hearings - DVTD)",
+        "transform": "trim",
+        "priority": 1,
+        "category": "case_identification"
+      },
+      "bookingNumber": {
+        "selector": null,
+        "xpath": "//b[contains(text(), 'Booking #:')]/following-sibling::text()[1]",
+        "regex": null,
+        "notes": "Booking sheet number (e.g., 2025023269)",
+        "transform": "trim",
+        "priority": 2,
+        "category": "case_identification"
+      },
+      "dlNumber": {
+        "selector": null,
+        "xpath": "//b[contains(text(), 'DLNumber:')]/following-sibling::text()[1]",
+        "regex": null,
+        "notes": "Driver's license number",
+        "transform": "trim",
+        "priority": 3,
+        "category": "case_identification"
+      },
+      "mjNumber": {
+        "selector": null,
+        "xpath": "//b[contains(text(), 'MJ #:')]/following-sibling::text()[1]",
+        "regex": null,
+        "notes": "Magistrate/Jail number",
+        "transform": "trim",
+        "priority": 3,
+        "category": "case_identification"
+      },
+      "citationNumber": {
+        "selector": null,
+        "xpath": "//b[contains(text(), 'Citation #:')]/following-sibling::text()[1]",
+        "regex": null,
+        "notes": "Citation number (may be empty)",
+        "transform": "trim",
+        "priority": 3,
+        "category": "case_identification"
+      }
+    },
+
+    "courtEvents": {
+      "_extractionType": "array",
+      "_containerSelector": "//section[@id='courtevents']//table/tbody",
+      "_notes": "Extract all court event rows as array. Each row has: Date, Time, Event Type, Location, Room, Notes",
+
+      "nextHearing": {
+        "date": {
+          "selector": null,
+          "xpath": "//section[@id='courtevents']//table//tbody/tr[1]/td[1]",
+          "regex": null,
+          "notes": "First upcoming court date",
+          "transform": "parseDate",
+          "priority": 1,
+          "category": "dates"
+        },
+        "time": {
+          "selector": null,
+          "xpath": "//section[@id='courtevents']//table//tbody/tr[1]/td[2]",
+          "regex": null,
+          "notes": "Time of next hearing",
+          "transform": "trim",
+          "priority": 1,
+          "category": "dates"
+        },
+        "eventType": {
+          "selector": null,
+          "xpath": "//section[@id='courtevents']//table//tbody/tr[1]/td[3]",
+          "regex": null,
+          "notes": "Event type (e.g., AR - ARRAIGNMENT, CD - CASE DISPOSITION)",
+          "transform": "trim",
+          "priority": 1,
+          "category": "court_details"
+        },
+        "location": {
+          "selector": null,
+          "xpath": "//section[@id='courtevents']//table//tbody/tr[1]/td[4]",
+          "regex": null,
+          "notes": "Location code (e.g., MB for Main Branch)",
+          "transform": "trim",
+          "priority": 2,
+          "category": "court_details"
+        },
+        "room": {
+          "selector": null,
+          "xpath": "//section[@id='courtevents']//table//tbody/tr[1]/td[5]",
+          "regex": null,
+          "notes": "Courtroom number",
+          "transform": "trim",
+          "priority": 2,
+          "category": "court_details"
+        },
+        "notes": {
+          "selector": null,
+          "xpath": "//section[@id='courtevents']//table//tbody/tr[1]/td[6]",
+          "regex": null,
+          "notes": "Event notes (may be empty)",
+          "transform": "trim",
+          "priority": 3,
+          "category": "court_details"
+        }
+      },
+
+      "allEvents": {
+        "_extractionType": "array",
+        "xpath": "//section[@id='courtevents']//table//tbody/tr",
+        "notes": "Extract all court events as array",
+        "fields": ["date", "time", "eventType", "location", "room", "notes"],
+        "priority": 2
+      }
+    },
+
+    "parties": {
+      "_extractionType": "array",
+      "_containerSelector": "//section[@id='parties']//table/tbody",
+      "_notes": "Extract all party rows. Columns typically: Party Type, Name, Attorney, Bar Number",
+
+      "allParties": {
+        "xpath": "//section[@id='parties']//table//tbody/tr",
+        "notes": "Extract all parties as array",
+        "priority": 2
+      },
+
+      "defendant": {
+        "name": {
+          "selector": null,
+          "xpath": "//section[@id='parties']//table//tbody/tr[contains(., 'DEFENDANT')]/td[2]",
+          "regex": null,
+          "notes": "Defendant name from parties table",
+          "transform": "trim",
+          "priority": 1
+        },
+        "attorney": {
+          "selector": null,
+          "xpath": "//section[@id='parties']//table//tbody/tr[contains(., 'DEFENDANT')]/td[3]",
+          "regex": null,
+          "notes": "Defense attorney name",
+          "transform": "trim",
+          "priority": 2
+        },
+        "attorneyBarNumber": {
+          "selector": null,
+          "xpath": "//section[@id='parties']//table//tbody/tr[contains(., 'DEFENDANT')]/td[4]",
+          "regex": null,
+          "notes": "Defense attorney bar number",
+          "transform": "trim",
+          "priority": 3
+        }
+      },
+
+      "plaintiff": {
+        "name": {
+          "selector": null,
+          "xpath": "//section[@id='parties']//table//tbody/tr[contains(., 'STATE') or contains(., 'PLAINTIFF')]/td[2]",
+          "regex": null,
+          "notes": "Plaintiff/State name",
+          "transform": "trim",
+          "priority": 2
+        },
+        "attorney": {
+          "selector": null,
+          "xpath": "//section[@id='parties']//table//tbody/tr[contains(., 'STATE') or contains(., 'PLAINTIFF')]/td[3]",
+          "regex": null,
+          "notes": "Prosecuting attorney name",
+          "transform": "trim",
+          "priority": 3
+        }
+      }
+    },
+
+    "charges": {
+      "_extractionType": "array",
+      "_containerSelector": "//section[@id='charges']//table/tbody",
+      "_notes": "Extract all charge rows. Columns typically: Count, Statute, Description, Degree, Disposition, Plea",
+
+      "allCharges": {
+        "xpath": "//section[@id='charges']//table//tbody/tr",
+        "notes": "Extract all charges as array",
+        "priority": 1
+      },
+
+      "primaryCharge": {
+        "count": {
+          "selector": null,
+          "xpath": "//section[@id='charges']//table//tbody/tr[1]/td[1]",
+          "regex": null,
+          "notes": "Charge count number",
+          "transform": "trim",
+          "priority": 1
+        },
+        "statute": {
+          "selector": null,
+          "xpath": "//section[@id='charges']//table//tbody/tr[1]/td[2]",
+          "regex": null,
+          "notes": "Florida Statute number (e.g., 784.03.1A)",
+          "transform": "trim",
+          "priority": 1
+        },
+        "description": {
+          "selector": null,
+          "xpath": "//section[@id='charges']//table//tbody/tr[1]/td[3]",
+          "regex": null,
+          "notes": "Charge description",
+          "transform": "trim",
+          "priority": 1
+        },
+        "degree": {
+          "selector": null,
+          "xpath": "//section[@id='charges']//table//tbody/tr[1]/td[4]",
+          "regex": null,
+          "notes": "Degree (e.g., M1 - First Degree Misdemeanor)",
+          "transform": "trim",
+          "priority": 2
+        },
+        "disposition": {
+          "selector": null,
+          "xpath": "//section[@id='charges']//table//tbody/tr[1]/td[5]",
+          "regex": null,
+          "notes": "Disposition (e.g., Guilty, Dismissed, Nolle Prosequi)",
+          "transform": "trim",
+          "priority": 2
+        },
+        "plea": {
+          "selector": null,
+          "xpath": "//section[@id='charges']//table//tbody/tr[1]/td[6]",
+          "regex": null,
+          "notes": "Plea entered",
+          "transform": "trim",
+          "priority": 3
+        }
+      }
+    },
+
+    "dockets": {
+      "_extractionType": "array",
+      "_containerSelector": "//section[@id='dockets']//table/tbody",
+      "_notes": "Extract all docket entries. Columns typically: Date, Docket Text, Amount",
+
+      "allDockets": {
+        "xpath": "//section[@id='dockets']//table//tbody/tr",
+        "notes": "Extract all docket entries as array",
+        "priority": 3
+      }
+    },
+
+    "linkedCases": {
+      "_extractionType": "array",
+      "_containerSelector": "//section[@id='relatedcases']//table/tbody",
+      "_notes": "Extract related/linked cases",
+
+      "allLinkedCases": {
+        "xpath": "//section[@id='relatedcases']//table//tbody/tr",
+        "notes": "Extract all linked cases as array",
+        "priority": 3
+      }
+    },
+
+    "sentences": {
+      "_extractionType": "array",
+      "_containerSelector": "//section[@id='sentences']//table/tbody",
+      "_notes": "Extract sentencing information",
+
+      "allSentences": {
+        "xpath": "//section[@id='sentences']//table//tbody/tr",
+        "notes": "Extract all sentences as array",
+        "priority": 2
+      },
+
+      "primarySentence": {
+        "description": {
+          "selector": null,
+          "xpath": "//section[@id='sentences']//table//tbody/tr[1]/td[1]",
+          "regex": null,
+          "notes": "Sentence description",
+          "transform": "trim",
+          "priority": 2
+        },
+        "date": {
+          "selector": null,
+          "xpath": "//section[@id='sentences']//table//tbody/tr[1]/td[2]",
+          "regex": null,
+          "notes": "Sentence date",
+          "transform": "parseDate",
+          "priority": 2
+        }
+      }
+    },
+
+    "warrants": {
+      "_extractionType": "array",
+      "_containerSelector": "//section[@id='warrants']//table/tbody",
+      "_notes": "Extract warrant information",
+
+      "allWarrants": {
+        "xpath": "//section[@id='warrants']//table//tbody/tr",
+        "notes": "Extract all warrants as array",
+        "priority": 2
+      },
+
+      "activeWarrant": {
+        "warrantNumber": {
+          "selector": null,
+          "xpath": "//section[@id='warrants']//table//tbody/tr[1]/td[1]",
+          "regex": null,
+          "notes": "Warrant number",
+          "transform": "trim",
+          "priority": 2
+        },
+        "status": {
+          "selector": null,
+          "xpath": "//section[@id='warrants']//table//tbody/tr[1]/td[2]",
+          "regex": null,
+          "notes": "Warrant status (Active, Served, Recalled)",
+          "transform": "trim",
+          "priority": 2
+        },
+        "issueDate": {
+          "selector": null,
+          "xpath": "//section[@id='warrants']//table//tbody/tr[1]/td[3]",
+          "regex": null,
+          "notes": "Date warrant issued",
+          "transform": "parseDate",
+          "priority": 3
+        }
+      }
+    },
+
+    "arrests": {
+      "_extractionType": "array",
+      "_containerSelector": "//section[@id='arrests']//table/tbody",
+      "_notes": "Extract arrest and bond information. Section may contain multiple tables.",
+
+      "allArrests": {
+        "xpath": "//section[@id='arrests']//table//tbody/tr",
+        "notes": "Extract all arrest records as array",
+        "priority": 2
+      },
+
+      "primaryArrest": {
+        "arrestDate": {
+          "selector": null,
+          "xpath": "//section[@id='arrests']//table//tbody/tr[1]/td[contains(., 'Date') or position()=1]",
+          "regex": null,
+          "notes": "Date of arrest",
+          "transform": "parseDate",
+          "priority": 2
+        },
+        "arrestingAgency": {
+          "selector": null,
+          "xpath": "//section[@id='arrests']//table//tbody/tr[1]/td[contains(., 'Agency')]",
+          "regex": null,
+          "notes": "Law enforcement agency",
+          "transform": "trim",
+          "priority": 3
+        },
+        "bondAmount": {
+          "selector": null,
+          "xpath": "//section[@id='arrests']//table//tbody/tr[contains(., 'Bond')]/td[contains(., '$')]",
+          "regex": null,
+          "notes": "Bond amount set",
+          "transform": "parseNumber",
+          "priority": 2
+        },
+        "bondType": {
+          "selector": null,
+          "xpath": "//section[@id='arrests']//table//tbody/tr[contains(., 'Bond')]/td[contains(., 'Surety') or contains(., 'Cash') or contains(., 'ROR')]",
+          "regex": null,
+          "notes": "Type of bond (Surety, Cash, ROR, etc.)",
+          "transform": "trim",
+          "priority": 2
+        },
+        "bondStatus": {
+          "selector": null,
+          "xpath": "//section[@id='arrests']//table//tbody/tr[contains(., 'Bond')]/td[contains(., 'Posted') or contains(., 'Forfeited') or contains(., 'Active')]",
+          "regex": null,
+          "notes": "Bond status",
+          "transform": "trim",
+          "priority": 3
+        }
+      }
+    },
+
+    "fees": {
+      "_extractionType": "mixed",
+      "_containerSelector": "//section[@id='fees']",
+      "_notes": "Fees section may contain 3 tables. Extract totals and itemized fees.",
+
+      "allFees": {
+        "xpath": "//section[@id='fees']//table//tbody/tr",
+        "notes": "Extract all fee items as array (from all tables)",
+        "priority": 3
+      },
+
+      "summary": {
+        "totalAmount": {
+          "selector": null,
+          "xpath": "//section[@id='fees']//table//tr[contains(., 'Total')]/td[last()]",
+          "regex": null,
+          "notes": "Total fees/fines",
+          "transform": "parseNumber",
+          "priority": 2
+        },
+        "amountPaid": {
+          "selector": null,
+          "xpath": "//section[@id='fees']//table//tr[contains(., 'Paid')]/td[last()]",
+          "regex": null,
+          "notes": "Amount paid to date",
+          "transform": "parseNumber",
+          "priority": 2
+        },
+        "balance": {
+          "selector": null,
+          "xpath": "//section[@id='fees']//table//tr[contains(., 'Balance') or contains(., 'Due')]/td[last()]",
+          "regex": null,
+          "notes": "Remaining balance",
+          "transform": "parseNumber",
+          "priority": 2
+        }
+      }
+    }
+  },
+
+  "extractionNotes": {
+    "printViewRecommended": "For complete data extraction, use the print view which loads all sections simultaneously",
+    "printViewAccess": "Click the 'Print' button on case details page, wait for Angular to render all sections",
+    "arrayExtraction": "Sections marked with _extractionType: 'array' should extract all rows and return as JSON array",
+    "emptyTables": "Some sections may have empty tables - return empty array [] if no data rows found",
+    "tableCounting": "Fees section has 3 tables - extract from all tables that contain data"
+  },
+
+  "testCases": [
+    {
+      "description": "Complete case extraction from print view",
+      "caseNumber": "50-2025-MM-008893-AXXX-MB",
+      "expectedSections": ["courtEvents", "parties", "charges", "arrests"],
+      "minimumFields": 25
+    }
+  ]
+}

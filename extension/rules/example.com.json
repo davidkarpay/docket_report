@@ -1,0 +1,50 @@
+{
+  "domain": "example.com",
+  "description": "Example extraction rules template",
+  "version": "1.0",
+  "fields": {
+    "docketNumber": {
+      "selector": "#case-number",
+      "xpath": "//span[@class='case-number']/text()",
+      "regex": "Case No[.:]?\\s*([A-Z0-9-]+)",
+      "transform": "uppercase"
+    },
+    "caseTitle": {
+      "selector": ".case-title",
+      "xpath": "//h1[@class='case-title']/text()",
+      "transform": "trim"
+    },
+    "filingDate": {
+      "selector": "#filing-date",
+      "xpath": "//span[@class='filing-date']/text()",
+      "transform": "parseDate"
+    },
+    "court.courtName": {
+      "selector": ".court-name",
+      "xpath": "//div[@class='court-info']//span[@class='court-name']/text()"
+    },
+    "court.judgeName": {
+      "selector": ".judge-name",
+      "xpath": "//span[@class='judge']/text()"
+    },
+    "status": {
+      "selector": ".case-status",
+      "regex": "Status:\\s*([A-Za-z\\s]+)"
+    }
+  },
+  "transforms": {
+    "uppercase": "Convert to uppercase",
+    "lowercase": "Convert to lowercase",
+    "trim": "Remove leading/trailing whitespace",
+    "parseDate": "Parse date string to ISO format",
+    "parseNumber": "Extract numeric value"
+  },
+  "notes": [
+    "This is a template for creating extraction rules",
+    "Copy this file and rename it to match the domain (e.g., pacer.gov.json)",
+    "Each field can have selector (CSS), xpath, or regex patterns",
+    "The extractor will try each method in order until a value is found",
+    "Transforms are applied after extraction to normalize values",
+    "For nested fields use dot notation (e.g., court.courtName)"
+  ]
+}

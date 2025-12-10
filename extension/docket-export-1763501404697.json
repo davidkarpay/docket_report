@@ -1,0 +1,43 @@
+{
+  "version": "1.0",
+  "exportDate": "2025-11-18T21:30:04.697Z",
+  "cases": [
+    {
+      "docketNumber": "CR-2025-12345",
+      "caseTitle": "State of Example v. John Doe",
+      "caseType": "Criminal - Felony",
+      "filingDate": "2025-01-15T05:00:00.000Z",
+      "status": "Active",
+      "court": {
+        "courtName": "Example County\n      State of Example ",
+        "judgeName": "Hon. Jane Smith",
+        "division": "Criminal Division 3"
+      },
+      "case": {
+        "number": "CR-2025-12345",
+        "title": "State of Example v. John Doe",
+        "type": "Criminal",
+        "filingDate": "2025-01-15T05:00:00.000Z",
+        "status": "Active",
+        "court": {
+          "name": "Example County",
+          "state": "State of Example",
+          "judge": {
+            "name": "Hon. Jane Smith",
+            "division": "Criminal Division 3"
+          },
+          "bond": null,
+          "charges": [
+            {
+              "charge": "Felony",
+              "statute": null
+            }
+          ]
+        }
+      },
+      "extractionMetadata": {
+        "llmProcessed": true
+      }
+    }
+  ]
+}

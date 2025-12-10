@@ -1,0 +1,165 @@
+{
+  "domain": "localhost",
+  "description": "Extraction rules for test pages (both single case and table views)",
+  "version": "2.0",
+  "fields": {
+    "docketNumber": {
+      "selector": "#case-number",
+      "transform": "uppercase"
+    },
+    "caseTitle": {
+      "selector": ".case-title",
+      "transform": "trim"
+    },
+    "caseType": {
+      "selector": ".case-type",
+      "transform": "trim"
+    },
+    "filingDate": {
+      "selector": "#filing-date",
+      "transform": "parseDate"
+    },
+    "status": {
+      "selector": ".case-status",
+      "transform": "trim"
+    },
+    "court.courtName": {
+      "regex": "Superior Court of ([A-Za-z ]+)",
+      "transform": "trim"
+    },
+    "court.judgeName": {
+      "selector": ".judge-assigned",
+      "transform": "trim"
+    },
+    "court.division": {
+      "selector": ".division-name",
+      "transform": "trim"
+    }
+  },
+
+  "tableExtraction": {
+    "_notes": "Configuration for extracting multiple cases from test-calendar-page.html",
+    "_usage": "Automatically used when page is detected as calendar/table view",
+
+    "rowSelector": "table[datatable] tbody tr, table.dataTable tbody tr",
+
+    "columns": [
+      {
+        "index": 0,
+        "field": "procd",
+        "skip": true,
+        "description": "Proc'd checkbox column - excluded per user request"
+      },
+      {
+        "index": 1,
+        "field": "caseNumber",
+        "extractLink": true,
+        "transform": "trim",
+        "description": "Case number (usually a clickable link)"
+      },
+      {
+        "index": 2,
+        "field": "name",
+        "transform": "trim",
+        "description": "Defendant name (Last, First)"
+      },
+      {
+        "index": 3,
+        "field": "dob",
+        "transform": "trim",
+        "description": "Date of birth (MM/DD/YYYY)"
+      },
+      {
+        "index": 4,
+        "field": "statuteDescription",
+        "transform": "trim",
+        "description": "Charge descriptions (comma-separated if multiple charges)"
+      },
+      {
+        "index": 5,
+        "field": "defenseAttorney",
+        "transform": "trim",
+        "description": "Defense attorney name"
+      },
+      {
+        "index": 6,
+        "field": "stateAttorney",
+        "transform": "trim",
+        "description": "State attorney name"
+      },
+      {
+        "index": 7,
+        "field": "publicDefender",
+        "transform": "trim",
+        "description": "Public defender name"
+      },
+      {
+        "index": 8,
+        "field": "witnesses",
+        "transform": "trim",
+        "description": "Witness information"
+      },
+      {
+        "index": 9,
+        "field": "speedy",
+        "transform": "trim",
+        "description": "Speedy trial information"
+      },
+      {
+        "index": 10,
+        "field": "courtDate",
+        "transform": "trim",
+        "description": "Scheduled court date (MM/DD/YYYY)"
+      },
+      {
+        "index": 11,
+        "field": "offenseDate",
+        "transform": "trim",
+        "hidden": true,
+        "description": "Offense date (hidden column with style='display:none')"
+      },
+      {
+        "index": 12,
+        "field": "officerWitness",
+        "transform": "trim",
+        "hidden": true,
+        "description": "Officer witness name (hidden column)"
+      },
+      {
+        "index": 13,
+        "field": "statuteNumbers",
+        "transform": "trim",
+        "hidden": true,
+        "description": "Full statute numbers (e.g., 784.03(1A2),784.011(1),843.02) (hidden column)"
+      },
+      {
+        "index": 14,
+        "field": "status",
+        "transform": "trim",
+        "hidden": true,
+        "description": "Case status: Open/Closed/Reopen VOP (hidden column)"
+      },
+      {
+        "index": 15,
+        "field": "jailCell",
+        "transform": "trim",
+        "hidden": true,
+        "description": "Jail cell information (hidden column)"
+      },
+      {
+        "index": 16,
+        "field": "courtEventType",
+        "transform": "trim",
+        "hidden": true,
+        "description": "Court event type code: MH (Motion Hearing), CD (Calendar), PC (Pretrial Conference), STCK (Status Check) (hidden column)"
+      },
+      {
+        "index": 17,
+        "field": "courtroom",
+        "transform": "trim",
+        "hidden": true,
+        "description": "Courtroom location (e.g., '2C (Main Branch)') (hidden column)"
+      }
+    ]
+  }
+}

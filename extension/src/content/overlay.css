@@ -1,0 +1,93 @@
+/**
+ * Visual overlay styles for docket extractor
+ */
+
+.docket-extractor-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 999998;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.docket-extractor-highlight {
+  outline: 3px solid #4CAF50 !important;
+  outline-offset: 2px !important;
+  background-color: rgba(76, 175, 80, 0.1) !important;
+  cursor: crosshair !important;
+  position: relative !important;
+  z-index: 999999 !important;
+}
+
+.docket-extractor-permanent-highlight {
+  outline: 3px solid #FF9800 !important;
+  outline-offset: 2px !important;
+  background-color: rgba(255, 152, 0, 0.15) !important;
+  animation: docket-extractor-pulse 2s infinite;
+}
+
+@keyframes docket-extractor-pulse {
+  0%, 100% {
+    outline-color: #FF9800;
+    background-color: rgba(255, 152, 0, 0.15);
+  }
+  50% {
+    outline-color: #FFC107;
+    background-color: rgba(255, 193, 7, 0.25);
+  }
+}
+
+.docket-extractor-notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2196F3;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  display: none;
+  max-width: 80%;
+  text-align: center;
+  animation: docket-extractor-slide-in 0.3s ease-out;
+}
+
+@keyframes docket-extractor-slide-in {
+  from {
+    transform: translateX(-50%) translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Tooltip for hovered elements */
+.docket-extractor-highlight::before {
+  content: attr(data-extractor-hint);
+  position: absolute;
+  top: -30px;
+  left: 0;
+  background: #333;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1000001;
+  display: none;
+}
+
+.docket-extractor-highlight:hover::before {
+  display: block;
+}

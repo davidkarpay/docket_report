@@ -1,0 +1,428 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" ng-app="sc">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title ng-bind="title">ShowCase</title>
+    <link href="/ShowCaseWebSSO/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <base href="/ShowCaseWebSSO/" />
+
+    <link href="/ShowCaseWebSSO/Content/angular-busy.css" rel="stylesheet"/>
+
+    <link href="/ShowCaseWebSSO/Content/css?v=6Qx6oEo1aLZ2S9hjwA3RZKp9_hk-9X4sUX4NWRqVN2w1" rel="stylesheet"/>
+
+    <script src="/ShowCaseWebSSO/bundles/modernizr?v=inCVuEFe6J4Q07A0AcRsbJic_UE5MwpRMNGcOtk94TE1"></script>
+
+    <link href="/ShowCaseWebSSO/Content/kartik-v/fileinput.min.css" rel="stylesheet" />
+    <link href="/ShowCaseWebSSO/Content/kartik-v/fileinput-rtl.min.css" rel="stylesheet" />
+</head>
+<body>
+    <!--[if lt IE 10]>
+            <div class="jumbotron">
+              <h1 class="display-4">:-( sad browser</h1>
+              <p class="lead">You are using an <strong>outdated</strong> browser.</p>
+              <hr class="my-4">
+              <p class="lead">
+                <a class="btn btn-primary btn-lg" href="https://browsehappy.com/" role="button">Upgrade your browser</a>
+              </p>
+            </div>
+        <![endif]-->
+
+    
+<div class="navbar navbar-default navbar-main navbar-fixed-top" ng-controller="navCtrl">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button id="navCollapse" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBarCollapse" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ui-sref="home">
+                <span class="glyphicon s-img"></span>
+                ShowCase
+            </a>
+            <a href="#" class="navbar-toggle navbar-icon" data-toggle="collapse" ng-click="toggleSearch()" aria-label="toggle search panel"><i class="glyphicon glyphicon-search"></i></a>
+        </div>
+
+        <div id="mainNavBarCollapse" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#" ng-click="toggleSearch('case')" role="button"><span class="glyphicon glyphicon-search"></span> Case Search</a>
+                    
+                </li>
+                <li>
+                    <a href="#/calendar" ui-sref="calendar" ng-show="mainnav.viewCourtEvents"><span class="glyphicon glyphicon-calendar"></span> Court Events</a>
+                </li>
+                <li>
+                    <a href="#/setcourtdatecontent" ui-sref="setcourtdatecontent" ui-sref-opts="{reload:true}" ng-show="mainnav.setCourtDate"><span class="glyphicon glyphicon-bookmark"></span> Set Court Date</a>
+                </li>
+                <li>
+                    <a href="#" ng-click="toggleSearch('citation')" ng-show="mainnav.schoolCertificateUpload"><span class="glyphicon glyphicon-paperclip"></span> School Completion</a>
+                </li>
+				<li>
+                    <a href="https://appsgp.mypalmbeachclerk.com/ecaseview" target="_blank"><span class="glyphicon glyphicon-search"></span> eCaseView</a>
+                </li>
+            </ul>
+
+            
+        <input type="hidden" name="winID" ng-init="startWinSession('PD15\DKarpay')" />
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="" title="Windows identity">Hello PD15\DKarpay! </a></li>
+        </ul>
+
+
+            <ul class="nav navbar-nav navbar-right" ng-cloak ng-show="i.isAuthenticated && recentCases.length > 0">
+                <li class="btn-group" dropdown>
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recent <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="rc in recentCases">
+                            <a href="" ng-click="recentCaseSelect(rc)" ng-bind="rc.caseNumber"></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container-fluid body-content">
+        <div ui-view></div>
+    </div>
+
+    <footer class="text-center small" style="margin-top:10px;">
+        <ul class="list-inline">
+            <li>&copy; 2025 equivant</li>
+            <li>|</li>
+            <li>ShowCaseWeb (v3.262.8186)</li>
+            <li>|</li>
+            <li><a href="https://www.equivant.com/showcase/">About Us</a></li>
+        </ul>
+    </footer>
+
+    <!--case search dialog-->
+    
+
+<div id="caseSearchPanel" class="modal fade" ng-controller="caseSearchCtrl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">  
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                
+                <control-editor settingsname="{{controlSettingsName}}" default="{{settings}}" on-saved="controlsettingSaved(name)"></control-editor>
+
+                <h4 class="modal-title">Case Search</h4>
+            </div>
+            <form name="casesearchform" id="casesearchform" ng-submit="search($event)">
+
+                <div class="modal-body">
+
+                    <div ng-repeat="cs in settings" ng-switch="cs.id">
+                        
+                        <p ng-switch-when="canLastName" uib-tooltip="Enter the Last Name you are looking for.
+You can also use WildCards - Example: SMI% will bring back all Last Names starting with SMI" tooltip-popup-delay="1000" tooltip-placement="bottom">
+                            <input type="search" class="form-control" maxlength="50" ng-model="searchArgs.LastName" ng-attr-placeholder="{{cs.displayName || 'Last Name'}}" aria-label="last name">
+                        </p>
+
+                        <p ng-switch-when="canFirstName" uib-tooltip="Enter the First Name you are looking for.
+You can also use WildCards - Example: JOH% will bring back all First Names starting with JOH" tooltip-popup-delay="1000" tooltip-placement="bottom">
+                            <input type="text" class="form-control" maxlength="50" ng-model="searchArgs.FirstName" ng-attr-placeholder="{{cs.displayName || 'First Name'}}" aria-label="first name">
+                        </p>
+
+                        <p ng-switch-when="canDateOfBirth" ng-class="{'has-error':!casesearchform.DOB.$valid}" uib-tooltip="Please enter a date of birth in the format of DD/MM/YYYY" tooltip-popup-delay="1000" tooltip-placement="bottom">
+                            <input type="text" name="DOB" data-mask="00/00/0000" class="form-control" ng-model="searchArgs.DOB" maxlength="10" ng-pattern="/^(\d{2})/(\d{2})/(\d{4})$/" ng-attr-placeholder="{{cs.displayName || 'Date Of Birth'}}" aria-label="first name" />
+                        </p>
+
+                        <p ng-switch-when="canCaseNumber" uib-tooltip="Enter the Case number you are searching for.
+ It is possible to bring in a range of cases using a wildcard.
+ For Example: 2011-TR-*1-AXXX-MB   *11-TR-*1-AXXX   *11*000001*MB
+Shortcuts also work(but can&#39;t be used with wildcards): 11TR12 " tooltip-popup-delay="1000" tooltip-placement="bottom">
+                            <input type="text" class="form-control" maxlength="50" ng-model="searchArgs.CaseNumber" ng-blur="validateCaseNumber()" ng-attr-placeholder="{{cs.displayName || 'Case Number'}}" aria-label="case number">
+                        </p>
+
+                        <p ng-switch-when="canLicenseNumber" uib-tooltip="Enter the Drivers License number you are looking for.
+You can also use WildCards - Example: S300% will bring back all DL #&#39;s that start with S300" tooltip-popup-delay="1000" tooltip-placement="bottom">
+                            <input type="text" class="form-control" maxlength="50" ng-model="searchArgs.DLNumber" ng-attr-placeholder="{{cs.displayName || 'License #'}}" aria-label="license number">
+                        </p>
+
+                        <p ng-switch-when="canSheriffsNumber" uib-tooltip="Enter the Sheriffs number you are looking for.
+" tooltip-popup-delay="1000" tooltip-placement="bottom">
+                            <input type="text" class="form-control" maxlength="50" ng-model="searchArgs.CountyID" ng-attr-placeholder="{{cs.displayName || 'Sheriff\'s #'}}" aria-label="sheriffs number">
+                        </p>
+
+                        <p ng-switch-when="canCitationNumber" uib-tooltip="Enter the Citation number, without dashes and without the check digit, you are looking for.
+You can also use WildCards - Example: 1234* will bring back all Citations that start with 1234" tooltip-popup-delay="1000" tooltip-placement="bottom">
+                            <input type="text" name="citationNumber" ng-required="requireCitation" class="form-control" maxlength="50" ng-model="searchArgs.CitationNumber" ng-attr-placeholder="{{cs.displayName || 'Citation #'}}" aria-label="citation number">
+                        </p>
+
+                        <p ng-switch-when="canIncidentNumber" uib-tooltip="Enter the Incident number you are looking for. 
+You can also use WildCards - Example: 1202* will bring back all Incident #&#39;s with 1202123456, etc" tooltip-popup-delay="1000" tooltip-placement="bottom">
+                            <input type="text" class="form-control" maxlength="50" ng-model="searchArgs.IncidentNumber" ng-attr-placeholder="{{cs.displayName || 'Incident #'}}" aria-label="incident number">
+                        </p>
+
+                        <p ng-switch-when="canArrestDate" ng-class="{'has-error':!casesearchform.arrestDate.$valid}" uib-tooltip="Please enter the arrest date in the format of DD/MM/YYYY" tooltip-popup-delay="1000" tooltip-placement="bottom">
+                            <input type="text" name="arrestDate" data-mask="00/00/0000" class="form-control" maxlength="10" ng-model="searchArgs.ArrestDate" ng-pattern="/^(\d{2})/(\d{2})/(\d{4})$/" ng-attr-placeholder="{{cs.displayName || 'Arrest Date'}}" aria-label="arrest date">
+                        </p>
+
+                        <p ng-switch-when="canFromFileDate" ng-class="{'has-error':!casesearchform.fromDate.$valid}" uib-tooltip="Please enter the from date in the format of DD/MM/YYYY" tooltip-popup-delay="1000" tooltip-placement="bottom">
+                            <input name="fromDate" type="text" data-mask="00/00/0000" class="form-control" maxlength="10" ng-model="searchArgs.FromFileDate" ng-pattern="/^(\d{2})/(\d{2})/(\d{4})$/" ng-attr-placeholder="{{cs.displayName || 'From Date'}}" aria-label="from date">
+                        </p>
+
+                        <p ng-switch-when="canToFileDate" ng-class="{'has-error':!casesearchform.toDate.$valid}" uib-tooltip="Please enter the to date in the format of DD/MM/YYYY" tooltip-popup-delay="1000" tooltip-placement="bottom">
+                            <input name="toDate" type="text" data-mask="00/00/0000" class="form-control" maxlength="10" ng-model="searchArgs.ToFileDate" ng-pattern="/^(\d{2})/(\d{2})/(\d{4})$/" ng-attr-placeholder="{{cs.displayName || 'To Date'}}" aria-label="to date">
+                        </p>
+
+                        <p ng-switch-when="canOffenderNumber" uib-tooltip="Enter the Offender number you are looking for.
+Use this format: yyyy-999999
+You can also use WildCards - Example: 2007-*123* will bring back all Offender #&#39;s with 2007-000123 or 2007-123???, 2007-012355, etc" tooltip-popup-delay="1000" tooltip-placement="bottom">
+                            <input type="text" class="form-control" maxlength="50" ng-model="searchArgs.Offender" ng-attr-placeholder="{{cs.displayName || 'Offender'}}" aria-label="offender">
+                        </p>
+
+                        <p ng-switch-when="canSANumber" uib-tooltip="Enter the SA number you are looking for.
+Use this format: yyyy-999999
+You can also use WildCards - Example: 2007-*123* will bring back all SA #&#39;s with 2007-000123 or 2007-123???, 2007-012355, etc" tooltip-popup-delay="1000" tooltip-placement="bottom">
+                            <input type="text" class="form-control" maxlength="50" ng-model="searchArgs.SAONumber" ng-attr-placeholder="{{cs.displayName || 'SA #'}}" aria-label="state attorney number">
+                        </p>
+
+                        <p ng-switch-when="canBookingNumber" uib-tooltip="Enter the Booking Sheet Number you are looking for.
+Use this format: yyyy999999
+You can also use WildCards - Example: 2007*123* will bring back all Booking Sheet #&#39;s with 2007000123 or 2007123???, 2007012355, etc. " tooltip-popup-delay="1000" tooltip-placement="bottom">
+                            <input type="text" class="form-control" maxlength="50" ng-model="searchArgs.BookingNumber" ng-attr-placeholder="{{cs.displayName || 'Booking #'}}" aria-label="booking number">
+                        </p>
+
+                        <p ng-switch-when="canBarNumber" tooltip-popup-delay="1000" tooltip-placement="bottom">
+                            <input type="text" class="form-control" maxlength="50" ng-model="searchArgs.BarNumber" ng-attr-placeholder="{{cs.displayName || 'Bar #'}}" aria-label="bar number">
+                        </p>
+
+                        <p ng-switch-when="canJudge" uib-tooltip="Select a Judge to search on." tooltip-popup-delay="1000">
+                            <label>{{cs.displayName || 'Judge'}}</label>
+                            <select class="form-control input-sm" ng-model="searchArgs.judgeID" ng-options="j.judgeID as j.judgeName for j in judges | orderBy:'judgeName' track by j.judgeID" aria-label="judge"><option></option></select>
+                        </p>
+
+                        <p ng-switch-when="canDivision" uib-tooltip="Select a Division to searh on." tooltip-popup-delay="1000">
+                            <label>{{cs.displayName || 'Division'}}</label>
+                            <select class="form-control input-sm" ng-model="searchArgs.divisionId" ng-options="d.divisionID as d.divisionName for d in divisions | orderBy:'divisionName' track by d.divisionID" aria-label="division"><option></option></select>
+                        </p>
+
+                        <p ng-switch-when="canStatus" uib-tooltip="Select the Case Status to help narrow your search." tooltip-popup-delay="1000">
+                            <label>{{cs.displayName || 'Status'}}</label>
+                            <select class="form-control input-sm" ng-model="searchArgs.caseStatusID" ng-options="cs.caseStatusID as cs.status for cs in caseStatuses | orderBy:'status' track by cs.caseStatusID" aria-label="case status"><option></option></select>
+                        </p>
+
+                        <p ng-switch-when="canCourtType">
+                            <label>{{cs.displayName || 'Court Type'}}</label>
+                            <select class="form-control input-sm" ng-model="searchArgs.courtTypeID" ng-options="ct.courtTypeID as ct.courtTypeDescription for ct in courtTypes | orderBy:'courtTypeDescription' track by ct.courtTypeID" aria-label="case status"></select>
+                        </p>
+
+                        <p ng-switch-when="canSearchType" uib-tooltip="*Exact Match:* This is the default match type. Will return the exact matching name - Example: SMITH will only bring back Last Names of SMITH
+
+*Starts With:* Will return names that begin with the same letters - Example: SMI* will bring back all Last Names starting with SMI 
+
+*Soundex Match:* Will return search results that match the Soundex variations for the names that you entered into the Name fields.
+ Soundex is a &#39;phonetic algorithm&#39; that identifies words that sound alike but are spelled differently such as &#39;Smyth&#39; and &#39;Smith&#39; or &#39;Brown&#39; and &#39;Braun.&#39; " tooltip-popup-delay="1000" aria-owns="search-type" aria-activedescendant="">
+                            {{cs.displayName || 'Search Type:'}}&nbsp;
+                            <span class="btn-group" role="radiogroup" aria-label="search match type" id="search-type">
+                                <label role="option" id="opt-exact" class="btn btn-default" ng-model="searchArgs.MatchType" uib-btn-radio="0" aria-checked="false">Exact</label>
+                                <label role="option" id="opt-soundex" class="btn btn-default" ng-model="searchArgs.MatchType" uib-btn-radio="1" aria-checked="false">SoundEx</label>
+                                <label role="option" id="opt-startswith" class="btn btn-default" ng-model="searchArgs.MatchType" uib-btn-radio="2" aria-checked="false">Starts With</label>
+                            </span>
+                        </p>
+
+                    </div>
+
+                    <div class="row" ng-if="modalTitle == 'Case Search'">
+                        <div class="col-lg-12">
+                            <input type="checkbox" id="oneRowPerCase" ng-model="searchArgs.OneRowPerCase" checked aria-label="one case per row"/> Show One Row Per Case
+                        </div>
+                    </div>
+
+                    
+                </div>
+
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-xs-8 col-thin">
+                            <button type="submit" class="btn btn-primary btn-block" ng-disabled="!casesearchform.$valid"><span class="glyphicon glyphicon-search"></span> Search</button>
+                        </div>
+                        <div class="col-xs-4 col-thin">
+                            <button type="button" class="btn btn-default btn-block" ng-click="clear()"><span class="glyphicon glyphicon-erase"></span> Clear</button>
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="row">
+                        <div class="col-xs-12 col-thin">
+                            <div class="alert alert-danger" role="alert" ng-if="noResults">
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                <span class="sr-only">Error:</span>
+                                No records found
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+    <!--citation search dialog-->
+    
+
+<div id="citationSearchPanel" class="modal fade" ng-controller="citationSearchCtrl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">  
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Citation Search</h4>
+            </div>
+            <form name="searchform" id="searchform" ng-submit="search($event)">
+
+                <div class="modal-body">
+
+                    <p uib-tooltip="Enter the Citation number, without dashes and without the check digit, you are looking for.
+You can also use WildCards - Example: 1234* will bring back all Citations that start with 1234" tooltip-popup-delay="1000" tooltip-placement="bottom">
+                        <input type="text" name="citationNumber" ng-required="true" class="form-control" maxlength="50" ng-model="searchArgs.CitationNumber" ng-attr-placeholder="{{cs.displayName || 'Citation #'}}" aria-label="citation number">
+                    </p>
+
+                </div>
+
+                <div class="modal-footer">
+                    
+
+                    <div class="row">
+                        <div class="col-xs-8 col-thin">
+                            <button type="submit" class="btn btn-primary btn-block" ng-disabled="!searchform.$valid"><span class="glyphicon glyphicon-search"></span> Search</button>
+                        </div>
+                        <div class="col-xs-4 col-thin">
+                            <button type="button" class="btn btn-default btn-block" ng-click="clear()"><span class="glyphicon glyphicon-erase"></span> Clear</button>
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="row">
+                        <div class="col-xs-12 col-thin">
+                            <div class="alert alert-danger" role="alert" ng-if="noResults">
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                <span class="sr-only">Error:</span>
+                                No records found
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+    <!--login dialog-->
+    
+<div id="login_modal" class="modal fade" ng-controller="loginCtrl" >
+    <div class="modal-dialog">
+        <div class="modal-content" cg-busy="promiseLoading" >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Login</h4>
+            </div>
+            <div class="modal-body" >
+                <form id="loginform" role="form" ng-submit="login(credentials)" novalidate method="post">
+                    <input name="__RequestVerificationToken" type="hidden" value="QP61Swr3oN1W3K8_Vx3R-iVnlYSVBaCGlkW44vWYysXTqbBxLUV2IRVRpiiV8tVy_4w2ME9CqM8foq0nz5x4X1vA9FQEEi8iY30oYlL0dI9Y2molIyV_v1xputb08XDz0" />
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" ng-model="credentials.username" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" ng-model="credentials.password" />
+                    </div>
+                    <div class="modal-footer">
+                        <label ng-if="message" ng-bind="message"></label>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </form>
+
+                
+                
+ 
+            </div>
+        </div>
+    </div>
+</div>
+    <!--control editor dialog-->
+    
+<style>
+    .movable {
+        cursor: move;
+        padding-left:5px;
+    }
+</style>
+
+<div class="modal fade" id="controlSettingsModal" role="dialog" ng-controller="controlSettingsCtrl">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Control Settings Editor</h4>
+            </div>
+            <div class="modal-body">
+                <p>Setting Name: <b>{{settingName}}</b></p>
+                
+                <p>Group Name:</p>
+                <select class="form-control input-sm" ng-model="selectedGroup" 
+                        ng-options="csg as csg.controlSettingsGroupName for csg in groups | orderBy:'controlSettingsGroupName' 
+                        track by csg.groupID"
+                        ng-change="groupChange()"
+                        aria-label="control settings group">
+                </select>
+
+                <hr />
+
+                <div id="draggablePanelList">
+                    <div ng-repeat="c in columns | filter:{isConfigurable:true}">
+                        <div class="input-group input-sm">
+                            <span class="input-group-addon">
+                                <input type="checkbox" ng-model="c.includeInDisplay" aria-label="Include In Display" role="checkbox">
+                                <span class="movable" data-uniqueName="{{c.uniqueName}}"><label for="{{ 'col-' + $index }}">{{c.uniqueName}}</label></span>
+                            </span>
+                            
+                            <input type="text" class="form-control" id="{{ 'col-' + $index }}" ng-model="c.displayName">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="saveControlSetting()">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+    <script src="/ShowCaseWebSSO/bundles/jquery?v=nTaCxUfAFCGfUgkFwubuC_0FgowyIeGMEsY_6iTyrxg1"></script>
+
+    <script src="/ShowCaseWebSSO/bundles/bootstrap?v=QDb0W5e6Nmsp9PRgVRJKPCHaMmB0cyYOzTF83tt6urM1"></script>
+
+    <script src="/ShowCaseWebSSO/bundles/angular-core?v=al6QSbnw1ntTghHfL7WvTlhdPd1-D4J7LNmqk9ncajI1"></script>
+
+    <script src="/ShowCaseWebSSO/bundles/datatables?v=_pWTmdH5SRvjtqb97N_ewmmWEBX0ODPuZ2wenqkmK5s1"></script>
+
+    <script src="/ShowCaseWebSSO/bundles/angular-datatables?v=Kx9ZXmL6-RnILOlkgzjTIC_8DG9WvNDXXapkLjWeiJo1"></script>
+
+    <script src="/ShowCaseWebSSO/bundles/calendar?v=rVNeXM6XSrDVEqueGWRJZUbVgawNN5o1RtbEyEUdLBM1"></script>
+
+    <script src="/ShowCaseWebSSO/bundles/showcase?v=Lq2BCJnF71f8CGcq1fA6h6TqJYV-1-fEtDj1tC1RYQs1"></script>
+
+    
+</body>
+</html>

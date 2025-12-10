@@ -1,0 +1,397 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Client Docket Manager Schema",
+  "description": "Database schema for client docket manager data extraction",
+  "definitions": {
+    "Case": {
+      "type": "object",
+      "properties": {
+        "caseId": {
+          "type": "string",
+          "description": "Unique case identifier"
+        },
+        "docketNumber": {
+          "type": "string",
+          "description": "Official docket/case number"
+        },
+        "caseTitle": {
+          "type": "string",
+          "description": "Full case title"
+        },
+        "caseType": {
+          "type": "string",
+          "description": "Type of case (criminal, civil, family, etc.)"
+        },
+        "filingDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Date case was filed"
+        },
+        "court": {
+          "$ref": "#/definitions/Court"
+        },
+        "status": {
+          "type": "string",
+          "description": "Current case status"
+        },
+        "parties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Party"
+          }
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Event"
+          }
+        },
+        "documents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Document"
+          }
+        },
+        "charges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Charge"
+          }
+        },
+        "extractionMetadata": {
+          "$ref": "#/definitions/ExtractionMetadata"
+        }
+      },
+      "required": ["docketNumber", "caseTitle"]
+    },
+    "Court": {
+      "type": "object",
+      "properties": {
+        "courtName": {
+          "type": "string",
+          "description": "Full name of the court"
+        },
+        "jurisdiction": {
+          "type": "string",
+          "description": "Jurisdiction (federal, state, county, etc.)"
+        },
+        "location": {
+          "type": "string",
+          "description": "Physical location/address"
+        },
+        "judgeName": {
+          "type": "string",
+          "description": "Assigned judge name"
+        },
+        "division": {
+          "type": "string",
+          "description": "Court division or department"
+        }
+      }
+    },
+    "Party": {
+      "type": "object",
+      "properties": {
+        "partyId": {
+          "type": "string",
+          "description": "Unique party identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Full name of party"
+        },
+        "partyType": {
+          "type": "string",
+          "enum": ["plaintiff", "defendant", "petitioner", "respondent", "appellant", "appellee", "other"],
+          "description": "Role in the case"
+        },
+        "attorney": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "firm": {
+              "type": "string"
+            },
+            "barNumber": {
+              "type": "string"
+            },
+            "contact": {
+              "type": "string"
+            }
+          }
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": ["name", "partyType"]
+    },
+    "Event": {
+      "type": "object",
+      "properties": {
+        "eventId": {
+          "type": "string",
+          "description": "Unique event identifier"
+        },
+        "eventType": {
+          "type": "string",
+          "description": "Type of event (hearing, filing, deadline, etc.)"
+        },
+        "eventDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date and time of event"
+        },
+        "description": {
+          "type": "string",
+          "description": "Event description"
+        },
+        "location": {
+          "type": "string",
+          "description": "Location (courtroom, etc.)"
+        },
+        "outcome": {
+          "type": "string",
+          "description": "Result or outcome if completed"
+        },
+        "isDeadline": {
+          "type": "boolean",
+          "description": "Whether this is a deadline"
+        }
+      },
+      "required": ["eventType", "eventDate"]
+    },
+    "Document": {
+      "type": "object",
+      "properties": {
+        "documentId": {
+          "type": "string",
+          "description": "Unique document identifier"
+        },
+        "documentNumber": {
+          "type": "string",
+          "description": "Document or docket entry number"
+        },
+        "filingDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Date document was filed"
+        },
+        "documentType": {
+          "type": "string",
+          "description": "Type of document (motion, order, brief, etc.)"
+        },
+        "title": {
+          "type": "string",
+          "description": "Document title or description"
+        },
+        "filedBy": {
+          "type": "string",
+          "description": "Party who filed the document"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to access document"
+        },
+        "pageCount": {
+          "type": "integer",
+          "description": "Number of pages"
+        }
+      },
+      "required": ["title", "filingDate"]
+    },
+    "Charge": {
+      "type": "object",
+      "properties": {
+        "chargeId": {
+          "type": "string",
+          "description": "Unique charge identifier"
+        },
+        "statute": {
+          "type": "string",
+          "description": "Statute or code section"
+        },
+        "description": {
+          "type": "string",
+          "description": "Charge description"
+        },
+        "degree": {
+          "type": "string",
+          "description": "Felony, misdemeanor, etc."
+        },
+        "count": {
+          "type": "integer",
+          "description": "Count number"
+        },
+        "disposition": {
+          "type": "string",
+          "description": "Current disposition"
+        },
+        "plea": {
+          "type": "string",
+          "description": "Entered plea"
+        },
+        "bond": {
+          "$ref": "#/definitions/Bond"
+        }
+      },
+      "required": ["description"]
+    },
+    "Bond": {
+      "type": "object",
+      "properties": {
+        "bondId": {
+          "type": "string",
+          "description": "Unique bond identifier"
+        },
+        "bondType": {
+          "type": "string",
+          "description": "Type of bond (cash, surety, personal recognizance, etc.)"
+        },
+        "amount": {
+          "type": "number",
+          "description": "Bond amount"
+        },
+        "status": {
+          "type": "string",
+          "description": "Bond status (posted, active, forfeited, etc.)"
+        },
+        "dateSet": {
+          "type": "string",
+          "format": "date",
+          "description": "Date bond was set"
+        },
+        "bondsman": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "company": {
+              "type": "string"
+            },
+            "contact": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "Booking": {
+      "type": "object",
+      "properties": {
+        "bookingId": {
+          "type": "string",
+          "description": "Unique booking identifier"
+        },
+        "bookingNumber": {
+          "type": "string",
+          "description": "Official booking number"
+        },
+        "bookingDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date and time of booking"
+        },
+        "arrestDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date and time of arrest"
+        },
+        "arrestingAgency": {
+          "type": "string",
+          "description": "Law enforcement agency"
+        },
+        "arrestingOfficer": {
+          "type": "string",
+          "description": "Arresting officer name/badge"
+        },
+        "facility": {
+          "type": "string",
+          "description": "Detention facility"
+        },
+        "releaseDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Release date if applicable"
+        },
+        "mugshot": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to mugshot image"
+        }
+      }
+    },
+    "ExtractionMetadata": {
+      "type": "object",
+      "properties": {
+        "extractedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of extraction"
+        },
+        "sourceUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL where data was extracted from"
+        },
+        "extractorVersion": {
+          "type": "string",
+          "description": "Version of extractor used"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Confidence score of extraction (0-1)"
+        },
+        "manualReviewNeeded": {
+          "type": "boolean",
+          "description": "Flag if manual review is recommended"
+        },
+        "llmProcessed": {
+          "type": "boolean",
+          "description": "Whether LLM was used for processing"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Any extraction notes or warnings"
+        }
+      },
+      "required": ["extractedAt", "sourceUrl"]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Schema version"
+    },
+    "exportDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date of export"
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Case"
+      }
+    }
+  },
+  "required": ["version", "cases"]
+}

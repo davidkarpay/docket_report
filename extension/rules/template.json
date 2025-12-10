@@ -1,0 +1,52 @@
+{
+  "domain": "example-court.gov",
+  "description": "Template for creating extraction rules for court websites",
+  "version": "1.0",
+  "notes": "Copy this template and customize for specific court websites",
+  "fields": {
+    "docketNumber": {
+      "selector": "#case-number",
+      "xpath": "//span[@class='case-number']",
+      "regex": "Case No\\.?\\s*:?\\s*([A-Z0-9-]+)",
+      "transform": "uppercase"
+    },
+    "caseTitle": {
+      "selector": ".case-title, h1.title",
+      "transform": "trim"
+    },
+    "caseType": {
+      "selector": ".case-type, .type",
+      "transform": "trim"
+    },
+    "filingDate": {
+      "selector": ".filing-date, #filed-date",
+      "regex": "Filed:\\s*([\\d/\\-]+)",
+      "transform": "parseDate"
+    },
+    "status": {
+      "selector": ".case-status, .status",
+      "transform": "trim"
+    },
+    "court.courtName": {
+      "selector": ".court-name, header h1",
+      "regex": "(.+?)(?:Court|COURT)",
+      "transform": "trim"
+    },
+    "court.judgeName": {
+      "selector": ".judge, .assigned-judge",
+      "regex": "Judge:?\\s*(.+?)(?:,|$)",
+      "transform": "trim"
+    },
+    "court.division": {
+      "selector": ".division, .department",
+      "transform": "trim"
+    }
+  },
+  "instructions": {
+    "selectors": "CSS selectors are tried first. Use browser DevTools to find the right selector.",
+    "xpath": "XPath is tried if selector fails. Useful for complex DOM structures.",
+    "regex": "Regex is tried last, searches entire page text. Use capturing groups ().",
+    "transforms": "Available: uppercase, lowercase, trim, parseDate, parseNumber",
+    "testing": "Test each rule in browser console: document.querySelector('selector').textContent"
+  }
+}

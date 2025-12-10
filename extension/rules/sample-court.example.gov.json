@@ -1,0 +1,183 @@
+{
+  "domain": "sample-court.example.gov",
+  "description": "Sample extraction rules for a hypothetical state court website",
+  "version": "1.0",
+  "author": "Example",
+  "updated": "2025-01-16",
+  "fields": {
+    "docketNumber": {
+      "selector": ".case-header .docket-number",
+      "xpath": "//div[@class='case-info']//span[@id='docket-num']/text()",
+      "regex": "(?:Case|Docket)\\s*(?:No|Number|#)[.:]?\\s*([A-Z]{2,3}-?\\d{2,4}-?\\d{4,6})",
+      "transform": "uppercase"
+    },
+    "caseTitle": {
+      "selector": "h1.case-title",
+      "xpath": "//h1[contains(@class, 'title')]/text()",
+      "transform": "trim"
+    },
+    "caseType": {
+      "selector": ".case-type span",
+      "xpath": "//div[@class='case-metadata']//label[text()='Type:']/following-sibling::span/text()",
+      "transform": "lowercase"
+    },
+    "filingDate": {
+      "selector": "#filing-date",
+      "xpath": "//tr[td[text()='Filing Date']]/td[2]/text()",
+      "regex": "Filed[:]?\\s*(\\d{1,2}/\\d{1,2}/\\d{4})",
+      "transform": "parseDate"
+    },
+    "status": {
+      "selector": ".case-status .status-badge",
+      "xpath": "//div[@class='status']//span[@class='badge']/text()",
+      "transform": "trim"
+    },
+    "court.courtName": {
+      "selector": ".court-info .court-name",
+      "xpath": "//div[@class='venue']//h2/text()"
+    },
+    "court.jurisdiction": {
+      "selector": ".jurisdiction",
+      "regex": "Jurisdiction[:]?\\s*([A-Za-z\\s]+)"
+    },
+    "court.division": {
+      "selector": ".division-name",
+      "xpath": "//span[@class='division']/text()"
+    },
+    "court.judgeName": {
+      "selector": ".judge-assigned",
+      "xpath": "//tr[td[contains(text(), 'Judge')]]/td[2]/text()",
+      "regex": "(?:Judge|Hon\\.|Honorable)\\s+([A-Z][a-z]+(?:\\s+[A-Z][a-z]+)+)"
+    },
+    "court.location": {
+      "selector": ".court-address",
+      "xpath": "//div[@class='location']//address/text()"
+    }
+  },
+  "parties": {
+    "containerSelector": ".parties-list .party-row",
+    "fields": {
+      "name": {
+        "selector": ".party-name",
+        "xpath": ".//span[@class='name']/text()"
+      },
+      "partyType": {
+        "selector": ".party-type",
+        "xpath": ".//span[@class='type']/text()",
+        "transform": "lowercase"
+      },
+      "attorney.name": {
+        "selector": ".attorney-name",
+        "xpath": ".//div[@class='attorney']//span[@class='name']/text()"
+      },
+      "attorney.firm": {
+        "selector": ".attorney-firm",
+        "xpath": ".//div[@class='attorney']//span[@class='firm']/text()"
+      },
+      "attorney.barNumber": {
+        "selector": ".bar-number",
+        "regex": "Bar\\s*(?:No|#)[:]?\\s*([A-Z0-9-]+)"
+      }
+    }
+  },
+  "charges": {
+    "containerSelector": "table.charges-table tbody tr",
+    "fields": {
+      "count": {
+        "selector": "td:nth-child(1)",
+        "xpath": "./td[1]/text()",
+        "transform": "parseNumber"
+      },
+      "statute": {
+        "selector": "td.statute-code",
+        "xpath": "./td[contains(@class, 'statute')]/text()"
+      },
+      "description": {
+        "selector": "td.charge-description",
+        "xpath": "./td[@class='description']/text()",
+        "transform": "trim"
+      },
+      "degree": {
+        "selector": "td.degree",
+        "xpath": "./td[contains(@class, 'degree')]/text()"
+      },
+      "disposition": {
+        "selector": "td.disposition",
+        "xpath": "./td[@class='disposition']/text()"
+      }
+    }
+  },
+  "events": {
+    "containerSelector": ".docket-entries .entry",
+    "fields": {
+      "eventDate": {
+        "selector": ".entry-date",
+        "xpath": ".//span[@class='date']/text()",
+        "transform": "parseDate"
+      },
+      "eventType": {
+        "selector": ".entry-type",
+        "xpath": ".//span[@class='type']/text()"
+      },
+      "description": {
+        "selector": ".entry-description",
+        "xpath": ".//div[@class='description']/text()",
+        "transform": "trim"
+      },
+      "location": {
+        "selector": ".courtroom",
+        "regex": "(?:Courtroom|Room)\\s*([A-Z0-9]+)"
+      }
+    }
+  },
+  "documents": {
+    "containerSelector": ".documents-list .document-item",
+    "fields": {
+      "documentNumber": {
+        "selector": ".doc-number",
+        "xpath": ".//span[@class='doc-num']/text()"
+      },
+      "filingDate": {
+        "selector": ".filing-date",
+        "xpath": ".//span[@class='date']/text()",
+        "transform": "parseDate"
+      },
+      "documentType": {
+        "selector": ".doc-type",
+        "xpath": ".//span[@class='type']/text()"
+      },
+      "title": {
+        "selector": ".doc-title",
+        "xpath": ".//a[@class='title']/text()",
+        "transform": "trim"
+      },
+      "filedBy": {
+        "selector": ".filed-by",
+        "xpath": ".//span[@class='filer']/text()"
+      },
+      "url": {
+        "selector": ".doc-link",
+        "xpath": ".//a[@class='download']/@href"
+      }
+    }
+  },
+  "notes": [
+    "This is a comprehensive example showing all extraction capabilities",
+    "Real court websites will vary - you'll need to inspect and customize",
+    "Use your browser's DevTools (F12) to find actual selectors",
+    "Test XPath in console: $x('//your/xpath/here')",
+    "Test CSS selectors: document.querySelector('your-selector')",
+    "The extractor tries each method (selector, xpath, regex) in order",
+    "Container selectors are used for repeating items (parties, charges, events)",
+    "Within containers, use relative XPath (starting with ./)",
+    "Transforms are applied after extraction to normalize data"
+  ],
+  "tips": {
+    "findingSelectors": "Use browser DevTools (F12), right-click element, 'Inspect'",
+    "testingXPath": "In console: $x('//your/xpath') to test XPath expressions",
+    "testingCSS": "In console: document.querySelector('selector') to test CSS",
+    "regexTesting": "Use regex101.com to build and test regular expressions",
+    "multipleMatches": "For lists/tables, use containerSelector with nested field selectors",
+    "debugging": "Check browser console (F12) when auto-extract runs to see errors"
+  }
+}

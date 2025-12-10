@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Court Case - Superior Court</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      background: #1a237e;
+      color: white;
+      padding: 20px;
+      margin: -30px -30px 30px -30px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .case-info {
+      background: #f8f9fa;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-left: 4px solid #1a237e;
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      margin-bottom: 10px;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #555;
+    }
+
+    .value {
+      color: #333;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      font-size: 20px;
+      color: #1a237e;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e0e0e0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th {
+      background: #e3f2fd;
+      padding: 12px;
+      text-align: left;
+      font-weight: bold;
+      color: #1a237e;
+    }
+
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: #4caf50;
+      color: white;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .party-row {
+      background: #f9f9f9;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+    }
+
+    .party-name {
+      font-weight: bold;
+      font-size: 16px;
+      color: #1a237e;
+    }
+
+    .party-type {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .attorney-info {
+      margin-top: 10px;
+      padding-left: 20px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Superior Court of Example County</h1>
+      <p>State of Example | Criminal Division</p>
+    </div>
+
+    <div class="case-info">
+      <div class="info-row">
+        <span class="label">Case Number:</span>
+        <span class="value" id="case-number">CR-2025-12345</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Case Title:</span>
+        <span class="value case-title">State of Example v. John Doe</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Case Type:</span>
+        <span class="value case-type">Criminal - Felony</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Filing Date:</span>
+        <span class="value" id="filing-date">01/15/2025</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Status:</span>
+        <span class="value"><span class="case-status status-badge">Active</span></span>
+      </div>
+      <div class="info-row">
+        <span class="label">Judge:</span>
+        <span class="value judge-assigned">Hon. Jane Smith</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Division:</span>
+        <span class="value division-name">Criminal Division 3</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Parties</h2>
+      <div class="parties-list">
+        <div class="party-row">
+          <div class="party-name">State of Example</div>
+          <div class="party-type">Plaintiff / Prosecution</div>
+          <div class="attorney-info">
+            <div><strong>Attorney:</strong> <span class="attorney-name">Sarah Johnson</span></div>
+            <div><strong>Office:</strong> <span class="attorney-firm">Example County District Attorney</span></div>
+            <div><strong>Bar No:</strong> <span class="bar-number">Bar #123456</span></div>
+          </div>
+        </div>
+
+        <div class="party-row">
+          <div class="party-name">John Doe</div>
+          <div class="party-type">Defendant</div>
+          <div class="attorney-info">
+            <div><strong>Attorney:</strong> <span class="attorney-name">Michael Brown</span></div>
+            <div><strong>Firm:</strong> <span class="attorney-firm">Brown & Associates Law</span></div>
+            <div><strong>Bar No:</strong> <span class="bar-number">Bar #987654</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Charges</h2>
+      <table class="charges-table">
+        <thead>
+          <tr>
+            <th>Count</th>
+            <th class="statute-code">Statute</th>
+            <th class="charge-description">Description</th>
+            <th class="degree">Degree</th>
+            <th class="disposition">Disposition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td class="statute-code">PC 459</td>
+            <td class="charge-description">Burglary - First Degree</td>
+            <td class="degree">Felony</td>
+            <td class="disposition">Pending</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td class="statute-code">PC 487</td>
+            <td class="charge-description">Grand Theft</td>
+            <td class="degree">Felony</td>
+            <td class="disposition">Pending</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>Bond Information</h2>
+      <div class="case-info">
+        <div class="info-row">
+          <span class="label">Bond Type:</span>
+          <span class="value">Surety Bond</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Bond Amount:</span>
+          <span class="value">$50,000.00</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Status:</span>
+          <span class="value">Posted</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Date Set:</span>
+          <span class="value">01/16/2025</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Bondsman:</span>
+          <span class="value">ABC Bail Bonds, Inc.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Upcoming Events</h2>
+      <div class="docket-entries">
+        <div class="entry">
+          <div class="info-row">
+            <span class="label">Date:</span>
+            <span class="value entry-date">02/15/2025 09:00 AM</span>
+          </div>
+          <div class="info-row">
+            <span class="label">Event Type:</span>
+            <span class="value entry-type">Preliminary Hearing</span>
+          </div>
+          <div class="info-row">
+            <span class="label">Location:</span>
+            <span class="value courtroom">Courtroom 4B</span>
+          </div>
+          <div class="info-row">
+            <span class="label">Description:</span>
+            <span class="value entry-description">Preliminary hearing to determine if sufficient evidence exists to proceed to trial</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Filed Documents</h2>
+      <div class="documents-list">
+        <div class="document-item">
+          <div class="info-row">
+            <span class="label">Doc #:</span>
+            <span class="value doc-number">1</span>
+          </div>
+          <div class="info-row">
+            <span class="label">Date:</span>
+            <span class="value filing-date">01/15/2025</span>
+          </div>
+          <div class="info-row">
+            <span class="label">Type:</span>
+            <span class="value doc-type">Complaint</span>
+          </div>
+          <div class="info-row">
+            <span class="label">Title:</span>
+            <span class="value doc-title">Criminal Complaint - State v. Doe</span>
+          </div>
+          <div class="info-row">
+            <span class="label">Filed By:</span>
+            <span class="value filed-by">District Attorney</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px; padding: 20px; background: #e3f2fd; border-radius: 4px;">
+      <h3 style="color: #1976d2; margin-bottom: 10px;">Testing Instructions:</h3>
+      <ol style="margin-left: 20px; line-height: 1.8;">
+        <li>Load the Client Docket Manager Extractor extension in Chrome</li>
+        <li>Click the extension icon to open the popup</li>
+        <li><strong>Test Manual Selection:</strong> Click "Docket Number" button, then click the case number above</li>
+        <li><strong>Test Auto Extract:</strong> Create a rule file for "localhost" or this page's domain, then click "Auto Extract"</li>
+        <li><strong>Test Field Selection:</strong> Try selecting different fields (Case Title, Judge Name, etc.)</li>
+        <li><strong>View Data:</strong> Go to the "Data" tab to see extracted information</li>
+        <li><strong>Test Export:</strong> Try exporting as JSON and CSV</li>
+        <li><strong>Test Copy:</strong> Try copying data to clipboard</li>
+        <li><strong>Check History:</strong> Go to "History" tab to see saved extractions</li>
+      </ol>
+    </div>
+  </div>
+</body>
+</html>
