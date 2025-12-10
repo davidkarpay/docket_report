@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Report</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f7fa; color: #1a1a2e; padding: 20px; line-height: 1.5; }
+        .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 24px 32px; border-radius: 12px; margin-bottom: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .header h1 { font-size: 1.75rem; font-weight: 600; margin-bottom: 4px; }
+        .header .subtitle { opacity: 0.8; font-size: 0.95rem; }
+        .import-section { background: white; border-radius: 12px; padding: 24px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .import-section h2 { font-size: 1.1rem; margin-bottom: 16px; color: #1a1a2e; }
+        .import-box { border: 2px dashed #cbd5e1; border-radius: 10px; padding: 40px 24px; text-align: center; transition: all 0.2s; cursor: pointer; position: relative; max-width: 600px; margin: 0 auto; }
+        .import-box:hover { border-color: #3b82f6; background: #f8fafc; }
+        .import-box.dragover { border-color: #3b82f6; background: #eff6ff; }
+        .import-box.has-files { border-color: #16a34a; background: #f0fdf4; }
+        .import-box input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+        .import-box .icon { font-size: 2.5rem; margin-bottom: 12px; }
+        .import-box .label { font-weight: 600; color: #475569; margin-bottom: 4px; font-size: 1.1rem; }
+        .import-box .hint { font-size: 0.85rem; color: #94a3b8; }
+        .files-list { margin-top: 20px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .files-list-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .files-list-header h3 { font-size: 0.95rem; color: #475569; }
+        .files-summary { font-size: 0.85rem; color: #16a34a; font-weight: 500; }
+        .file-item { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: #f8fafc; border-radius: 8px; margin-bottom: 8px; border: 1px solid #e2e8f0; }
+        .file-item-info { display: flex; align-items: center; gap: 12px; }
+        .file-item-icon { font-size: 1.5rem; }
+        .file-item-details { text-align: left; }
+        .file-item-name { font-weight: 500; color: #1a1a2e; font-size: 0.9rem; }
+        .file-item-stats { font-size: 0.8rem; color: #64748b; }
+        .file-item-stats .in-custody { color: #dc2626; }
+        .file-item-stats .out-custody { color: #16a34a; }
+        .file-item-remove { background: none; border: none; color: #94a3b8; cursor: pointer; padding: 4px 8px; border-radius: 4px; font-size: 1.1rem; transition: all 0.15s; }
+        .file-item-remove:hover { background: #fee2e2; color: #dc2626; }
+        .import-actions { display: flex; gap: 12px; margin-top: 20px; justify-content: center; }
+        .controls { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 20px; align-items: center; }
+        .search-box { flex: 1; min-width: 280px; position: relative; }
+        .search-box input { width: 100%; padding: 12px 16px 12px 44px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 0.95rem; transition: border-color 0.2s, box-shadow 0.2s; }
+        .search-box input:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); }
+        .search-box::before { content: "🔍"; position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 1.1rem; }
+        .filter-group { display: flex; gap: 8px; flex-wrap: wrap; }
+        .filter-btn { padding: 10px 16px; border: 2px solid #e0e0e0; background: white; border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 500; transition: all 0.2s; }
+        .filter-btn:hover { border-color: #3b82f6; background: #f0f7ff; }
+        .filter-btn.active { background: #3b82f6; color: white; border-color: #3b82f6; }
+        .stats-row { display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+        .stat-card { background: white; padding: 16px 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); min-width: 140px; }
+        .stat-card .label { font-size: 0.8rem; color: #666; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+        .stat-card .value { font-size: 1.5rem; font-weight: 700; }
+        .stat-card.custody .value { color: #dc2626; }
+        .stat-card.out .value { color: #16a34a; }
+        .stat-card.cc .value { color: #2563eb; }
+        .stat-card.pc .value { color: #9333ea; }
+        .stat-card.stck .value { color: #ea580c; }
+        .stat-card.cd .value { color: #0891b2; }
+        .table-container { background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); overflow: hidden; }
+        .table-scroll { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+        th { background: #f8fafc; padding: 14px 12px; text-align: left; font-weight: 600; color: #475569; border-bottom: 2px solid #e2e8f0; cursor: pointer; white-space: nowrap; user-select: none; position: sticky; top: 0; }
+        th:hover { background: #f1f5f9; }
+        th .sort-icon { margin-left: 6px; opacity: 0.4; }
+        th.sorted .sort-icon { opacity: 1; }
+        td { padding: 12px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+        tr:hover { background: #fafbfc; }
+        .custody-badge { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px; }
+        .custody-badge.in-custody { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+        .custody-badge.out-custody { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+        .event-badge { display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; white-space: nowrap; }
+        .event-badge.cc { background: #dbeafe; color: #1e40af; }
+        .event-badge.pc { background: #f3e8ff; color: #7c3aed; }
+        .event-badge.stck { background: #ffedd5; color: #c2410c; }
+        .event-badge.cd { background: #cffafe; color: #0e7490; }
+        .event-badge.vop { background: #fee2e2; color: #b91c1c; }
+        .case-number { font-family: 'Monaco', 'Consolas', monospace; font-size: 0.8rem; color: #1e40af; }
+        .defendant-name { font-weight: 600; color: #1a1a2e; }
+        .statute-desc { max-width: 200px; font-size: 0.8rem; color: #64748b; }
+        .jail-cell { font-family: monospace; font-size: 0.8rem; background: #fef3c7; padding: 2px 6px; border-radius: 4px; color: #92400e; }
+        .notes-input { width: 100%; min-width: 150px; padding: 6px 8px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.8rem; resize: vertical; min-height: 32px; font-family: inherit; }
+        .notes-input:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15); }
+        .page-input { width: 50px; padding: 6px 8px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.85rem; text-align: center; }
+        .page-input:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15); }
+        .status-open { color: #16a34a; font-weight: 500; }
+        .status-reopen { color: #ea580c; font-weight: 500; }
+        .status-disposed { color: #6b7280; font-weight: 500; }
+        .no-results { text-align: center; padding: 48px 24px; color: #64748b; }
+        .no-results h3 { margin-bottom: 8px; color: #475569; }
+        .actions-bar { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: #f8fafc; border-top: 1px solid #e2e8f0; }
+        .action-btn { padding: 10px 20px; background: #3b82f6; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 500; font-size: 0.9rem; transition: background 0.2s; }
+        .action-btn:hover { background: #2563eb; }
+        .action-btn.secondary { background: #64748b; }
+        .action-btn.secondary:hover { background: #475569; }
+        .action-btn.danger { background: #dc2626; }
+        .action-btn.danger:hover { background: #b91c1c; }
+        .action-btn:disabled { background: #cbd5e1; cursor: not-allowed; }
+        .showing-count { color: #64748b; font-size: 0.9rem; }
+        .asa-col { font-size: 0.8rem; color: #64748b; }
+        .copy-btn { background: none; border: 1px solid #e2e8f0; border-radius: 4px; padding: 2px 6px; cursor: pointer; font-size: 0.65rem; color: #64748b; margin-left: 6px; transition: all 0.15s; vertical-align: middle; }
+        .copy-btn:hover { background: #f1f5f9; border-color: #cbd5e1; color: #475569; }
+        .copy-btn.copied { background: #dcfce7; border-color: #86efac; color: #16a34a; }
+        .copyable { display: flex; align-items: flex-start; gap: 4px; }
+        .copyable-inline { display: inline-flex; align-items: center; gap: 4px; }
+        .addressed-checkbox { width: 18px; height: 18px; cursor: pointer; accent-color: #16a34a; flex-shrink: 0; }
+        .addressed-cell { display: flex; align-items: center; gap: 8px; }
+        tr.addressed { background: #f0fdf4 !important; }
+        tr.addressed td { opacity: 0.6; }
+        tr.addressed .defendant-name { text-decoration: line-through; }
+        tr.addressed .addressed-cell { opacity: 1; }
+        .expand-btn { background: none; border: none; cursor: pointer; font-size: 1.2rem; padding: 4px; border-radius: 4px; transition: background 0.2s; color: #64748b; }
+        .expand-btn:hover { background: #f1f5f9; }
+        .expand-btn.expanded { transform: rotate(90deg); }
+        .detail-row { display: none; background: #f8fafc; }
+        .detail-row td { padding: 16px 20px; border-bottom: 2px solid #e2e8f0; }
+        .detail-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
+        .detail-field { background: white; padding: 8px 12px; border-radius: 6px; border: 1px solid #e2e8f0; }
+        .detail-field .label { font-size: 0.75rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; font-weight: 600; }
+        .detail-field .value { font-size: 0.85rem; color: #1a1a2e; word-break: break-word; }
+        @media (max-width: 768px) { .controls { flex-direction: column; } .search-box { width: 100%; } .filter-group { width: 100%; justify-content: flex-start; } .stats-row { gap: 10px; } .stat-card { flex: 1; min-width: 100px; padding: 12px; } }
+        @media print { .import-section, .controls, .actions-bar { display: none !important; } .header { background: #1a1a2e !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📋 Case Report</h1>
+        <div class="subtitle" id="headerSubtitle">Import CSV files to get started</div>
+    </div>
+    <div class="import-section" id="importSection">
+        <h2>📂 Import Court CSV</h2>
+        <div class="import-box" id="importBox">
+            <input type="file" accept=".csv" id="csvFile" multiple onchange="handleFileSelect(this.files)">
+            <div class="icon">📄</div>
+            <div class="label">Drop CSV file(s) or click to browse</div>
+            <div class="hint">You can add multiple files • Custody status determined by Jail Cell column</div>
+        </div>
+        <div class="files-list" id="filesList" style="display: none;">
+            <div class="files-list-header">
+                <h3>📁 Files to Import</h3>
+                <span class="files-summary" id="filesSummary"></span>
+            </div>
+            <div id="filesContainer"></div>
+        </div>
+        <div class="import-actions">
+            <button class="action-btn" id="loadBtn" onclick="loadCases()" disabled>Load Cases</button>
+            <button class="action-btn secondary" onclick="clearAllFiles()">Clear All</button>
+        </div>
+    </div>
+    <div id="reportContent" style="display: none;">
+        <div class="stats-row" id="statsRow"></div>
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search by name, case number, statute, or notes...">
+            </div>
+            <div class="filter-group">
+                <button class="filter-btn active" data-filter="all">All Cases</button>
+                <button class="filter-btn" data-filter="in-custody">In Custody</button>
+                <button class="filter-btn" data-filter="out-custody">Out of Custody</button>
+                <button class="filter-btn" data-filter="cc">Calendar Call</button>
+                <button class="filter-btn" data-filter="pc">Plea Conference</button>
+                <button class="filter-btn" data-filter="stck">Status Check</button>
+                <button class="filter-btn" data-filter="cd">Case Disposition</button>
+                <button class="filter-btn" data-filter="vop">VOP</button>
+            </div>
+        </div>
+        <div class="table-container">
+            <div class="table-scroll">
+                <table id="caseTable">
+                    <thead>
+                        <tr>
+                            <th>🔽</th>
+                            <th data-sort="addressed">✓ <span class="sort-icon">↕</span></th>
+                            <th data-sort="docketPage">Page <span class="sort-icon">↕</span></th>
+                            <th data-sort="custody">Custody <span class="sort-icon">↕</span></th>
+                            <th data-sort="eventType">Event <span class="sort-icon">↕</span></th>
+                            <th data-sort="name">Defendant <span class="sort-icon">↕</span></th>
+                            <th data-sort="caseNumber">Case Number <span class="sort-icon">↕</span></th>
+                            <th data-sort="statute">Charge <span class="sort-icon">↕</span></th>
+                            <th data-sort="status">Status <span class="sort-icon">↕</span></th>
+                            <th>Jail Cell</th>
+                            <th data-sort="asa">ASA <span class="sort-icon">↕</span></th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="caseTableBody"></tbody>
+                </table>
+            </div>
+            <div class="actions-bar">
+                <span class="showing-count" id="showingCount">Showing 0 cases</span>
+                <div>
+                    <button class="action-btn danger" onclick="resetReport()">🔄 New Report</button>
+                    <button class="action-btn secondary" onclick="exportData()">📥 Export Data</button>
+                    <button class="action-btn" onclick="printReport()">🖨️ Print Report</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let cases = [];
+        let pendingFiles = [];
+        let currentFilter = 'all';
+        let currentSort = { field: 'custody', direction: 'asc' };
+        let searchTerm = '';
+        const eventTypeMap = { 'CC': { code: 'CC', full: 'Calendar Call' }, 'PC': { code: 'PC', full: 'Plea Conference' }, 'STCK': { code: 'STCK', full: 'Status Check' }, 'CD': { code: 'CD', full: 'Case Disposition' }, 'VOP': { code: 'VOP', full: 'Violation of Probation' } };
+
+        function parseCSV(text) {
+            const lines = text.split('\n');
+            if (lines.length < 2) return [];
+            const headerLine = lines[0].replace(/^\ufeff/, '');
+            const headers = parseCSVLine(headerLine);
+            const records = [];
+            for (let i = 1; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (!line) continue;
+                const values = parseCSVLine(line);
+                const record = {};
+                headers.forEach((header, idx) => { record[header.trim().replace(/^"|"$/g, '')] = (values[idx] || '').trim().replace(/^"|"$/g, ''); });
+                records.push(record);
+            }
+            return records;
+        }
+
+        function parseCSVLine(line) {
+            const result = [];
+            let current = '';
+            let inQuotes = false;
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                if (char === '"') { if (inQuotes && line[i + 1] === '"') { current += '"'; i++; } else { inQuotes = !inQuotes; } }
+                else if (char === ',' && !inQuotes) { result.push(current); current = ''; }
+                else { current += char; }
+            }
+            result.push(current);
+            return result;
+        }
+
+        function csvToCase(record) {
+            const eventTypeRaw = record['Court Event Type'] || '';
+            const eventCode = eventTypeRaw.split(' - ')[0].trim().toUpperCase();
+            const eventInfo = eventTypeMap[eventCode] || { code: eventCode || 'UNK', full: eventTypeRaw || 'Unknown' };
+            const jailCell = record['Jail Cell'] || '';
+            const custodyStatus = jailCell.trim() ? 'in' : 'out';
+            return {
+                caseNumber: record['Case Number'] || '',
+                name: record['Name'] || '',
+                dob: record['DOB'] || '',
+                statute: record['Statute Description'] || '',
+                statuteNum: record['Statute #'] || '',
+                status: record['Status'] || '',
+                jailCell: jailCell,
+                asa: record['State Attorney'] || '',
+                eventType: eventInfo.code,
+                eventTypeFull: eventInfo.full,
+                custody: custodyStatus,
+                courtDate: record['Court Date'] || '',
+                judge: record['Judge'] || '',
+                courtroom: record['Courtroom'] || '',
+                division: record['Division'] || '',
+                rawData: record
+            };
+        }
+
+        function handleFileSelect(files) {
+            for (const file of files) {
+                if (!file.name.endsWith('.csv')) continue;
+                if (pendingFiles.some(f => f.name === file.name)) continue;
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const records = parseCSV(e.target.result);
+                    const fileCases = records.map(r => csvToCase(r));
+                    const inCount = fileCases.filter(c => c.custody === 'in').length;
+                    const outCount = fileCases.filter(c => c.custody === 'out').length;
+                    pendingFiles.push({ name: file.name, cases: fileCases, inCount: inCount, outCount: outCount });
+                    renderFilesList();
+                };
+                reader.readAsText(file);
+            }
+            document.getElementById('csvFile').value = '';
+        }
+
+        function renderFilesList() {
+            const container = document.getElementById('filesContainer');
+            const listSection = document.getElementById('filesList');
+            const importBox = document.getElementById('importBox');
+            if (pendingFiles.length === 0) { listSection.style.display = 'none'; importBox.classList.remove('has-files'); document.getElementById('loadBtn').disabled = true; return; }
+            listSection.style.display = 'block';
+            importBox.classList.add('has-files');
+            document.getElementById('loadBtn').disabled = false;
+            const totalCases = pendingFiles.reduce((sum, f) => sum + f.cases.length, 0);
+            const totalIn = pendingFiles.reduce((sum, f) => sum + f.inCount, 0);
+            const totalOut = pendingFiles.reduce((sum, f) => sum + f.outCount, 0);
+            document.getElementById('filesSummary').textContent = totalCases + ' total cases (' + totalIn + ' in custody, ' + totalOut + ' out)';
+            container.innerHTML = pendingFiles.map((file, idx) => '<div class="file-item"><div class="file-item-info"><span class="file-item-icon">📄</span><div class="file-item-details"><div class="file-item-name">' + file.name + '</div><div class="file-item-stats">' + file.cases.length + ' cases: <span class="in-custody">' + file.inCount + ' in custody</span>, <span class="out-custody">' + file.outCount + ' out</span></div></div></div><button class="file-item-remove" onclick="removeFile(' + idx + ')" title="Remove file">✕</button></div>').join('');
+        }
+
+        function removeFile(idx) { pendingFiles.splice(idx, 1); renderFilesList(); }
+        function clearAllFiles() { pendingFiles = []; document.getElementById('csvFile').value = ''; renderFilesList(); }
+
+        function loadCases() {
+            cases = pendingFiles.flatMap(f => f.cases);
+            if (cases.length === 0) { alert('No cases to load.'); return; }
+            loadSavedData();
+            const courtDate = cases[0]?.courtDate || 'Unknown Date';
+            const judge = cases[0]?.judge || '';
+            const courtroom = cases[0]?.courtroom || '';
+            document.getElementById('headerSubtitle').textContent = 'Court Date: ' + courtDate + (judge ? ' • Judge ' + judge : '') + (courtroom ? ' • ' + courtroom : '');
+            document.getElementById('importSection').style.display = 'none';
+            document.getElementById('reportContent').style.display = 'block';
+            updateStats(); renderTable(); setupEventListeners();
+        }
+
+        function resetReport() {
+            if (!confirm('This will clear all current data and notes. Continue?')) return;
+            cases = []; pendingFiles = [];
+            document.getElementById('csvFile').value = '';
+            renderFilesList();
+            document.getElementById('importSection').style.display = 'block';
+            document.getElementById('reportContent').style.display = 'none';
+            document.getElementById('headerSubtitle').textContent = 'Import CSV files to get started';
+        }
+
+        function loadSavedData() {
+            const saved = localStorage.getItem('caseReportData_v5');
+            if (saved) { const data = JSON.parse(saved); cases.forEach(c => { if (data[c.caseNumber]) { c.notes = data[c.caseNumber].notes || ''; c.docketPage = data[c.caseNumber].docketPage || ''; c.addressed = data[c.caseNumber].addressed || false; } }); }
+        }
+
+        function saveData() {
+            const data = {};
+            cases.forEach(c => { if (c.notes || c.docketPage || c.addressed) { data[c.caseNumber] = { notes: c.notes || '', docketPage: c.docketPage || '', addressed: c.addressed || false }; } });
+            localStorage.setItem('caseReportData_v5', JSON.stringify(data));
+        }
+
+        function updateStats() {
+            const inCustody = cases.filter(c => c.custody === 'in').length;
+            const outCustody = cases.filter(c => c.custody === 'out').length;
+            const cc = cases.filter(c => c.eventType === 'CC').length;
+            const pc = cases.filter(c => c.eventType === 'PC').length;
+            const stck = cases.filter(c => c.eventType === 'STCK').length;
+            const cd = cases.filter(c => c.eventType === 'CD').length;
+            const vop = cases.filter(c => c.eventType === 'VOP').length;
+            const addressed = cases.filter(c => c.addressed).length;
+            document.getElementById('statsRow').innerHTML = '<div class="stat-card custody"><div class="label">In Custody</div><div class="value">' + inCustody + '</div></div><div class="stat-card out"><div class="label">Out of Custody</div><div class="value">' + outCustody + '</div></div><div class="stat-card cc"><div class="label">Calendar Call</div><div class="value">' + cc + '</div></div><div class="stat-card pc"><div class="label">Plea Conf</div><div class="value">' + pc + '</div></div><div class="stat-card stck"><div class="label">Status Check</div><div class="value">' + stck + '</div></div><div class="stat-card cd"><div class="label">Case Disp</div><div class="value">' + cd + '</div></div>' + (vop > 0 ? '<div class="stat-card" style="border-left: 3px solid #dc2626;"><div class="label">VOP</div><div class="value" style="color: #dc2626;">' + vop + '</div></div>' : '') + '<div class="stat-card" style="border-left: 3px solid #16a34a;"><div class="label">Addressed</div><div class="value" style="color: #16a34a;">' + addressed + '/' + cases.length + '</div></div>';
+        }
+
+        function getFilteredCases() {
+            let filtered = [...cases];
+            if (currentFilter !== 'all') { if (currentFilter === 'in-custody') { filtered = filtered.filter(c => c.custody === 'in'); } else if (currentFilter === 'out-custody') { filtered = filtered.filter(c => c.custody === 'out'); } else { filtered = filtered.filter(c => c.eventType.toLowerCase() === currentFilter.toLowerCase()); } }
+            if (searchTerm) { const term = searchTerm.toLowerCase(); filtered = filtered.filter(c => c.name.toLowerCase().includes(term) || c.caseNumber.toLowerCase().includes(term) || c.statute.toLowerCase().includes(term) || c.statuteNum.toLowerCase().includes(term) || (c.notes && c.notes.toLowerCase().includes(term)) || (c.jailCell && c.jailCell.toLowerCase().includes(term))); }
+            filtered.sort((a, b) => { let aVal = a[currentSort.field] || ''; let bVal = b[currentSort.field] || ''; if (currentSort.field === 'docketPage') { aVal = parseInt(aVal) || 0; bVal = parseInt(bVal) || 0; } if (currentSort.field === 'addressed') { aVal = a.addressed ? 1 : 0; bVal = b.addressed ? 1 : 0; } if (aVal < bVal) return currentSort.direction === 'asc' ? -1 : 1; if (aVal > bVal) return currentSort.direction === 'asc' ? 1 : -1; return 0; });
+            return filtered;
+        }
+
+        function copyToClipboard(text, buttonEl) { navigator.clipboard.writeText(text).then(() => { const originalText = buttonEl.textContent; buttonEl.textContent = '✓'; buttonEl.classList.add('copied'); setTimeout(() => { buttonEl.textContent = originalText; buttonEl.classList.remove('copied'); }, 1500); }); }
+
+        function renderTable() {
+            const filtered = getFilteredCases();
+            const tbody = document.getElementById('caseTableBody');
+            if (filtered.length === 0) { tbody.innerHTML = '<tr><td colspan="12"><div class="no-results"><h3>No cases found</h3><p>Try adjusting your search or filter criteria</p></div></td></tr>'; }
+            else { tbody.innerHTML = filtered.map((c, idx) => '<tr data-case="' + c.caseNumber + '" class="' + (c.addressed ? 'addressed' : '') + '"><td><button class="expand-btn" onclick="toggleExpand(\'' + c.caseNumber + '\')" title="Show full CSV data">▶</button></td><td><div class="addressed-cell"><input type="checkbox" class="addressed-checkbox" ' + (c.addressed ? 'checked' : '') + ' onchange="toggleAddressed(\'' + c.caseNumber + '\', this.checked)" title="Mark as addressed"></div></td><td><input type="text" class="page-input" value="' + (c.docketPage || '') + '" placeholder="#" onchange="updatePage(\'' + c.caseNumber + '\', this.value)"></td><td><span class="custody-badge ' + (c.custody === 'in' ? 'in-custody' : 'out-custody') + '">' + (c.custody === 'in' ? '🔒 In' : '✓ Out') + '</span></td><td><span class="event-badge ' + c.eventType.toLowerCase() + '">' + c.eventTypeFull + '</span></td><td><div class="copyable"><div><div class="defendant-name">' + formatName(c.name) + '</div><div style="font-size: 0.75rem; color: #64748b;">DOB: ' + c.dob + '</div></div><button class="copy-btn" onclick="copyToClipboard(\'' + formatName(c.name).replace(/'/g, "\\'") + '\', this)" title="Copy name">📋</button></div></td><td><div class="copyable-inline"><span class="case-number">' + c.caseNumber + '</span><button class="copy-btn" onclick="copyToClipboard(\'' + c.caseNumber + '\', this)" title="Copy case number">📋</button></div></td><td><div class="statute-desc">' + c.statute + '</div><div style="font-size: 0.7rem; color: #94a3b8; margin-top: 2px;">' + c.statuteNum + '</div></td><td><span class="status-' + c.status.toLowerCase().replace(/ /g, '-') + '">' + c.status + '</span></td><td>' + (c.jailCell ? '<span class="jail-cell">' + c.jailCell + '</span>' : '—') + '</td><td class="asa-col">' + formatASA(c.asa) + '</td><td><textarea class="notes-input" placeholder="Add notes..." onchange="updateNotes(\'' + c.caseNumber + '\', this.value)">' + (c.notes || '') + '</textarea></td></tr><tr class="detail-row" data-detail="' + c.caseNumber + '"><td colspan="12"><div class="detail-content">' + Object.keys(c.rawData).map(key => '<div class="detail-field"><div class="label">' + key + '</div><div class="value">' + (c.rawData[key] || '—') + '</div></div>').join('') + '</div></td></tr>').join(''); }
+            document.getElementById('showingCount').textContent = 'Showing ' + filtered.length + ' of ' + cases.length + ' cases';
+        }
+
+        function formatName(name) { return name.split(' ').map(part => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase()).join(' '); }
+        function formatASA(asa) { if (!asa || asa === 'STATE, ATTORNEY') return 'TBD'; const parts = asa.split(', '); if (parts.length === 2) { return parts[1] + ' ' + parts[0].charAt(0) + parts[0].slice(1).toLowerCase(); } return asa; }
+        function updateNotes(caseNumber, value) { const c = cases.find(c => c.caseNumber === caseNumber); if (c) { c.notes = value; saveData(); } }
+        function updatePage(caseNumber, value) { const c = cases.find(c => c.caseNumber === caseNumber); if (c) { c.docketPage = value; saveData(); } }
+        function toggleAddressed(caseNumber, checked) { const c = cases.find(c => c.caseNumber === caseNumber); if (c) { c.addressed = checked; saveData(); updateStats(); renderTable(); } }
+
+        function toggleExpand(caseNumber) {
+            const detailRow = document.querySelector('tr[data-detail="' + caseNumber + '"]');
+            const expandBtn = document.querySelector('tr[data-case="' + caseNumber + '"] .expand-btn');
+            if (detailRow.style.display === 'table-row') {
+                detailRow.style.display = 'none';
+                expandBtn.classList.remove('expanded');
+            } else {
+                detailRow.style.display = 'table-row';
+                expandBtn.classList.add('expanded');
+            }
+        }
+
+        function setupEventListeners() {
+            document.querySelectorAll('.filter-btn').forEach(btn => { btn.addEventListener('click', function() { document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); this.classList.add('active'); currentFilter = this.dataset.filter; renderTable(); }); });
+            document.getElementById('searchInput').addEventListener('input', function() { searchTerm = this.value; renderTable(); });
+            document.querySelectorAll('th[data-sort]').forEach(th => { th.addEventListener('click', function() { const field = this.dataset.sort; if (currentSort.field === field) { currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc'; } else { currentSort.field = field; currentSort.direction = 'asc'; } document.querySelectorAll('th').forEach(h => h.classList.remove('sorted')); this.classList.add('sorted'); this.querySelector('.sort-icon').textContent = currentSort.direction === 'asc' ? '↑' : '↓'; renderTable(); }); });
+        }
+
+        const importBox = document.getElementById('importBox');
+        importBox.addEventListener('dragover', (e) => { e.preventDefault(); importBox.classList.add('dragover'); });
+        importBox.addEventListener('dragleave', () => { importBox.classList.remove('dragover'); });
+        importBox.addEventListener('drop', (e) => { e.preventDefault(); importBox.classList.remove('dragover'); const files = Array.from(e.dataTransfer.files).filter(f => f.name.endsWith('.csv')); if (files.length > 0) { handleFileSelect(files); } });
+
+        function exportData() { const data = cases.map(c => ({ ...c, notes: c.notes || '', docketPage: c.docketPage || '', addressed: c.addressed || false })); const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'case_report_' + new Date().toISOString().split('T')[0] + '.json'; a.click(); URL.revokeObjectURL(url); }
+        function printReport() { window.print(); }
+    </script>
+</body>
+</html>
